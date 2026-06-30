@@ -1,0 +1,369 @@
+\section{Experimento: ¿Miel, azúcar o café?}
+
+\subsection{Introducción}
+
+En distintos sistemas de cultivo artesanal y huertos caseros suele mencionarse que algunas sustancias comunes pueden favorecer el crecimiento vegetal. Entre las más utilizadas aparecen la miel, el azúcar y el café soluble.
+
+Frecuentemente se escuchan comentarios como:
+
+\begin{quote}
+“La miel contiene nutrientes y podría favorecer el crecimiento.”
+\end{quote}
+
+o bien:
+
+\begin{quote}
+“El café ayuda a estimular las plantas.”
+\end{quote}
+
+Sin embargo, muchas de estas afirmaciones provienen únicamente de observaciones empíricas y no de experimentos controlados.
+
+Por esta razón se desarrolló un experimento utilizando semillas de lenteja con el objetivo de evaluar si distintos tratamientos generan diferencias observables en la germinación y desarrollo inicial de las plantas.
+
+Además de estudiar el crecimiento vegetal, esta práctica permite introducir conceptos fundamentales del Diseño y Análisis de Experimentos, tales como:
+
+\begin{itemize}
+    \item unidad experimental,
+    \item factor,
+    \item niveles,
+    \item réplicas,
+    \item variabilidad experimental,
+    \item análisis de medias,
+    \item y ANOVA.
+\end{itemize}
+
+\subsection{Pregunta de investigación}
+
+\begin{center}
+\textit{¿Existen diferencias en la germinación y crecimiento de lentejas al aplicar miel, azúcar o café soluble?}
+\end{center}
+
+\subsection{Hipótesis}
+
+\subsubsection{Hipótesis nula}
+
+\[
+H_0:\mu_B=\mu_M=\mu_A=\mu_C
+\]
+
+No existen diferencias significativas entre las medias de los tratamientos.
+
+\subsubsection{Hipótesis alternativa}
+
+\[
+H_1:\text{Al menos una media es diferente}
+\]
+
+\subsection{Objetivo general}
+
+Evaluar el efecto de distintos tratamientos sobre la germinación y crecimiento inicial de semillas de lenteja mediante un diseño experimental completamente aleatorizado y análisis ANOVA.
+
+\section{Materiales y métodos}
+
+\subsection{Materiales}
+
+\begin{itemize}
+    \item Agua
+    \item Grenetina
+    \item Azúcar
+    \item Café soluble
+    \item Miel
+    \item Agua oxigenada comercial
+    \item Antihongos comercial
+    \item Semillas de lenteja
+    \item Pipetas
+    \item Báscula
+    \item Recipientes plásticos transparentes
+    \item Regla milimétrica
+\end{itemize}
+
+\subsection{Construcción del medio semisólido}
+
+Para construir el medio de cultivo se utilizaron las siguientes cantidades:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+Componente & Cantidad \\
+\midrule
+Agua & 2000 g \\
+Grenetina & 100 g \\
+Azúcar & 100 g \\
+Agua oxigenada & 30 g \\
+Antihongos & 0.5 g \\
+\bottomrule
+\end{tabular}
+\caption{Composición del medio base}
+\end{table}
+
+\subsection{Preparación del medio}
+
+\begin{enumerate}
+    \item Calentar el agua.
+    \item Agregar grenetina y azúcar.
+    \item Llevar a ebullición.
+    \item Mantener el hervor durante cinco minutos.
+    \item Retirar del fuego.
+    \item Esperar ligera disminución de temperatura.
+    \item Agregar agua oxigenada y antihongos.
+    \item Mezclar cuidadosamente.
+    \item Colocar aproximadamente 30 g de medio por recipiente.
+\end{enumerate}
+
+\section{Tratamientos experimentales}
+
+Cada solución fue preparada utilizando:
+
+\[
+30\text{ g de agua} + 30\text{ g de soluto}
+\]
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}
+\toprule
+Color & Tratamiento & Código \\
+\midrule
+Amarillo & Blanco & B \\
+Morado & Miel & M \\
+Azul & Azúcar & A \\
+Verde & Café soluble & C \\
+\bottomrule
+\end{tabular}
+\caption{Tratamientos experimentales}
+\end{table}
+
+\subsection{Aplicación experimental}
+
+\begin{itemize}
+    \item Se utilizaron 6 semillas por recipiente.
+    \item Cada tratamiento fue realizado por triplicado.
+    \item Las semillas fueron previamente hidratadas.
+    \item Se aplicaron 3 gotas del tratamiento correspondiente.
+    \item Los recipientes permanecieron cerrados.
+    \item Las observaciones fueron realizadas diariamente.
+\end{itemize}
+
+\section{Diseño experimental}
+
+\begin{itemize}
+    \item Factor: tratamiento aplicado
+    \item Niveles: 4
+    \item Réplicas: 3
+    \item Diseño: completamente aleatorizado
+\end{itemize}
+
+El número total de unidades experimentales fue:
+
+\[
+4\times3=12
+\]
+
+\subsection{Unidad experimental}
+
+La unidad experimental corresponde al recipiente y no a cada semilla individual.
+
+Esto es importante porque todas las semillas dentro de un mismo recipiente comparten:
+
+\begin{itemize}
+    \item humedad,
+    \item temperatura,
+    \item iluminación,
+    \item y concentración del tratamiento.
+\end{itemize}
+
+\section{Variables evaluadas}
+
+Durante el experimento se registraron:
+
+\begin{itemize}
+    \item Número de semillas germinadas
+    \item Longitud de raíz
+    \item Altura del tallo
+    \item Presencia de hojas
+    \item Presencia de hongos
+    \item Condensación
+\end{itemize}
+
+\section{Estrategia temporal de análisis}
+
+Aunque el experimento fue monitoreado diariamente, únicamente se reportarán medias correspondientes a:
+
+\begin{itemize}
+    \item Día 2
+    \item Día 4
+    \item Día 20
+\end{itemize}
+
+Estos tiempos representan distintas etapas del desarrollo experimental:
+
+\begin{itemize}
+    \item Día 2: germinación inicial,
+    \item Día 4: establecimiento temprano,
+    \item Día 20: desarrollo consolidado.
+\end{itemize}
+
+El análisis estadístico inferencial mediante ANOVA fue realizado exclusivamente utilizando los datos correspondientes al día 20, debido a que este punto temporal representa el estado final del sistema experimental bajo condiciones homogéneas de exposición.
+
+\section{Tabla general de registro}
+
+\begin{table}[H]
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}{lcccccc}
+\toprule
+Tratamiento & Réplica & Día 2 & Día 4 & Día 20 & Hongos & Observaciones \\
+\midrule
+Blanco & 1 & & & & & \\
+Blanco & 2 & & & & & \\
+Blanco & 3 & & & & & \\
+\midrule
+Miel & 1 & & & & & \\
+Miel & 2 & & & & & \\
+Miel & 3 & & & & & \\
+\midrule
+Azúcar & 1 & & & & & \\
+Azúcar & 2 & & & & & \\
+Azúcar & 3 & & & & & \\
+\midrule
+Café & 1 & & & & & \\
+Café & 2 & & & & & \\
+Café & 3 & & & & & \\
+\bottomrule
+\end{tabular}
+}
+\caption{Registro experimental resumido}
+\end{table}
+
+\section{Cálculo de medias experimentales}
+
+A partir de las mediciones registradas en las fotografías correspondientes al día 20 del experimento, se calcularon las medias de crecimiento para cada tratamiento.
+
+En el tratamiento con miel se registraron las siguientes longitudes de raíz:
+
+\[
+4.2,\ 4.5,\ 5.1 \text{ cm}
+\]
+
+La media experimental fue calculada mediante:
+
+\[
+\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
+\]
+
+Sustituyendo los valores experimentales:
+
+\[
+\bar{x}=\frac{4.2+4.5+5.1}{3}
+\]
+
+\[
+\bar{x}=\frac{13.8}{3}
+\]
+
+\[
+\bar{x}=4.6\text{ cm}
+\]
+
+\section{Cálculo de varianza}
+
+La dispersión experimental fue estimada mediante la varianza muestral:
+
+\[
+s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
+\]
+
+Sustituyendo los valores observados:
+
+\[
+s^2=\frac{
+(4.2-4.6)^2+
+(4.5-4.6)^2+
+(5.1-4.6)^2
+}{2}
+\]
+
+\[
+s^2=
+\frac{
+0.16+0.01+0.25
+}{2}
+\]
+
+\[
+s^2=
+\frac{0.42}{2}
+\]
+
+\[
+s^2=0.21
+\]
+
+\section{Análisis ANOVA}
+
+El análisis ANOVA permite determinar si las diferencias observadas entre tratamientos son suficientemente grandes como para pensar que existe un efecto real asociado al tratamiento aplicado.
+
+\subsection{Estadístico F}
+
+\[
+F=\frac{CM_{Tratamientos}}{CM_{Error}}
+\]
+
+donde:
+
+\begin{itemize}
+    \item $CM_{Tratamientos}$ corresponde al cuadrado medio entre tratamientos,
+    \item $CM_{Error}$ corresponde al cuadrado medio del error experimental.
+\end{itemize}
+
+Si:
+
+\[
+p<0.05
+\]
+
+entonces se rechaza la hipótesis nula.
+
+\section{Tabla ANOVA}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Fuente & SC & gl & CM & F \\
+\midrule
+Tratamientos & & & & \\
+Error & & & & \\
+Total & & & & \\
+\bottomrule
+\end{tabular}
+\caption{Tabla ANOVA}
+\end{table}
+
+\section{Interpretación biológica}
+
+Si el ANOVA no presenta diferencias significativas, entonces las variaciones observadas entre tratamientos podrían atribuirse al azar experimental.
+
+Por el contrario, si el análisis presenta diferencias significativas, entonces al menos uno de los tratamientos estaría afectando el crecimiento vegetal de manera distinta.
+
+En ese caso podrían realizarse pruebas post-hoc, como Tukey, para identificar específicamente qué tratamientos difieren entre sí.
+
+\section{Conclusiones}
+
+El experimento permitió integrar observación biológica, medición experimental y análisis estadístico dentro de un mismo sistema de estudio.
+
+La utilización de tratamientos como miel, azúcar y café soluble permitió construir un escenario experimental adecuado para introducir conceptos fundamentales del Diseño y Análisis de Experimentos.
+
+El uso de réplicas permitió estimar variabilidad experimental, mientras que el análisis ANOVA proporcionó una herramienta formal para comparar tratamientos bajo condiciones homogéneas.
+
+La decisión de utilizar únicamente las mediciones correspondientes al día 20 para el análisis inferencial permitió homogenizar temporalmente las comparaciones y reducir problemas asociados a mediciones repetidas dependientes.
+
+Finalmente, el experimento muestra cómo observaciones aparentemente simples pueden transformarse en un análisis científico estructurado mediante:
+
+\begin{itemize}
+    \item control experimental,
+    \item medición,
+    \item estadística,
+    \item y análisis cuantitativo.
+\end{itemize}

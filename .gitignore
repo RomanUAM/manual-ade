@@ -1,0 +1,25 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Materia prima local: puede contener archivos sin permiso de redistribucion.
+data/raw/
+data/manifests/
+
+# Memoria operativa del sistema. Se regenera localmente.
+memory/
+tmp/
+output/
+
+# Archivos auxiliares de compilacion LaTeX.
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.lof
+*.lot
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc

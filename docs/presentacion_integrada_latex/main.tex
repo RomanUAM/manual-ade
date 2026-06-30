@@ -1,0 +1,226 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{amsmath}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{uamTeal}{RGB}{15,118,110}
+\definecolor{uamOrange}{RGB}{162,62,25}
+\definecolor{softGreen}{RGB}{237,247,245}
+\definecolor{softOrange}{RGB}{255,244,230}
+
+\setbeamercolor{structure}{fg=uamTeal}
+\setbeamercolor{title}{fg=uamTeal}
+\setbeamercolor{frametitle}{fg=uamTeal}
+\setbeamercolor{block title}{bg=uamTeal,fg=white}
+\setbeamercolor{block body}{bg=softGreen,fg=black}
+\setbeamercolor{alerted text}{fg=uamOrange}
+
+\newcommand{\idea}[1]{\begin{block}{Idea para recordar en 30 segundos}#1\end{block}}
+\newcommand{\decision}[1]{\begin{alertblock}{Decision de ingenieria}#1\end{alertblock}}
+
+\title{Diseno y Analisis de Experimentos en Ingenieria}
+\subtitle{Presentacion didactica integrada desde practicas y casos}
+\author{Roman A. Mora}
+\institute{Universidad Autonoma Metropolitana}
+\date{30 de junio de 2026}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Ruta de aprendizaje}
+  \idea{El curso no inicia con formulas: inicia con una pregunta sobre como decidir sin enganarse por la variabilidad.}
+  \begin{enumerate}
+    \item Observar un fenomeno.
+    \item Convertirlo en pregunta experimental.
+    \item Definir factores, niveles y respuesta.
+    \item Medir con replicas y controles.
+    \item Decidir con evidencia.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Por que no basta mirar un caso?}
+  \idea{Una observacion puede inspirar una pregunta, pero no demuestra una causa.}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Observacion}\\
+      Aparecen hongos en tortillas bajo ciertas condiciones.
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Experimento}\\
+      Se controlan factores, niveles, replicas y variable respuesta.
+    \end{column}
+  \end{columns}
+  \decision{Antes de calcular, se decide que puede afirmarse y que solo puede sospecharse.}
+\end{frame}
+
+\begin{frame}{Del caso cotidiano al diseno}
+  \idea{Disenar es traducir una historia en una estructura medible.}
+  \begin{table}
+    \centering
+    \begin{tabular}{ll}
+      \toprule
+      Pregunta & Elemento experimental \\
+      \midrule
+      Que cambio? & Variable respuesta \\
+      Que manipulamos? & Factores \\
+      Que valores probamos? & Niveles \\
+      Donde medimos? & Unidad experimental \\
+      Con que comparamos? & Control o blanco \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Muestreo: el ejemplo de los gatos}
+  \idea{Una muestra pequena puede contar una historia muy distinta de una muestra mas amplia.}
+  \begin{center}
+    \begin{tikzpicture}[scale=0.85]
+      \draw[->,thick] (0,0) -- (9,0) node[right]{tamano de muestra};
+      \draw[->,thick] (0,0) -- (0,3) node[above]{estabilidad};
+      \draw[uamTeal,very thick] plot[smooth] coordinates{(0.4,0.6)(1.5,2.2)(2.8,1.3)(4.2,2.1)(6,2.4)(8.4,2.55)};
+      \node[align=center] at (4.8,-0.65) {al aumentar $n$, la percepcion se vuelve menos caprichosa};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{ANOVA como comparacion de variabilidades}
+  \idea{ANOVA pregunta si la variacion entre tratamientos es grande frente a la variacion natural dentro de ellos.}
+  \[
+    F=\frac{\text{variabilidad entre tratamientos}}{\text{variabilidad dentro de tratamientos}}
+  \]
+  \decision{Un valor p no sustituye la interpretacion: solo ayuda a decidir si la diferencia observada merece confianza estadistica.}
+\end{frame}
+
+\begin{frame}{Lentejas: miel, azucar, cafe y blanco}
+  \idea{La practica de lentejas permite aprender ANOVA sin perder de vista el sistema biologico.}
+  \begin{table}
+    \centering
+    \begin{tabular}{lll}
+      \toprule
+      Factor & Niveles & Respuestas \\
+      \midrule
+      Aditivo & miel, azucar, cafe, blanco & germinacion, raiz, altura, hongos \\
+      Tiempo & dias de observacion & cambio del sistema \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Dos factores: no todo se suma}
+  \idea{Una interaccion aparece cuando el efecto de un factor depende del nivel del otro.}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \textbf{Efecto principal}\\
+      Un factor cambia la respuesta en promedio.
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \textbf{Interaccion}\\
+      La combinacion produce algo que no se explica por separado.
+    \end{column}
+  \end{columns}
+  \decision{Si hay interaccion, interpretar solo promedios generales puede ocultar el fenomeno importante.}
+\end{frame}
+
+\begin{frame}{Factorial $2^2$: curcuma y cloro en papel}
+  \idea{Cuatro tratamientos bien definidos pueden revelar efectos principales e interacciones.}
+  \begin{table}
+    \centering
+    \begin{tabular}{ccc}
+      \toprule
+      Tratamiento & Curcuma & Cloro \\
+      \midrule
+      1 & bajo & bajo \\
+      2 & alto & bajo \\
+      3 & bajo & alto \\
+      4 & alto & alto \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+  \decision{El blanco y las replicas protegen contra conclusiones vistosas pero fragiles.}
+\end{frame}
+
+\begin{frame}{Cuando la realidad no queda balanceada}
+  \idea{En procesos manuales o industriales, el rigor consiste en documentar restricciones y no esconderlas.}
+  \begin{itemize}
+    \item replicas desiguales;
+    \item variabilidad del operador;
+    \item materiales no identicos;
+    \item mediciones con error.
+  \end{itemize}
+  \decision{Un diseno imperfecto puede ser util si sus limites quedan claros.}
+\end{frame}
+
+\begin{frame}{Taguchi: explorar sin probarlo todo}
+  \idea{Una matriz reducida ayuda cuando el sistema tiene varios factores y recursos limitados.}
+  \begin{table}
+    \centering
+    \begin{tabular}{cccc}
+      \toprule
+      Corrida & Cafe & Miel & Azucar \\
+      \midrule
+      1 & bajo & bajo & bajo \\
+      2 & bajo & alto & alto \\
+      3 & alto & bajo & alto \\
+      4 & alto & alto & bajo \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Violeta africana: cuando el resultado ensena otra cosa}
+  \idea{Si no aparece la propagacion esperada, el experimento no fracasa automaticamente: puede revelar nuevas respuestas.}
+  \begin{itemize}
+    \item cobertura fungica;
+    \item halo cafe;
+    \item tejido verde;
+    \item necrosis.
+  \end{itemize}
+  \decision{El analisis debe distinguir hallazgo exploratorio de conclusion definitiva.}
+\end{frame}
+
+\begin{frame}{ANCOVA y MANOVA}
+  \idea{No todos los problemas se resuelven comparando una sola media.}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{ANCOVA}\\
+      Compara tratamientos ajustando por covariables.
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{MANOVA}\\
+      Evalua varias respuestas relacionadas como un sistema.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Proyecto integrador}
+  \idea{El cierre del curso es defender una decision experimental completa.}
+  \begin{enumerate}
+    \item Problema de ingenieria.
+    \item Pregunta e hipotesis.
+    \item Factores, niveles y respuesta.
+    \item Procedimiento y datos.
+    \item Analisis e interpretacion.
+    \item Limitaciones y siguiente experimento.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Criterio final}
+  \idea{Un buen experimento no promete certeza absoluta: produce evidencia organizada para decidir mejor.}
+  \decision{La pregunta final no es solo ``salio significativo'', sino: que puedo afirmar, con que limite y cual seria el siguiente experimento?}
+\end{frame}
+
+\end{document}

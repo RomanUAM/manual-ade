@@ -1,0 +1,510 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Length 1162 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Borrador de integracion del material) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Proposito) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (Este documento no sustituye al manual base. Sirve para integrar materiales, detectar) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 647 Td (practicas y proponer una ruta de mejora del libro.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 625 Td (Como leerlo) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (Cada apartado resume una pregunta de aprendizaje y senala que material local puede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 596 Td (alimentar una version futura del manual.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 574 Td (Estado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 558 Td (Borrador interno. Debe crecer con redaccion completa, figuras, fotografias, tablas,) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 545 Td (ejercicios resueltos y practicas completas antes de considerarse manual final.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 3 0 R >>
+endobj
+5 0 obj
+<< /Length 3312 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Indice narrativo) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (01. Por que necesitamos disenar experimentos?) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (Experimentar no es probar cosas al azar. Es construir evidencia para decidir cuando hay) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 647 Td (ruido, variabilidad y riesgo de atribuir causas falsas.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 625 Td (02. Como convertir datos dispersos en informacion confiable?) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (Los datos no hablan solos: deben ordenarse para distinguir patron, variabilidad y error.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 587 Td (03. Como saber si varios tratamientos producen respuestas distintas?) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 571 Td (ANOVA compara la variabilidad entre tratamientos contra la variabilidad natural dentro) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 558 Td (de ellos.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 536 Td (04. Que ocurre cuando dos factores actuan al mismo tiempo?) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 520 Td (Los efectos principales no siempre explican todo: a veces un factor cambia segun el) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 507 Td (nivel del otro.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 485 Td (05. Como se construye un experimento factorial 2x2?) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 469 Td (Un diseno 2x2 convierte dos factores y dos niveles en cuatro tratamientos que permiten) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 456 Td (estudiar efectos e interaccion.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 434 Td (06. Como adaptar el diseno experimental a procesos reales?) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 418 Td (La realidad no siempre permite condiciones perfectas; el rigor consiste en documentar) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 405 Td (restricciones y decidir con prudencia.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 383 Td (07. Como explorar varios factores sin hacer todos los experimentos?) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 367 Td (Taguchi permite explorar combinaciones reducidas cuando el tiempo, el costo o el) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 354 Td (material limitan el experimento.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 332 Td (08. Como modelar una respuesta continua?) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 316 Td (La regresion permite estimar como cambia una respuesta al modificar una condicion.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 294 Td (09. Como comparar tratamientos cuando hay covariables?) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 278 Td (ANCOVA compara tratamientos ajustando variables que tambien influyen en la respuesta.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 256 Td (10. Como decidir cuando existen varias respuestas importantes?) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 240 Td (MANOVA evita fragmentar decisiones cuando varias respuestas describen simultaneamente el) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 227 Td (desempeno.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 205 Td (11. Como construir un proyecto experimental completo?) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 189 Td (Un proyecto une pregunta, diseno, datos, analisis, conclusion y limites en una cadena) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 176 Td (defendible.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 2404 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Por que necesitamos disenar experimentos?) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Motivacion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (Experimentar no es probar cosas al azar. Es construir evidencia para decidir cuando hay) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 647 Td (ruido, variabilidad y riesgo de atribuir causas falsas.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 625 Td (Historia e intuicion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (Una empresa cambia una formula y observa una mejora. Pero tambien cambio el operador, la) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 596 Td (temperatura y el lote de material. El estudiante aprende que sin diseno no hay una) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 583 Td (historia causal defendible.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 561 Td (Caso integrado del material local) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 545 Td (Este capitulo se alimenta con documentos locales del curso, pero los reorganiza) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 532 Td (alrededor de una pregunta de aprendizaje para que no se lea como carpeta de archivos.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 510 Td (Ejemplo guiado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 494 Td (El capitulo se desarrolla desde una situacion concreta hacia conceptos, decisiones y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 481 Td (calculos. Ninguna formula aparece sin responder una pregunta previa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 459 Td (Practica y actividad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 443 Td (Diagnosticar un experimento mal planteado y reconstruirlo con pregunta, unidad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 430 Td (experimental, variable respuesta y controles.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 408 Td (Errores frecuentes) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 392 Td (El capitulo debe mostrar errores reales: conclusiones exageradas, variables mal) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 379 Td (definidas, replicas confundidas con mediciones y resultados sin contexto.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 357 Td (Conexion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 341 Td (El cierre prepara al estudiante para el siguiente capitulo, evitando que el tema quede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 328 Td (aislado.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 2302 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Como convertir datos dispersos en informacion confiable?) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Motivacion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (Los datos no hablan solos: deben ordenarse para distinguir patron, variabilidad y error.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 638 Td (Historia e intuicion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 622 Td (Dos equipos cuentan el mismo fenomeno en momentos distintos y obtienen respuestas) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (diferentes. La media resume, pero la varianza advierte cuanto puede enganarnos una) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 596 Td (muestra pequena.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 574 Td (Caso integrado del material local) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 558 Td (Este capitulo se alimenta con documentos locales del curso, pero los reorganiza) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 545 Td (alrededor de una pregunta de aprendizaje para que no se lea como carpeta de archivos.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 523 Td (Ejemplo guiado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 507 Td (El capitulo se desarrolla desde una situacion concreta hacia conceptos, decisiones y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 494 Td (calculos. Ninguna formula aparece sin responder una pregunta previa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 472 Td (Practica y actividad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 456 Td (Construir frecuencias, media y varianza a partir de observaciones reales; discutir) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 443 Td (atipicos sin borrarlos por comodidad.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 421 Td (Errores frecuentes) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 405 Td (El capitulo debe mostrar errores reales: conclusiones exageradas, variables mal) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 392 Td (definidas, replicas confundidas con mediciones y resultados sin contexto.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 370 Td (Conexion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 354 Td (El cierre prepara al estudiante para el siguiente capitulo, evitando que el tema quede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 341 Td (aislado.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 2463 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Como saber si varios tratamientos producen respuestas distintas?) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Motivacion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (ANOVA compara la variabilidad entre tratamientos contra la variabilidad natural dentro) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 647 Td (de ellos.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 625 Td (Historia e intuicion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (No basta mirar promedios. Si los datos dentro de cada grupo se mueven mucho, una) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 596 Td (diferencia visual puede no sostenerse.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 574 Td (Caso integrado del material local) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 558 Td (Material retomado: ANOVA de un factor, tablas de calculo y ejercicios del curso. En el) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 545 Td (libro se transforman en una secuencia: primero mirar dispersion, despues comparar) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 532 Td (tratamientos y finalmente justificar una decision.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 510 Td (Ejemplo guiado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 494 Td (El capitulo se desarrolla desde una situacion concreta hacia conceptos, decisiones y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 481 Td (calculos. Ninguna formula aparece sin responder una pregunta previa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 459 Td (Practica y actividad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 443 Td (Resolver un ANOVA de un factor: hipotesis, sumas de cuadrados, F, valor p, decision y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 430 Td (limites. Las hojas de calculo se usan para construir tablas y graficas internas, no como) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 417 Td (lectura principal.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 395 Td (Errores frecuentes) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 379 Td (El capitulo debe mostrar errores reales: conclusiones exageradas, variables mal) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 366 Td (definidas, replicas confundidas con mediciones y resultados sin contexto.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 344 Td (Conexion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 328 Td (El cierre prepara al estudiante para el siguiente capitulo, evitando que el tema quede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 315 Td (aislado.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 2230 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Que ocurre cuando dos factores actuan al mismo tiempo?) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Motivacion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (Los efectos principales no siempre explican todo: a veces un factor cambia segun el) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 647 Td (nivel del otro.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 625 Td (Historia e intuicion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (Una interaccion es una historia cruzada. El efecto de una sustancia, temperatura o) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 596 Td (metodo puede depender de otra condicion.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 574 Td (Caso integrado del material local) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 558 Td (Este capitulo se alimenta con documentos locales del curso, pero los reorganiza) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 545 Td (alrededor de una pregunta de aprendizaje para que no se lea como carpeta de archivos.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 523 Td (Ejemplo guiado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 507 Td (El capitulo se desarrolla desde una situacion concreta hacia conceptos, decisiones y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 494 Td (calculos. Ninguna formula aparece sin responder una pregunta previa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 472 Td (Practica y actividad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 456 Td (Leer una matriz de dos factores, graficar perfiles e interpretar interacciones antes de) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 443 Td (calcular.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 421 Td (Errores frecuentes) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 405 Td (El capitulo debe mostrar errores reales: conclusiones exageradas, variables mal) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 392 Td (definidas, replicas confundidas con mediciones y resultados sin contexto.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 370 Td (Conexion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 354 Td (El cierre prepara al estudiante para el siguiente capitulo, evitando que el tema quede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 341 Td (aislado.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 2828 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Como se construye un experimento factorial 2x2?) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Motivacion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (Un diseno 2x2 convierte dos factores y dos niveles en cuatro tratamientos que permiten) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 647 Td (estudiar efectos e interaccion.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 625 Td (Historia e intuicion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (Cuatro combinaciones bien planeadas ensenan mas que muchas pruebas improvisadas. Por eso) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 596 Td (se contrastan tres historias: hongos en tortillas como observacion biologica, lentejas) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 583 Td (como sistema controlable y curcuma-cloro en papel como diseno 2^2 completo.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 561 Td (Caso integrado del material local) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 545 Td (Material retomado: practica 2^2 de sustancias, curcuma, cloro, post-it, blanco) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 532 Td (experimental, seis repeticiones y medicion de luz. La practica de hongos en tortillas y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 519 Td (el contraste con lentejas se usan para mostrar que una observacion interesante necesita) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 506 Td (niveles, replicas y respuesta definida para convertirse en diseno factorial.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 484 Td (Ejemplo guiado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 468 Td (El capitulo se desarrolla desde una situacion concreta hacia conceptos, decisiones y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 455 Td (calculos. Ninguna formula aparece sin responder una pregunta previa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 433 Td (Practica y actividad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 417 Td (Construir la matriz factorial, definir blanco, replicas, controles y variable respuesta.) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 404 Td (El caso central usa curcuma 1/4 g y cloro 5/10 g sobre post-it, seis replicas por) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 391 Td (tratamiento, blanco experimental y medicion con luxometro.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 369 Td (Errores frecuentes) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 353 Td (El capitulo debe mostrar errores reales: conclusiones exageradas, variables mal) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 340 Td (definidas, replicas confundidas con mediciones y resultados sin contexto.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 318 Td (Conexion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 302 Td (El cierre prepara al estudiante para el siguiente capitulo, evitando que el tema quede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 289 Td (aislado.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 15 0 R >>
+endobj
+17 0 obj
+<< /Length 2232 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Como adaptar el diseno experimental a procesos reales?) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Motivacion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (La realidad no siempre permite condiciones perfectas; el rigor consiste en documentar) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 647 Td (restricciones y decidir con prudencia.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 625 Td (Historia e intuicion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (En procesos manuales aparecen replicas desiguales, ruido operativo y limitaciones) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 596 Td (materiales.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 574 Td (Caso integrado del material local) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 558 Td (Este capitulo se alimenta con documentos locales del curso, pero los reorganiza) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 545 Td (alrededor de una pregunta de aprendizaje para que no se lea como carpeta de archivos.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 523 Td (Ejemplo guiado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 507 Td (El capitulo se desarrolla desde una situacion concreta hacia conceptos, decisiones y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 494 Td (calculos. Ninguna formula aparece sin responder una pregunta previa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 472 Td (Practica y actividad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 456 Td (Analizar un proceso no balanceado, declarar amenazas a la validez y separar resultado de) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 443 Td (interpretacion.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 421 Td (Errores frecuentes) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 405 Td (El capitulo debe mostrar errores reales: conclusiones exageradas, variables mal) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 392 Td (definidas, replicas confundidas con mediciones y resultados sin contexto.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 370 Td (Conexion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 354 Td (El cierre prepara al estudiante para el siguiente capitulo, evitando que el tema quede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 341 Td (aislado.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 17 0 R >>
+endobj
+19 0 obj
+<< /Length 2466 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Como explorar varios factores sin hacer todos los experimentos?) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Motivacion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (Taguchi permite explorar combinaciones reducidas cuando el tiempo, el costo o el) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 647 Td (material limitan el experimento.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 625 Td (Historia e intuicion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (Una matriz L4 no es magia: es una forma ordenada de aprender con menos corridas y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 596 Td (conclusiones prudentes. Tambien se integra el material donde datos continuos se) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 583 Td (discretizan por cuantiles para reconstruir niveles experimentales.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 561 Td (Caso integrado del material local) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 545 Td (Material retomado: Taguchi, violeta africana y conversion de datos continuos a niveles) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 532 Td (por cuantiles. El estudiante aprende que reducir corridas exige declarar limites, no) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 519 Td (vender certeza falsa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 497 Td (Ejemplo guiado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 481 Td (El capitulo se desarrolla desde una situacion concreta hacia conceptos, decisiones y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 468 Td (calculos. Ninguna formula aparece sin responder una pregunta previa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 446 Td (Practica y actividad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 430 Td (Asignar factores a una matriz L4, observar respuestas ordinales y discutir que se puede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 417 Td (concluir.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 395 Td (Errores frecuentes) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 379 Td (El capitulo debe mostrar errores reales: conclusiones exageradas, variables mal) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 366 Td (definidas, replicas confundidas con mediciones y resultados sin contexto.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 344 Td (Conexion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 328 Td (El cierre prepara al estudiante para el siguiente capitulo, evitando que el tema quede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 315 Td (aislado.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+20 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 19 0 R >>
+endobj
+21 0 obj
+<< /Length 2141 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Como modelar una respuesta continua?) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Motivacion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (La regresion permite estimar como cambia una respuesta al modificar una condicion.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 638 Td (Historia e intuicion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 622 Td (Una linea ajustada no es verdad absoluta. Es una simplificacion que debe interpretarse,) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (diagnosticarse y limitarse.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 587 Td (Caso integrado del material local) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 571 Td (Este capitulo se alimenta con documentos locales del curso, pero los reorganiza) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 558 Td (alrededor de una pregunta de aprendizaje para que no se lea como carpeta de archivos.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 536 Td (Ejemplo guiado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 520 Td (El capitulo se desarrolla desde una situacion concreta hacia conceptos, decisiones y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 507 Td (calculos. Ninguna formula aparece sin responder una pregunta previa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 485 Td (Practica y actividad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 469 Td (Ajustar un modelo lineal, interpretar pendiente, revisar residuos y evitar) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 456 Td (extrapolaciones.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 434 Td (Errores frecuentes) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 418 Td (El capitulo debe mostrar errores reales: conclusiones exageradas, variables mal) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 405 Td (definidas, replicas confundidas con mediciones y resultados sin contexto.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 383 Td (Conexion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 367 Td (El cierre prepara al estudiante para el siguiente capitulo, evitando que el tema quede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 354 Td (aislado.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+22 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 21 0 R >>
+endobj
+23 0 obj
+<< /Length 2153 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Como comparar tratamientos cuando hay covariables?) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Motivacion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (ANCOVA compara tratamientos ajustando variables que tambien influyen en la respuesta.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 638 Td (Historia e intuicion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 622 Td (Ajustar significa preguntar que diferencia queda cuando los grupos se comparan en) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (condiciones semejantes.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 587 Td (Caso integrado del material local) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 571 Td (Este capitulo se alimenta con documentos locales del curso, pero los reorganiza) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 558 Td (alrededor de una pregunta de aprendizaje para que no se lea como carpeta de archivos.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 536 Td (Ejemplo guiado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 520 Td (El capitulo se desarrolla desde una situacion concreta hacia conceptos, decisiones y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 507 Td (calculos. Ninguna formula aparece sin responder una pregunta previa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 485 Td (Practica y actividad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 469 Td (Identificar covariable, interpretar medias ajustadas y evitar ajustar por variables) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 456 Td (incorrectas.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 434 Td (Errores frecuentes) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 418 Td (El capitulo debe mostrar errores reales: conclusiones exageradas, variables mal) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 405 Td (definidas, replicas confundidas con mediciones y resultados sin contexto.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 383 Td (Conexion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 367 Td (El cierre prepara al estudiante para el siguiente capitulo, evitando que el tema quede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 354 Td (aislado.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+24 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 23 0 R >>
+endobj
+25 0 obj
+<< /Length 2221 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Como decidir cuando existen varias respuestas importantes?) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Motivacion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (MANOVA evita fragmentar decisiones cuando varias respuestas describen simultaneamente el) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 647 Td (desempeno.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 625 Td (Historia e intuicion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (Un proceso puede mejorar en una respuesta y empeorar en otra. La decision debe mirar el) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 596 Td (perfil completo.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 574 Td (Caso integrado del material local) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 558 Td (Este capitulo se alimenta con documentos locales del curso, pero los reorganiza) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 545 Td (alrededor de una pregunta de aprendizaje para que no se lea como carpeta de archivos.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 523 Td (Ejemplo guiado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 507 Td (El capitulo se desarrolla desde una situacion concreta hacia conceptos, decisiones y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 494 Td (calculos. Ninguna formula aparece sin responder una pregunta previa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 472 Td (Practica y actividad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 456 Td (Construir una matriz de respuestas, comparar grupos e interpretar resultados) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 443 Td (multivariados con cautela.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 421 Td (Errores frecuentes) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 405 Td (El capitulo debe mostrar errores reales: conclusiones exageradas, variables mal) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 392 Td (definidas, replicas confundidas con mediciones y resultados sin contexto.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 370 Td (Conexion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 354 Td (El cierre prepara al estudiante para el siguiente capitulo, evitando que el tema quede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 341 Td (aislado.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+26 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 25 0 R >>
+endobj
+27 0 obj
+<< /Length 2212 >>
+stream
+0.94 0.97 0.96 rg 0 742 612 50 re f
+0 0 0 rg BT /F2 11 Tf 54 758 Td (Borrador de integracion del material ADE) Tj ET
+0 0 0 rg BT /F2 20 Tf 54 706 Td (Como construir un proyecto experimental completo?) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 676 Td (Motivacion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 660 Td (Un proyecto une pregunta, diseno, datos, analisis, conclusion y limites en una cadena) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 647 Td (defendible.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 625 Td (Historia e intuicion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 609 Td (La calidad no esta solo en calcular bien, sino en que cada parte responda a la anterior.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 587 Td (Caso integrado del material local) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 571 Td (Material retomado: proyecto acustico, compositos e inductancia. El capitulo no presenta) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 558 Td (archivos sueltos: los convierte en modelos de pregunta, diseno, analisis, defensa y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 545 Td (comunicacion.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 523 Td (Ejemplo guiado) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 507 Td (El capitulo se desarrolla desde una situacion concreta hacia conceptos, decisiones y) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 494 Td (calculos. Ninguna formula aparece sin responder una pregunta previa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 472 Td (Practica y actividad) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 456 Td (Armar el mapa de un proyecto final: problema, factores, datos, analisis, discusion,) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 443 Td (anexos y defensa.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 421 Td (Errores frecuentes) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 405 Td (El capitulo debe mostrar errores reales: conclusiones exageradas, variables mal) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 392 Td (definidas, replicas confundidas con mediciones y resultados sin contexto.) Tj ET
+0 0 0 rg BT /F2 12 Tf 54 370 Td (Conexion) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 354 Td (El cierre prepara al estudiante para el siguiente capitulo, evitando que el tema quede) Tj ET
+0 0 0 rg BT /F1 10 Tf 62 341 Td (aislado.) Tj ET
+0.25 0.45 0.42 RG 54 54 504 1 re f
+0 0 0 rg BT /F1 8 Tf 54 36 Td (Documento interno de integracion; el manual base sigue siendo la lectura principal) Tj ET
+
+endstream
+endobj
+28 0 obj
+<< /Type /Page /Parent 29 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 27 0 R >>
+endobj
+29 0 obj
+<< /Type /Pages /Kids [ 4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R 22 0 R 24 0 R 26 0 R 28 0 R ] /Count 13 >>
+endobj
+30 0 obj
+<< /Type /Catalog /Pages 29 0 R >>
+endobj
+xref
+0 31
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000000154 00000 n 
+0000001368 00000 n 
+0000001505 00000 n 
+0000004869 00000 n 
+0000005006 00000 n 
+0000007462 00000 n 
+0000007599 00000 n 
+0000009953 00000 n 
+0000010091 00000 n 
+0000012607 00000 n 
+0000012746 00000 n 
+0000015029 00000 n 
+0000015168 00000 n 
+0000018049 00000 n 
+0000018188 00000 n 
+0000020473 00000 n 
+0000020612 00000 n 
+0000023131 00000 n 
+0000023270 00000 n 
+0000025464 00000 n 
+0000025603 00000 n 
+0000027809 00000 n 
+0000027948 00000 n 
+0000030222 00000 n 
+0000030361 00000 n 
+0000032626 00000 n 
+0000032765 00000 n 
+0000032908 00000 n 
+trailer
+<< /Size 31 /Root 30 0 R >>
+startxref
+32959
+%%EOF

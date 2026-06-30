@@ -1,0 +1,91 @@
+\capituloPregunta{¿Cómo se construye un experimento factorial \(2^2\)?}
+
+\section{Motivación}
+
+Un diseño factorial \(2^2\) permite estudiar dos factores, cada uno con dos niveles. Con cuatro combinaciones se pueden estimar efectos principales e interacción.
+
+\section{Tres historias para aprender a diseñar}
+
+El material del curso permite contrastar tres situaciones:
+
+\begin{enumerate}
+  \item \textbf{Hongos en tortillas}: observación biológica interesante, útil para discutir contaminación, tiempo y condiciones ambientales, pero insuficiente como diseño si no se definen niveles, repeticiones y variable respuesta.
+  \item \textbf{Lentejas}: sistema controlable para discutir tratamientos, blanco, germinación y presencia de hongos.
+  \item \textbf{Cúrcuma--cloro en post-it}: práctica factorial \(2^2\) completa con blanco, seis repeticiones y medición con luxómetro.
+\end{enumerate}
+
+\begin{idea}
+La diferencia entre observar y diseñar está en la estructura: factores, niveles, tratamientos, unidad experimental, controles, repeticiones y respuesta.
+\end{idea}
+
+\section{Caso central: cúrcuma y cloro en papel}
+
+La práctica utiliza dos factores:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}
+\toprule
+Factor & Nivel bajo & Nivel alto\\
+\midrule
+Cúrcuma & 1 g & 4 g\\
+Cloro comercial & 5 g & 10 g\\
+\bottomrule
+\end{tabular}
+\caption{Factores y niveles del diseño \(2^2\).}
+\end{table}
+
+La unidad experimental es un post-it individual. Se aplica una solución con base común de agua y sal. Se mantienen constantes la distancia de aspersión, el número de aspersiones, el tipo de papel y el tiempo de secado.
+
+\section{Tratamientos}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\toprule
+Tratamiento & Cúrcuma & Cloro & Interpretación\\
+\midrule
+T1 & 1 g & 5 g & nivel bajo en ambos factores\\
+T2 & 1 g & 10 g & cúrcuma baja, cloro alto\\
+T3 & 4 g & 5 g & cúrcuma alta, cloro bajo\\
+T4 & 4 g & 10 g & nivel alto en ambos factores\\
+B1 & 0 g & 0 g & blanco experimental\\
+\bottomrule
+\end{tabular}
+\caption{Tratamientos factoriales y blanco experimental.}
+\end{table}
+
+\section{Variable respuesta}
+
+La variable cuantitativa principal es la transmisión o bloqueo de luz medido con luxómetro. También se pueden registrar variables visuales:
+
+\begin{itemize}
+  \item intensidad de color;
+  \item uniformidad;
+  \item contraste entre zona cubierta y expuesta;
+  \item atractivo visual.
+\end{itemize}
+
+\section{Modelo}
+
+El modelo factorial puede escribirse como:
+
+\[
+Y_{ijk} = \mu + A_i + B_j + (AB)_{ij} + \varepsilon_{ijk}
+\]
+
+donde \(A_i\) representa el efecto de la cúrcuma, \(B_j\) el efecto del cloro y \((AB)_{ij}\) la interacción.
+
+\section{Error didáctico deliberado}
+
+\begin{cuidado}
+La práctica de hongos en tortillas no debe presentarse automáticamente como factorial \(2^2\). Primero debe preguntarse: ¿cuáles son los dos factores?, ¿cuáles son los dos niveles?, ¿cuál es la unidad experimental?, ¿cuántas repeticiones independientes existen?, ¿qué respuesta se medirá?
+\end{cuidado}
+
+\section{Actividad}
+
+Transforme la observación de hongos en tortillas en un posible diseño experimental. Defina dos factores, dos niveles, una variable respuesta y un blanco o control. Después compare su diseño con el caso cúrcuma--cloro.
+
+\section{Conexión}
+
+Cuando el diseño sale del aula y entra a procesos manuales o industriales, aparecen restricciones: datos no balanceados, variabilidad operativa y límites materiales.

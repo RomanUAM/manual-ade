@@ -1,0 +1,490 @@
+\section{Más allá de los factores: diseño Taguchi para analizar hojas de violeta africana en sistemas biológicos confinados}
+
+\subsection{Introducción}
+
+A muchas personas les gustan las plantas y desearían reproducirlas para tener más ejemplares en casa, en un laboratorio o en un espacio de aprendizaje. Entre las plantas ornamentales más interesantes para este propósito se encuentran las violetas africanas, ya que pueden reproducirse vegetativamente a partir de sus hojas.
+
+Sin embargo, la propagación vegetal no siempre ocurre con éxito. Si la hoja pierde humedad, se contamina, se corta de forma inadecuada o no encuentra condiciones favorables en el medio de cultivo, el tejido puede degradarse antes de formar raíces o brotes nuevos. Por ello, la propagación de violetas africanas constituye un ejemplo adecuado para introducir conceptos de diseño experimental desde una situación cercana, observable y biológicamente significativa.
+
+En esta práctica se estudiaron hojas de violeta africana colocadas en medios gelificados con diferentes combinaciones de café soluble, miel y azúcar. Inicialmente, el propósito fue evaluar la posible propagación vegetal mediante la aparición de raíces y hojas nuevas. Sin embargo, la primera observación formal se realizó hasta el día 13 después del montaje experimental. En esa fecha no se observaron raíces ni hojas nuevas, pero sí aparecieron fenómenos emergentes relevantes: proliferación fúngica, formación de halos cafés, condensación, oxidación, pérdida de tejido verde y necrosis.
+
+Este cambio no debe entenderse como un fracaso experimental, sino como una oportunidad para analizar cómo los sistemas biológicos reales pueden evolucionar hacia comportamientos complejos. El medio gelificado y translúcido permitió observar gradientes de color, zonas de difusión y patrones espaciales que normalmente serían difíciles de identificar en sustratos opacos.
+
+Además, la práctica permitió mostrar la utilidad de los diseños experimentales reducidos. Si se trabajara con un diseño factorial completo de tres factores con dos niveles cada uno, se requerirían:
+
+\[
+2^3=8
+\]
+
+tratamientos distintos. En cambio, se utilizó una matriz Taguchi:
+
+\[
+L_4(2^3)
+\]
+
+que permitió reducir el número de tratamientos a cuatro combinaciones representativas, disminuyendo el uso de material biológico, espacio experimental y reactivos.
+
+\subsection{Objetivo general}
+
+Analizar el efecto de diferentes combinaciones de café soluble, miel y azúcar sobre el comportamiento biológico y visual de hojas de violeta africana colocadas en medios gelificados, mediante un diseño Taguchi \(L_4(2^3)\), a partir de una primera medición realizada al día 13 y una segunda medición programada para el día 18.
+
+\subsection{Objetivos particulares}
+
+\begin{itemize}
+\item Introducir el uso de diseños Taguchi en un sistema biológico experimental.
+\item Evaluar la posible propagación vegetativa de hojas de violeta africana.
+\item Registrar la presencia o ausencia de raíces y hojas nuevas al día 13.
+\item Analizar fenómenos emergentes como proliferación fúngica, halos de pigmentación, necrosis y conservación del tejido verde.
+\item Aplicar un ANOVA exploratorio a la variable cobertura fúngica observada al día 13.
+\item Construir un análisis multivariable preliminar con las variables visuales observadas.
+\item Repetir la medición al día 18 para comparar la evolución del sistema.
+\end{itemize}
+
+\subsection{Fundamento}
+
+Los sistemas biológicos confinados pueden presentar múltiples procesos simultáneos. Cuando un tejido vegetal se coloca dentro de un medio húmedo y rico en compuestos orgánicos, pueden ocurrir fenómenos como oxidación, difusión de pigmentos, crecimiento microbiano, degradación tisular y condensación.
+
+El café soluble contiene compuestos que generan pigmentación café visible en el medio. La miel y el azúcar pueden modificar la disponibilidad de compuestos orgánicos y alterar las condiciones de humedad y osmolaridad del sistema. En conjunto, estos factores pueden influir tanto en la conservación del tejido vegetal como en la proliferación de microorganismos oportunistas.
+
+Debido a que las respuestas observadas fueron principalmente visuales, se utilizó una escala ordinal para clasificar la intensidad de los fenómenos. Estas variables se trataron como aproximaciones cuantitativas con fines didácticos y exploratorios.
+
+\subsection{Diseño experimental}
+
+Se utilizó una matriz Taguchi:
+
+\[
+L_4(2^3)
+\]
+
+Los factores experimentales fueron café soluble, miel y azúcar. Cada uno tuvo dos niveles: bajo y alto.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\hline
+Factor & Nivel bajo (-) & Nivel alto (+) \\
+\hline
+Café soluble & 1 gota & 6 gotas \\
+Miel & 1 gota & 6 gotas \\
+Azúcar & 1 gota & 6 gotas \\
+\hline
+\end{tabular}
+\caption{Factores y niveles utilizados en el experimento.}
+\end{table}
+
+\subsection{Matriz experimental}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}
+\hline
+Experimento & Café & Miel & Azúcar & Color de identificación \\
+\hline
+E1 & Bajo & Bajo & Bajo & Rosa \\
+E2 & Bajo & Alto & Alto & Naranja \\
+E3 & Alto & Bajo & Alto & Verde \\
+E4 & Alto & Alto & Bajo & Azul \\
+\hline
+\end{tabular}
+\caption{Matriz Taguchi \(L_4(2^3)\) utilizada en la práctica.}
+\end{table}
+
+Cada tratamiento se realizó por triplicado, por lo que se utilizaron 12 cajas de Petri en total.
+
+\subsection{Preparación experimental}
+
+Se seleccionaron 12 hojas maduras de violeta africana, procurando que fueran semejantes en tamaño, color y estado general. Todas debían conservar el pedúnculo.
+
+Después del corte, las hojas se dejaron reposar durante aproximadamente 20 minutos para favorecer la cicatrización del tejido vegetal y disminuir la posibilidad de pudrición temprana.
+
+Cada caja de Petri recibió 30 gramos de sustrato gelificado. Posteriormente se agregaron las sustancias correspondientes de acuerdo con la matriz experimental. Para mantener un procedimiento homogéneo, las sustancias se aplicaron siempre en el mismo orden:
+
+\begin{enumerate}
+\item Café soluble.
+\item Miel.
+\item Azúcar.
+\end{enumerate}
+
+Finalmente, se colocó una hoja de violeta africana sobre el sustrato, procurando que el pedúnculo quedara parcialmente en contacto con el gel. Las cajas permanecieron cerradas durante todo el experimento para conservar humedad y reducir contaminación externa.
+
+\subsection{Esquema real de medición}
+
+A diferencia de un seguimiento diario, en esta práctica no se tomaron datos durante los primeros 12 días. La primera medición formal se realizó al día 13 después del montaje experimental. En esta medición se registraron variables visuales observables a partir de fotografías del frente y reverso de las cajas.
+
+La segunda medición se realizará al día 18, con el propósito de comparar la evolución del sistema entre ambas fechas.
+
+\begin{table}[H]
+\centering
+\resizebox{0.98\linewidth}{!}{%
+\begin{tabular}{ccc}
+\hline
+Momento & Día experimental & Tipo de registro \\
+\hline
+Montaje & Día 0 & Preparación de tratamientos \\
+Primera medición & Día 13 & Fotografías y evaluación visual \\
+Segunda medición & Día 18 & Fotografías y comparación temporal \\
+\hline
+\end{tabular}%
+}
+\caption{Esquema real de medición del experimento.}
+\end{table}
+
+\subsection{Variables evaluadas al día 13}
+
+En la primera medición no se observaron raíces ni hojas nuevas. Por ello, el análisis se concentró en las variables visuales que sí presentaron diferencias entre tratamientos.
+
+\begin{table}[H]
+\centering
+\resizebox{0.98\linewidth}{!}{%
+\begin{tabular}{cc}
+\hline
+Variable & Descripción \\
+\hline
+Cobertura fúngica & Grado de colonización visible por hongos \\
+Halo café & Intensidad y extensión de la pigmentación café \\
+Tejido verde & Conservación visual del tejido vegetal \\
+Necrosis & Grado de oscurecimiento o degradación del tejido \\
+\hline
+\end{tabular}%
+}
+\caption{Variables visuales evaluadas al día 13.}
+\end{table}
+
+\subsection{Escala ordinal}
+
+Las variables visuales se evaluaron mediante la siguiente escala ordinal:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\hline
+Nivel cualitativo & Valor numérico \\
+\hline
+Muy bajo & 1 \\
+Bajo & 2 \\
+Medio & 3 \\
+Alto & 4 \\
+Muy alto & 5 \\
+\hline
+\end{tabular}
+\caption{Escala ordinal utilizada para transformar observaciones visuales en valores numéricos.}
+\end{table}
+
+\subsection{Resultados visuales al día 13}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccccc}
+\hline
+Tratamiento & Réplica & Hongos & Halo café & Tejido verde & Necrosis \\
+\hline
+Rosa & R1 & 3 & 2 & 3 & 3 \\
+Rosa & R2 & 4 & 3 & 2 & 4 \\
+Rosa & R3 & 3 & 2 & 3 & 3 \\
+Naranja & R1 & 4 & 4 & 2 & 4 \\
+Naranja & R2 & 5 & 4 & 1 & 5 \\
+Naranja & R3 & 4 & 5 & 2 & 5 \\
+Verde & R1 & 3 & 5 & 2 & 4 \\
+Verde & R2 & 4 & 5 & 2 & 5 \\
+Verde & R3 & 3 & 4 & 3 & 4 \\
+Azul & R1 & 5 & 4 & 1 & 5 \\
+Azul & R2 & 4 & 4 & 2 & 4 \\
+Azul & R3 & 5 & 3 & 1 & 5 \\
+\hline
+\end{tabular}
+\caption{Resultados visuales registrados al día 13.}
+\end{table}
+
+\subsection{Ausencia de propagación vegetal al día 13}
+
+Durante la primera medición no se registró formación visible de raíces ni aparición de hojas nuevas. Este resultado sugiere que, al menos hasta el día 13, las condiciones del sistema no favorecieron la propagación vegetativa.
+
+Algunas posibles causas son:
+
+\begin{itemize}
+\item exceso de humedad interna,
+\item proliferación microbiana,
+\item estrés osmótico por las sustancias agregadas,
+\item degradación del tejido vegetal,
+\item condiciones cerradas que favorecieron condensación,
+\item posible contaminación inicial o cruzada.
+\end{itemize}
+
+La ausencia de propagación al día 13 no invalida la práctica. Al contrario, permitió reformular el análisis hacia los fenómenos que sí ocurrieron y que fueron visibles en el sistema.
+
+\subsection{ANOVA para cobertura fúngica al día 13}
+
+La primera variable analizada fue la cobertura fúngica.
+
+\subsubsection{Datos por tratamiento}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\hline
+Tratamiento & Valores de cobertura fúngica \\
+\hline
+Rosa & 3, 4, 3 \\
+Naranja & 4, 5, 4 \\
+Verde & 3, 4, 3 \\
+Azul & 5, 4, 5 \\
+\hline
+\end{tabular}
+\caption{Datos utilizados para el ANOVA de cobertura fúngica al día 13.}
+\end{table}
+
+\subsubsection{Medias por tratamiento}
+
+\[
+\bar{x}_{Rosa}=\frac{3+4+3}{3}=3.333
+\]
+
+\[
+\bar{x}_{Naranja}=\frac{4+5+4}{3}=4.333
+\]
+
+\[
+\bar{x}_{Verde}=\frac{3+4+3}{3}=3.333
+\]
+
+\[
+\bar{x}_{Azul}=\frac{5+4+5}{3}=4.667
+\]
+
+\subsubsection{Media general}
+
+\[
+\bar{x}_{T}=\frac{47}{12}=3.917
+\]
+
+\subsubsection{Suma de cuadrados entre tratamientos}
+
+\[
+SC_{Trat}=\sum n_i(\bar{x}_i-\bar{x}_{T})^2
+\]
+
+\[
+SC_{Trat}=4.253
+\]
+
+\subsubsection{Suma de cuadrados del error}
+
+\[
+SC_E=\sum(x_{ij}-\bar{x}_i)^2
+\]
+
+\[
+SC_E=2.664
+\]
+
+\subsubsection{Suma de cuadrados total}
+
+\[
+SC_T=SC_{Trat}+SC_E
+\]
+
+\[
+SC_T=6.917
+\]
+
+\subsubsection{Grados de libertad}
+
+\[
+gl_{Trat}=4-1=3
+\]
+
+\[
+gl_E=12-4=8
+\]
+
+\[
+gl_T=12-1=11
+\]
+
+\subsubsection{Cuadrados medios}
+
+\[
+CM_{Trat}=\frac{SC_{Trat}}{gl_{Trat}}=\frac{4.253}{3}=1.418
+\]
+
+\[
+CM_E=\frac{SC_E}{gl_E}=\frac{2.664}{8}=0.333
+\]
+
+\subsubsection{Estadístico F}
+
+\[
+F=\frac{CM_{Trat}}{CM_E}=\frac{1.418}{0.333}=4.26
+\]
+
+\subsubsection{Tabla ANOVA}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}
+\hline
+Fuente de variación & SC & gl & CM & F \\
+\hline
+Tratamientos & 4.253 & 3 & 1.418 & 4.26 \\
+Error & 2.664 & 8 & 0.333 & \\
+Total & 6.917 & 11 & & \\
+\hline
+\end{tabular}
+\caption{ANOVA exploratorio para cobertura fúngica al día 13.}
+\end{table}
+
+\subsection{Interpretación del ANOVA}
+
+El valor de (F=4.26) sugiere diferencias importantes entre tratamientos respecto a la cobertura fúngica observada al día 13. Los tratamientos Naranja y Azul presentaron mayores medias de proliferación fúngica que los tratamientos Rosa y Verde.
+
+Desde el punto de vista experimental, esto sugiere que la miel alta pudo estar asociada con mayor crecimiento fúngico, especialmente cuando se combinó con condiciones que favorecieron humedad, pigmentación o degradación del tejido.
+
+\subsection{Análisis multivariable exploratorio al día 13}
+
+Además del ANOVA para cobertura fúngica, se construyó un análisis multivariable preliminar considerando simultáneamente las variables:
+
+\[
+Y=(\text{Hongos},\ \text{Halo café},\ \text{Tejido verde},\ \text{Necrosis})
+\]
+
+Este análisis no se presenta como un MANOVA formal completo, sino como una exploración inicial basada en medias vectoriales por tratamiento.
+
+\subsubsection{Medias multivariadas por tratamiento}
+
+\[
+Y_{Rosa}=(3.33,\ 2.33,\ 2.67,\ 3.33)
+\]
+
+\[
+Y_{Naranja}=(4.33,\ 4.33,\ 1.67,\ 4.67)
+\]
+
+\[
+Y_{Verde}=(3.33,\ 4.67,\ 2.33,\ 4.33)
+\]
+
+\[
+Y_{Azul}=(4.67,\ 3.67,\ 1.33,\ 4.67)
+\]
+
+\subsection{Interpretación visual y biológica al día 13}
+
+El tratamiento Rosa presentó menor halo café y menor necrosis relativa, lo que sugiere una condición menos agresiva para el tejido vegetal.
+
+El tratamiento Naranja mostró alta cobertura fúngica, halo intenso y alta necrosis, posiblemente asociado a la combinación de miel alta y azúcar alta.
+
+El tratamiento Verde presentó el halo café más intenso, lo que puede estar relacionado con el nivel alto de café soluble.
+
+El tratamiento Azul mostró la mayor cobertura fúngica promedio y baja conservación del tejido verde, lo que sugiere un ambiente favorable para degradación y colonización microbiana.
+
+En conjunto, los resultados sugieren que el café soluble actuó como fuente de pigmentación y posiblemente como modificador del ambiente químico. La miel alta pareció relacionarse con mayor proliferación fúngica y condensación. La pérdida de tejido verde y la necrosis fueron más evidentes en los tratamientos donde también se observaron halos intensos o alta cobertura fúngica.
+
+\subsection{Segunda medición programada al día 18}
+
+La segunda medición se realizará al día 18 después del montaje experimental. En esta etapa se registrarán nuevamente las mismas variables visuales:
+
+\begin{itemize}
+\item cobertura fúngica,
+\item halo café,
+\item tejido verde,
+\item necrosis.
+\end{itemize}
+
+También se revisará si aparece algún indicio tardío de propagación vegetal, como raíces o brotes.
+
+\begin{table}[H]
+\centering
+\resizebox{0.98\linewidth}{!}{%
+\begin{tabular}{ccccccc}
+\hline
+Tratamiento & Réplica & Raíces & Brotes & Hongos & Halo café & Necrosis \\
+\hline
+Rosa & R1 &  &  &  &  &  \\
+Rosa & R2 &  &  &  &  &  \\
+Rosa & R3 &  &  &  &  &  \\
+Naranja & R1 &  &  &  &  &  \\
+Naranja & R2 &  &  &  &  &  \\
+Naranja & R3 &  &  &  &  &  \\
+Verde & R1 &  &  &  &  &  \\
+Verde & R2 &  &  &  &  &  \\
+Verde & R3 &  &  &  &  &  \\
+Azul & R1 &  &  &  &  &  \\
+Azul & R2 &  &  &  &  &  \\
+Azul & R3 &  &  &  &  &  \\
+\hline
+\end{tabular}%
+}
+\caption{Formato de registro para la segunda medición al día 18.}
+\end{table}
+
+\subsection{Comparación esperada entre día 13 y día 18}
+
+Cuando se obtengan los datos del día 18, se podrá comparar la evolución del sistema mediante una tabla de cambio:
+
+\[
+\Delta = Valor_{D18} - Valor_{D13}
+\]
+
+Esta comparación permitirá identificar si entre el día 13 y el día 18:
+
+\begin{itemize}
+\item aumentó la cobertura fúngica,
+\item se expandió el halo café,
+\item disminuyó el tejido verde,
+\item aumentó la necrosis,
+\item apareció alguna estructura asociada a propagación vegetal.
+\end{itemize}
+
+\subsection{Limitaciones experimentales}
+
+La práctica presentó varias limitaciones importantes:
+
+\begin{itemize}
+\item No se tomaron datos diarios.
+\item La primera medición formal ocurrió hasta el día 13.
+\item No se observó propagación vegetal al día 13.
+\item Las variables finales fueron visuales y ordinales.
+\item No se realizaron mediciones instrumentales de área, color o humedad.
+\item La contaminación fúngica no fue controlada microbiológicamente.
+\item El análisis estadístico debe interpretarse como exploratorio.
+\end{itemize}
+
+Estas limitaciones no eliminan el valor de la práctica, pero sí deben considerarse al interpretar los resultados.
+
+\subsection{Discusión}
+
+La práctica permitió observar que un sistema experimental diseñado para propagación vegetal puede transformarse en un sistema complejo donde interactúan procesos de difusión, humedad, crecimiento microbiano y degradación tisular.
+
+El uso de un diseño Taguchi permitió reducir el número de tratamientos y conservar una estructura experimental ordenada. Aunque no se obtuvo propagación vegetal al día 13, las combinaciones de café, miel y azúcar generaron respuestas visuales diferenciadas.
+
+El medio translúcido fue especialmente útil porque permitió observar halos de pigmentación y patrones espaciales asociados a la difusión del café soluble. Estos patrones, junto con la proliferación fúngica y la necrosis, abren la posibilidad de utilizar análisis de imagen en futuras versiones de la práctica.
+
+Desde una perspectiva pedagógica, la práctica muestra que la investigación experimental no siempre confirma el objetivo inicial, pero puede generar nuevas preguntas científicas. En este caso, la pregunta dejó de ser únicamente si las hojas de violeta africana podían propagarse, y pasó a incluir cómo los factores del medio modifican la aparición de hongos, halos, necrosis y pérdida de tejido verde.
+
+\subsection{Conclusiones preliminares al día 13}
+
+La práctica permitió aplicar un diseño Taguchi \(L_4(2^3)\) para estudiar un sistema biológico confinado con tres factores: café soluble, miel y azúcar.
+
+Al día 13 no se observó propagación vegetal, pero el sistema generó respuestas visuales relevantes que pudieron analizarse mediante variables ordinales.
+
+El ANOVA exploratorio para cobertura fúngica mostró diferencias importantes entre tratamientos, destacando mayores valores en los tratamientos Naranja y Azul.
+
+El análisis multivariable preliminar permitió observar relaciones entre proliferación fúngica, halo café, conservación del tejido verde y necrosis.
+
+El café soluble se asoció con la formación de halos cafés intensos, mientras que la miel alta pareció favorecer condiciones relacionadas con mayor proliferación fúngica.
+
+Estas conclusiones son preliminares y deberán revisarse con la segunda medición programada para el día 18.
+
+\subsection{Propuesta de mejora}
+
+Para futuras versiones de la práctica se recomienda:
+
+\begin{itemize}
+\item tomar fotografías en días fijos, por ejemplo D0, D3, D6, D9, D13 y D18;
+\item incluir imágenes del frente y reverso de cada caja;
+\item medir el área de halo mediante análisis de imagen;
+\item estimar el porcentaje de cobertura fúngica con software;
+\item agregar controles sin café, sin miel, sin azúcar y sin hoja;
+\item comparar cajas cerradas contra cajas con ventilación controlada;
+\item extender el periodo de observación si se desea evaluar propagación tardía.
+\end{itemize}

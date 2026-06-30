@@ -1,0 +1,54 @@
+\capituloPregunta{¿Cómo saber si varios tratamientos producen respuestas distintas?}
+
+\section{Motivación}
+
+En muchas prácticas no se comparan dos valores aislados, sino varios tratamientos. El problema no es únicamente saber cuál promedio es mayor, sino decidir si las diferencias observadas superan la variabilidad natural del sistema.
+
+\section{Caso integrado: lentejas, miel, azúcar, café y blanco}
+
+El material local incluye una práctica con semillas de lenteja. Se comparan tratamientos como miel, azúcar, café y un blanco. Las respuestas incluyen germinación, altura del tallo, longitud de raíz, presencia de hongos y condensación.
+
+\begin{practica}
+La práctica de lentejas permite explicar ANOVA de un factor porque el estudiante puede observar un fenómeno cotidiano, registrar mediciones y discutir si las diferencias entre tratamientos son mayores que la variación entre repeticiones.
+\end{practica}
+
+\section{Estructura experimental}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{0.3\textwidth}p{0.55\textwidth}}
+\toprule
+Elemento & Definición en la práctica\\
+\midrule
+Unidad experimental & Recipiente o conjunto definido de semillas\\
+Factor & Sustancia aplicada al medio\\
+Niveles & Miel, azúcar, café y blanco\\
+Variables respuesta & Germinación, altura, raíz, presencia de hongos\\
+Diseño & ANOVA de un factor\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Fundamento teórico}
+
+ANOVA compara dos fuentes de variabilidad:
+
+\[
+F = \frac{\text{variabilidad entre tratamientos}}{\text{variabilidad dentro de tratamientos}}
+\]
+
+Si la variabilidad entre tratamientos es grande respecto a la variabilidad dentro de ellos, existe evidencia de que no todos los tratamientos se comportan igual.
+
+\section{Errores frecuentes}
+
+\begin{cuidado}
+No se debe concluir que un tratamiento "funciona" solo porque su promedio es mayor. Primero hay que mirar dispersión, repeticiones, supuestos y tamaño del efecto.
+\end{cuidado}
+
+\section{Actividad}
+
+Construya una tabla con cuatro tratamientos y al menos cinco repeticiones por tratamiento. Antes de calcular el ANOVA, escriba una interpretación visual de los datos.
+
+\section{Conexión}
+
+Cuando una respuesta depende de dos condiciones simultáneas, necesitamos estudiar efectos principales e interacción.

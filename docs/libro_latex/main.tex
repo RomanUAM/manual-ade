@@ -1,0 +1,150 @@
+% main.tex - Libro: Diseño de Experimentos en Ingeniería
+\documentclass[compacto,10pt,comentarios]{aleph-notas}
+
+% ===== CONFIGURACIÓN ADICIONAL =====
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{rotating}   % para \rotatebox
+\usepackage{xcolor}     % para colores
+\usepackage{pgfplots}   % para gráficas con axis
+\usepackage{listings}   % para bloques de código
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{statistics}
+\lstset{basicstyle=\ttfamily\fontseries{m}\selectfont\small, columns=fullflexible}
+\usepackage{booktabs}   % para líneas \toprule, \midrule, \bottomrule
+\usepackage{array}      % para formato de columnas
+\emergencystretch=2em
+\hfuzz=12pt
+\hbadness=10000
+\newtcolorbox{observacion}{color=colordef,recuadrost}
+\newtcolorbox{important}{color=yellow,postit}
+
+% Personalización de colores (sobreescribe los de aleph-notas)
+\definecolor{colorprincipal}{cmyk}{0.81,0.62,0.00,0.22}
+\definecolor{colorsecundario}{RGB}{255,153,0}
+\definecolor{colorejemplo}{RGB}{240,248,255}
+
+% ===== DATOS DEL LIBRO =====
+\institucion{Universidad Autónoma Metropolitana}
+\asignatura{Diseño de Experimentos en Ingeniería}
+\tema{Aprende Diseño de Experimentos desde la práctica y la vida cotidiana}
+\autor{Roman A. Mora}
+\fecha{\today}
+\fuente{montserrat}
+
+% ===== LOGOS =====
+
+% ===== INICIO DEL DOCUMENTO =====
+\begin{document}
+
+% ==================================================
+% PORTADA PERSONALIZADA (antes del \encabezado)
+% ==================================================
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    
+    {\Huge\bfseries\color{colorprincipal} Diseño de Experimentos\par}
+    {\huge en Ingeniería\par}
+    \vspace{0.5cm}
+    {\Large\textit{Aprende desde la práctica y la vida cotidiana}\par}
+    \vspace{2cm}
+    
+    % Autor
+    {\Large \textbf{Roman A. Mora}\par}
+    \vspace{0.3cm}
+    {\large Universidad Autónoma Metropolitana\par}
+    \vspace{1cm}
+    
+    % Fecha
+    {\large \today\par}
+    \vfill
+    
+    % Línea decorativa
+    \rule{0.8\textwidth}{0.5pt}
+    \vspace{0.3cm}
+    {\small Diseño de Experimentos en Ingeniería \textbullet{} Material didáctico \textbullet{} UAM}
+\end{titlepage}
+
+% ==================================================
+% ENCABEZADO Y PÁGINA DE CRÉDITOS
+% ==================================================
+\encabezado
+
+% Página de derechos reservados (opcional)
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+    \small
+    \textcopyright\ \today\ Roman A. Mora \\
+    Universidad Autónoma Metropolitana \\
+    \vspace{0.5cm}
+    Esta obra está bajo una licencia Creative Commons \\
+    Atribución-NoComercial-CompartirIgual 4.0 Internacional.
+\end{center}
+\vspace*{1cm}
+\newpage
+
+% ==================================================
+% DEDICATORIA (opcional)
+% ==================================================
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+    \itshape
+    A mis estudiantes, \\
+    porque aprender estadística también puede ser creativo y divertido.
+\end{center}
+\vspace*{\fill}
+\newpage
+
+% ==================================================
+% ÍNDICES
+% ==================================================
+
+% Índice general
+\tableofcontents
+\newpage
+
+% Índice de figuras
+\listoffigures
+\newpage
+
+% Índice de tablas
+\listoftables
+\newpage
+
+% ==================================================
+% PRÓLOGO / INTRODUCCIÓN GENERAL
+% ==================================================
+% ==================================================
+% CAPÍTULOS PRINCIPALES
+% ==================================================
+\include{Capitulos/00-ruta-didactica}
+\include{Capitulos/04-anova}
+\include{Capitulos/00-preliminares}
+\include{Capitulos/00-ANOVA.tex}
+\include{Capitulos/02-conceptos}
+\include{Capitulos/03-disenos-clasicos}
+\include{Capitulos/05-factoriales}
+\include{Capitulos/06-aplicaciones}
+\include{Capitulos/07-ejercicios}
+
+% ==================================================
+% APÉNDICES O CIERRE
+% ==================================================
+\appendix
+\include{Capitulos/99-apendices}
+
+% ==================================================
+% BIBLIOGRAFÍA (si la tienes)
+% ==================================================
+% \bibliographystyle{plain}
+% \bibliography{referencias}
+
+\end{document}

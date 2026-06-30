@@ -1,0 +1,512 @@
+\section[Cuando los datos desaparecen]{Cuando los datos desaparecen:\\
+Limpieza, reconstrucción y análisis del comportamiento USD/MXN mediante medias móviles}
+
+En muchos libros de estadística, ciencia de datos y aprendizaje automático, los conjuntos de datos aparecen completos y listos para analizarse. Pareciera que el investigador siempre dispone de toda la información necesaria y que los datos existen sin errores, sin huecos y sin interrupciones.
+
+Sin embargo, en problemas reales esto rara vez ocurre. En muchas ocasiones existen fechas faltantes, errores de captura, interrupciones temporales o datos atípicos.
+
+Esto sucede incluso en variables ampliamente monitoreadas, como el tipo de cambio USD/MXN. Aunque existen múltiples plataformas financieras, no siempre se dispone de una serie perfecta.
+
+Por ello, antes de realizar análisis estadístico, predicción o modelado, es necesario limpiar y reconstruir los datos.
+
+Esta práctica estudia distintas estrategias de limpieza de datos utilizando la serie histórica USD/MXN.
+
+%===========================================================
+\section{Fuente de datos}
+%===========================================================
+
+Fuente utilizada:
+
+\url{https://mx.investing.com/currencies/usd-mxn-historical-data}
+
+Periodo analizado:
+
+\[
+03/03/2025 \text{ a } 17/05/2026
+\]
+
+%===========================================================
+\section{Objetivos del estudio}
+%===========================================================
+
+\begin{itemize}
+\item Detectar fechas faltantes.
+\item Detectar datos atípicos.
+\item Comparar técnicas de limpieza.
+\item Aplicar medias móviles de tamaño 2 a 10.
+\item Comparar errores mediante MSE.
+\item Analizar la distribución del error.
+\end{itemize}
+
+%===========================================================
+\section{Variables utilizadas}
+%===========================================================
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+Variable & Descripción\\
+\midrule
+Fecha & Día de observación\\
+Cierre & Tipo de cambio de cierre\\
+Apertura & Tipo de cambio de apertura\\
+Máximo & Valor máximo diario\\
+Mínimo & Valor mínimo diario\\
+\% var. & Variación porcentual diaria\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%===========================================================
+\section{Metodología de limpieza}
+%===========================================================
+
+%===========================================================
+\subsection{Detección de datos faltantes}
+%===========================================================
+
+Se construye un calendario diario continuo y posteriormente se comparan las fechas observadas contra las fechas esperadas.
+
+Esto permite identificar:
+
+\begin{itemize}
+\item fechas faltantes,
+\item huecos temporales,
+\item discontinuidades,
+\item registros incompletos.
+\end{itemize}
+
+%===========================================================
+\subsection{Detección de datos atípicos}
+%===========================================================
+
+Además de detectar fechas faltantes, también es importante identificar datos atípicos. Un dato atípico puede representar:
+
+\begin{itemize}
+\item un error de captura,
+\item un problema de almacenamiento,
+\item un cambio extraordinario del mercado,
+\item o un evento financiero real.
+\end{itemize}
+
+Por ello, en esta práctica los datos atípicos se marcan para análisis, pero no se eliminan automáticamente.
+
+%===========================================================
+\subsubsection{Método del rango intercuartílico (IQR)}
+%===========================================================
+
+\[
+IQR = Q_3 - Q_1
+\]
+
+Un valor se considera atípico si:
+
+\[
+y_i < Q_1 - 1.5(IQR)
+\]
+
+o
+
+\[
+y_i > Q_3 + 1.5(IQR)
+\]
+
+%===========================================================
+\subsubsection{Método del Z-score}
+%===========================================================
+
+\[
+z_i = \frac{y_i-\bar y}{s}
+\]
+
+Se considera posible dato atípico cuando:
+
+\[
+|z_i| > 3
+\]
+
+%===========================================================
+\subsection{Técnicas de reconstrucción de datos faltantes}
+%===========================================================
+
+%===========================================================
+\subsubsection{Eliminación (listwise deletion)}
+%===========================================================
+
+Elimina observaciones incompletas.
+
+\textbf{Ventajas:}
+\begin{itemize}
+\item no inventa información,
+\item simple de implementar.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+\item reduce tamaño de muestra,
+\item rompe continuidad temporal.
+\end{itemize}
+
+%===========================================================
+\subsubsection{Interpolación lineal}
+%===========================================================
+
+\[
+y_t =
+y_{t-1}
++
+\frac{y_{t+1}-y_{t-1}}{2}
+\]
+
+%===========================================================
+\subsubsection{Promedio local (ventana simétrica de 6 vecinos)}
+%===========================================================
+
+Se utilizan tres datos previos y tres posteriores:
+
+\[
+y_t =
+\frac{
+y_{t-3}+y_{t-2}+y_{t-1}
++y_{t+1}+y_{t+2}+y_{t+3}
+}{6}
+\]
+
+%===========================================================
+\subsubsection{Promedio mensual}
+%===========================================================
+
+\[
+\bar y_m =
+\frac{1}{n_m}
+\sum_{i=1}^{n_m} y_i
+\]
+
+%===========================================================
+\section{Análisis mediante medias móviles}
+%===========================================================
+
+Después de limpiar los datos se aplican medias móviles:
+
+\[
+n=2,3,4,\dots,10
+\]
+
+La media móvil se define como:
+
+\[
+MM_n =
+\frac{1}{n}
+\sum_{i=1}^{n} y_i
+\]
+
+%===========================================================
+\section{Métricas de evaluación}
+%===========================================================
+
+%===========================================================
+\subsection{Error cuadrático medio (MSE)}
+%===========================================================
+
+\[
+MSE =
+\frac{1}{n}
+\sum_{i=1}^{n}
+(y_i-\hat y_i)^2
+\]
+
+donde:
+
+\begin{itemize}
+\item \(y_i\): valor observado,
+\item \(\hat y_i\): valor estimado.
+\end{itemize}
+
+%===========================================================
+\subsection{Distribución del error}
+%===========================================================
+
+El error se define como:
+
+\[
+e_i = y_i - \hat y_i
+\]
+
+Para visualizar la distribución del error se utilizan diagramas de violín.
+
+Estos permiten observar:
+
+\begin{itemize}
+\item dispersión,
+\item concentración,
+\item asimetría,
+\item presencia de valores extremos.
+\end{itemize}
+
+%===========================================================
+\section{Resultados esperados}
+%===========================================================
+
+\begin{itemize}
+\item Fechas faltantes detectadas.
+\item Datos atípicos identificados.
+\item Series reconstruidas.
+\item Medias móviles calculadas.
+\item Comparación de MSE entre técnicas.
+\item Diagramas de violín generados.
+\item Mejor técnica de limpieza identificada.
+\item Mejor tamaño de ventana seleccionado.
+\end{itemize}
+
+%===========================================================
+\section{Conclusiones}
+%===========================================================
+
+La limpieza de datos modifica directamente los resultados del análisis. En series financieras, la manera en que se reconstruyen datos faltantes puede alterar tendencias, errores y conclusiones.
+
+Por ello, antes de aplicar modelos estadísticos o predictivos, es necesario comprender qué técnica de limpieza se utiliza y cómo afecta los resultados.
+
+%===========================================================
+\appendix
+%===========================================================
+
+%===========================================================
+\section{Anexo A: Pseudocódigo del procedimiento}
+%===========================================================
+
+\begin{verbatim}
+INICIO
+
+Leer datos USD/MXN
+
+Construir calendario completo
+
+Detectar:
+    Fechas faltantes
+    Datos atípicos
+
+Aplicar técnicas de reconstruccion:
+    Eliminacion
+    Interpolacion lineal
+    Promedio local
+    Promedio mensual
+
+Calcular:
+    Medias moviles (n = 2 a 10)
+    MSE para cada media movil
+    Distribucion del error
+
+Comparar resultados entre tecnicas
+
+FIN
+\end{verbatim}
+
+%===========================================================
+\section{Anexo B: Muestra de datos utilizados}
+%===========================================================
+
+\begin{verbatim}
+15/05/2026 17.3400 17.2215 17.4085 17.2090 +0.69%
+14/05/2026 17.2215 17.1775 17.2490 17.1575 +0.26%
+13/05/2026 17.1775 17.2280 17.2582 17.1629 -0.27%
+12/05/2026 17.2239 17.2025 17.2850 17.1805 +0.15%
+11/05/2026 17.1975 17.1915 17.2391 17.1587 -0.11%
+10/05/2026 17.2171 17.1810 17.2525 17.2090 +0.20%
+...
+03/03/2025 20.6860 20.5265 20.7505 20.3722 +0.75%
+\end{verbatim}
+
+%===========================================================
+\section{Anexo C: Implementación en Python}
+%===========================================================
+
+\begin{lstlisting}[language=Python]
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import re
+
+raw_text = """
+PEGAR AQUI LOS DATOS COMPLETOS
+"""
+
+patron = re.compile(
+    r"(\d{2}/\d{2}/\d{4})\s+"
+    r"([\d.]+)\s+"
+    r"([\d.]+)\s+"
+    r"([\d.]+)\s+"
+    r"([\d.]+)\s+"
+    r"([+-]?[\d.]+)%"
+)
+
+filas = []
+
+for linea in raw_text.splitlines():
+
+    m = patron.search(linea)
+
+    if m:
+        filas.append(m.groups())
+
+df = pd.DataFrame(
+    filas,
+    columns=[
+        "Fecha",
+        "Cierre",
+        "Apertura",
+        "Maximo",
+        "Minimo",
+        "Var_pct"
+    ]
+)
+
+df["Fecha"] = pd.to_datetime(
+    df["Fecha"],
+    format="%d/%m/%Y"
+)
+
+for col in [
+    "Cierre",
+    "Apertura",
+    "Maximo",
+    "Minimo",
+    "Var_pct"
+]:
+    df[col] = pd.to_numeric(
+        df[col],
+        errors="coerce"
+    )
+
+# DETECCION DE ATIPICOS CON IQR
+
+def detectar_atipicos_iqr(data, columna):
+
+    q1 = data[columna].quantile(0.25)
+    q3 = data[columna].quantile(0.75)
+
+    iqr = q3 - q1
+
+    li = q1 - 1.5 * iqr
+    ls = q3 + 1.5 * iqr
+
+    return (
+        (data[columna] < li) |
+        (data[columna] > ls)
+    )
+
+df["Atipico"] = detectar_atipicos_iqr(
+    df,
+    "Cierre"
+)
+
+# CREACION DE CALENDARIO COMPLETO
+
+calendario = pd.DataFrame({
+    "Fecha": pd.date_range(
+        df["Fecha"].min(),
+        df["Fecha"].max(),
+        freq="D"
+    )
+})
+
+df_completo = calendario.merge(
+    df,
+    on="Fecha",
+    how="left"
+)
+
+# INTERPOLACION LINEAL
+
+columnas_numericas = [
+    "Cierre",
+    "Apertura",
+    "Maximo",
+    "Minimo",
+    "Var_pct"
+]
+
+df_interpolacion = df_completo.copy()
+
+df_interpolacion[columnas_numericas] = (
+    df_interpolacion[columnas_numericas]
+    .interpolate(method="linear")
+)
+
+# CALCULO DE MEDIAS MOVILES
+
+for n in range(2,11):
+
+    df_interpolacion[f"MM_{n}"] = (
+        df_interpolacion["Cierre"]
+        .rolling(window=n, min_periods=1)
+        .mean()
+    )
+
+# FUNCION PARA CALCULAR MSE
+
+def calcular_mse(real, predicho):
+
+    return np.mean(
+        (real - predicho)**2
+    )
+
+# TABLA DE ERRORES POR VENTANA
+
+tabla_errores = []
+
+for n in range(2,11):
+
+    mse = calcular_mse(
+        df_interpolacion["Cierre"],
+        df_interpolacion[f"MM_{n}"]
+    )
+
+    tabla_errores.append({
+        "n": n,
+        "MSE": mse
+    })
+
+tabla_errores = pd.DataFrame(
+    tabla_errores
+)
+
+print(tabla_errores)
+
+# DIAGRAMA DE VIOLIN DE ERRORES
+
+errores = []
+
+for n in range(2,11):
+
+    temp = (
+        df_interpolacion["Cierre"]
+        -
+        df_interpolacion[f"MM_{n}"]
+    )
+
+    errores.append(
+        temp.dropna()
+    )
+
+plt.figure(figsize=(12,6))
+
+plt.violinplot(
+    errores,
+    showmeans=True,
+    showmedians=True
+)
+
+plt.xticks(
+    range(1,10),
+    [f"MM_{n}" for n in range(2,11)]
+)
+
+plt.title(
+    "Distribucion del error por media movil"
+)
+
+plt.grid(True)
+
+plt.show()
+\end{lstlisting}

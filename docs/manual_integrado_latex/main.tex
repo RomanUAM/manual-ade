@@ -1,0 +1,91 @@
+\documentclass[11pt,letterpaper,oneside]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{float}
+
+\geometry{margin=2.35cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=teal!60!black,
+  urlcolor=teal!60!black
+}
+
+\definecolor{uamTeal}{RGB}{15,118,110}
+\definecolor{uamOrange}{RGB}{162,62,25}
+\definecolor{softBlue}{RGB}{237,244,255}
+\definecolor{softGreen}{RGB}{237,247,245}
+\definecolor{softOrange}{RGB}{255,244,230}
+
+\setlist[itemize]{topsep=4pt,itemsep=2pt}
+\setlist[enumerate]{topsep=4pt,itemsep=2pt}
+
+\newtcolorbox{idea}{
+  colback=softBlue,
+  colframe=uamTeal,
+  boxrule=0.6pt,
+  arc=2mm,
+  title=Idea central
+}
+
+\newtcolorbox{practica}{
+  colback=softGreen,
+  colframe=uamTeal,
+  boxrule=0.6pt,
+  arc=2mm,
+  title=Practica guiada
+}
+
+\newtcolorbox{cuidado}{
+  colback=softOrange,
+  colframe=uamOrange,
+  boxrule=0.6pt,
+  arc=2mm,
+  title=Cuidado metodologico
+}
+
+\newcommand{\capituloPregunta}[1]{%
+  \chapter{#1}
+}
+
+\title{Diseño y Análisis de Experimentos en Ingeniería\\
+\large Manual integrado de prácticas, casos y actividades}
+\author{Roman A. Mora\\Universidad Autónoma Metropolitana}
+\date{\today}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\tableofcontents
+
+\include{Capitulos/00-prefacio}
+
+\mainmatter
+\include{Capitulos/01-necesidad-diseno}
+\include{Capitulos/02-variabilidad-datos}
+\include{Capitulos/03-anova-un-factor}
+\include{Capitulos/04-dos-factores}
+\include{Capitulos/05-factorial-2x2}
+\include{Capitulos/06-factoriales-reales}
+\include{Capitulos/07-taguchi}
+\include{Capitulos/08-modelado}
+\include{Capitulos/09-ancova-manova}
+\include{Capitulos/10-proyecto-integrador}
+
+\appendix
+\include{Capitulos/99-matriz-agentes}
+
+\end{document}

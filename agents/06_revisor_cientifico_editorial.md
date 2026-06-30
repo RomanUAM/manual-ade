@@ -100,3 +100,12 @@ Antes de aprobar una publicacion debe auditar:
 - navegabilidad de la pagina.
 
 Si cualquiera falla, debe rechazar la publicacion y proponer correcciones concretas.
+
+Tambien debe rechazar el manual si detecta jerarquia editorial falsa:
+
+- una sola practica convertida en varios capitulos;
+- resultados por equipo o por tamaño de muestra como capitulos independientes;
+- anexos internos que activan `\appendix` antes del cierre real del libro;
+- indice que refleja el archivo fuente y no la logica de aprendizaje.
+
+El revisor no debe aprobar un PDF solo porque compila; debe revisar si el indice cuenta una obra coherente.

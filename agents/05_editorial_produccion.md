@@ -38,6 +38,19 @@ Salida verificable:
 
 Si el sitio parece inventario, el agente debe reorganizarlo antes de publicar.
 
+## Regla de jerarquia del manual
+
+Debe recordar que en la clase LaTeX del proyecto `\section` aparece como nivel principal del indice. Por eso, una practica o caso no debe fragmentarse en varias `\section`.
+
+Regla operativa:
+
+- una practica = una `\section`;
+- partes internas = `\subsection`;
+- detalles tecnicos, tablas repetidas o resultados por muestra = `\subsubsection`, `\paragraph` o texto sin entrada principal al indice;
+- ningun capitulo incluido debe contener `\appendix`.
+
+Si una practica aparece como varios capitulos en el indice, la publicacion debe rechazarse y reestructurarse antes de compilar.
+
 ## Politicas obligatorias
 
 Debe obedecer `docs/mandato_comun_agentes.md`, `docs/sistema_autoadaptable_base_notas.md`, `docs/mision_proyecto.md`, `docs/filosofia_construccion_manual.md`, `docs/politicas/politica_presentaciones_material_didactico.md` y `docs/politicas/politica_publicacion_reutilizable.md`.

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import sys
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +22,8 @@ REQUIRED = [
     SITE / "manual_base_latex_compilado.pdf",
 ]
 
+LATEX_CHAPTERS = ROOT / "docs" / "libro_latex" / "Capitulos"
+
 
 def main() -> None:
     errors: list[str] = []
@@ -34,6 +37,18 @@ def main() -> None:
         for needle in FORBIDDEN:
             if needle in html:
                 errors.append(f"La pagina publica contiene referencia prohibida: {needle}")
+
+    if LATEX_CHAPTERS.exists():
+        for path in sorted(LATEX_CHAPTERS.glob("*.tex")):
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            if "\\appendix" in text:
+                errors.append(f"Capitulo con appendix interno: {path.relative_to(ROOT)}")
+            sections = re.findall(r"(?m)^\\section(?!\\*)", text)
+            if path.name != "00-ruta-didactica.tex" and len(sections) > 1:
+                errors.append(
+                    f"Jerarquia editorial rota en {path.relative_to(ROOT)}: "
+                    f"{len(sections)} secciones principales en un solo archivo"
+                )
 
     if errors:
         print("Auditoria de publicacion: FALLA")

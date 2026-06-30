@@ -82,6 +82,18 @@ Cada capitulo debe responder una pregunta de aprendizaje y seguir esta secuencia
 9. Actividades.
 10. Conexion.
 
+## Regla de jerarquia editorial
+
+En el manual LaTeX, `\section` equivale al nivel principal visible en el indice. Por tanto:
+
+- una practica no puede dividirse en varias `\section`;
+- una practica debe usar una sola `\section` como titulo general;
+- sus partes internas deben ser `\subsection`, `\subsubsection` o niveles menores;
+- los anexos de una practica no deben activar `\appendix` dentro del archivo;
+- si un archivo incluido genera varios capitulos falsos en el indice, el agente editorial y el revisor deben rechazarlo.
+
+La auditoria de publicacion debe bloquear capitulos con mas de una `\section` principal.
+
 ## Criterio humano
 
 Antes de aprobar cualquier salida, el agente debe preguntar:

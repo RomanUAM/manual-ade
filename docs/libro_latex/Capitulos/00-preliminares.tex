@@ -12,7 +12,7 @@ Por ello, antes de realizar análisis estadístico, predicción o modelado, es n
 Esta práctica estudia distintas estrategias de limpieza de datos utilizando la serie histórica USD/MXN.
 
 %===========================================================
-\section{Fuente de datos}
+\subsection{Fuente de datos}
 %===========================================================
 
 Fuente utilizada:
@@ -26,7 +26,7 @@ Periodo analizado:
 \]
 
 %===========================================================
-\section{Objetivos del estudio}
+\subsection{Objetivos del estudio}
 %===========================================================
 
 \begin{itemize}
@@ -39,7 +39,7 @@ Periodo analizado:
 \end{itemize}
 
 %===========================================================
-\section{Variables utilizadas}
+\subsection{Variables utilizadas}
 %===========================================================
 
 \begin{table}[H]
@@ -59,11 +59,11 @@ Mínimo & Valor mínimo diario\\
 \end{table}
 
 %===========================================================
-\section{Metodología de limpieza}
+\subsection{Metodología de limpieza}
 %===========================================================
 
 %===========================================================
-\subsection{Detección de datos faltantes}
+\subsubsection{Detección de datos faltantes}
 %===========================================================
 
 Se construye un calendario diario continuo y posteriormente se comparan las fechas observadas contra las fechas esperadas.
@@ -78,7 +78,7 @@ Esto permite identificar:
 \end{itemize}
 
 %===========================================================
-\subsection{Detección de datos atípicos}
+\subsubsection{Detección de datos atípicos}
 %===========================================================
 
 Además de detectar fechas faltantes, también es importante identificar datos atípicos. Un dato atípico puede representar:
@@ -93,7 +93,7 @@ Además de detectar fechas faltantes, también es importante identificar datos a
 Por ello, en esta práctica los datos atípicos se marcan para análisis, pero no se eliminan automáticamente.
 
 %===========================================================
-\subsubsection{Método del rango intercuartílico (IQR)}
+\paragraph{Método del rango intercuartílico (IQR)}
 %===========================================================
 
 \[
@@ -113,7 +113,7 @@ y_i > Q_3 + 1.5(IQR)
 \]
 
 %===========================================================
-\subsubsection{Método del Z-score}
+\paragraph{Método del Z-score}
 %===========================================================
 
 \[
@@ -127,11 +127,11 @@ Se considera posible dato atípico cuando:
 \]
 
 %===========================================================
-\subsection{Técnicas de reconstrucción de datos faltantes}
+\subsubsection{Técnicas de reconstrucción de datos faltantes}
 %===========================================================
 
 %===========================================================
-\subsubsection{Eliminación (listwise deletion)}
+\paragraph{Eliminación (listwise deletion)}
 %===========================================================
 
 Elimina observaciones incompletas.
@@ -149,7 +149,7 @@ Elimina observaciones incompletas.
 \end{itemize}
 
 %===========================================================
-\subsubsection{Interpolación lineal}
+\paragraph{Interpolación lineal}
 %===========================================================
 
 \[
@@ -160,7 +160,7 @@ y_{t-1}
 \]
 
 %===========================================================
-\subsubsection{Promedio local (ventana simétrica de 6 vecinos)}
+\paragraph{Promedio local (ventana simétrica de 6 vecinos)}
 %===========================================================
 
 Se utilizan tres datos previos y tres posteriores:
@@ -174,7 +174,7 @@ y_{t-3}+y_{t-2}+y_{t-1}
 \]
 
 %===========================================================
-\subsubsection{Promedio mensual}
+\paragraph{Promedio mensual}
 %===========================================================
 
 \[
@@ -184,7 +184,7 @@ y_{t-3}+y_{t-2}+y_{t-1}
 \]
 
 %===========================================================
-\section{Análisis mediante medias móviles}
+\subsection{Análisis mediante medias móviles}
 %===========================================================
 
 Después de limpiar los datos se aplican medias móviles:
@@ -202,11 +202,11 @@ MM_n =
 \]
 
 %===========================================================
-\section{Métricas de evaluación}
+\subsection{Métricas de evaluación}
 %===========================================================
 
 %===========================================================
-\subsection{Error cuadrático medio (MSE)}
+\subsubsection{Error cuadrático medio (MSE)}
 %===========================================================
 
 \[
@@ -224,7 +224,7 @@ donde:
 \end{itemize}
 
 %===========================================================
-\subsection{Distribución del error}
+\subsubsection{Distribución del error}
 %===========================================================
 
 El error se define como:
@@ -245,7 +245,7 @@ Estos permiten observar:
 \end{itemize}
 
 %===========================================================
-\section{Resultados esperados}
+\subsection{Resultados esperados}
 %===========================================================
 
 \begin{itemize}
@@ -260,7 +260,7 @@ Estos permiten observar:
 \end{itemize}
 
 %===========================================================
-\section{Conclusiones}
+\subsection{Conclusiones}
 %===========================================================
 
 La limpieza de datos modifica directamente los resultados del análisis. En series financieras, la manera en que se reconstruyen datos faltantes puede alterar tendencias, errores y conclusiones.
@@ -268,11 +268,10 @@ La limpieza de datos modifica directamente los resultados del análisis. En seri
 Por ello, antes de aplicar modelos estadísticos o predictivos, es necesario comprender qué técnica de limpieza se utiliza y cómo afecta los resultados.
 
 %===========================================================
-\appendix
 %===========================================================
 
 %===========================================================
-\section{Anexo A: Pseudocódigo del procedimiento}
+\subsection{Anexo A: Pseudocódigo del procedimiento}
 %===========================================================
 
 \begin{verbatim}
@@ -303,7 +302,7 @@ FIN
 \end{verbatim}
 
 %===========================================================
-\section{Anexo B: Muestra de datos utilizados}
+\subsection{Anexo B: Muestra de datos utilizados}
 %===========================================================
 
 \begin{verbatim}
@@ -318,7 +317,7 @@ FIN
 \end{verbatim}
 
 %===========================================================
-\section{Anexo C: Implementación en Python}
+\subsection{Anexo C: Implementación en Python}
 %===========================================================
 
 \begin{lstlisting}[language=Python]

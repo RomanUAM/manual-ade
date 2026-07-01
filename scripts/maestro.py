@@ -247,6 +247,57 @@ def source_code_html() -> str:
     </section>"""
 
 
+def chatbot_html() -> str:
+    return """
+    <section class="chatbot">
+      <div>
+        <h2>Chatbot academico local</h2>
+        <p>Consulta la base de conocimiento generada por el HAG. Responde solo con materiales integrados: practica, manual y presentacion enriquecida.</p>
+      </div>
+      <div class="chat-row">
+        <input id="chat-query" type="search" placeholder="Pregunta por Taguchi, MANOVA, Gini, ANCOVA..." aria-label="Pregunta al chatbot academico">
+        <button id="chat-button" type="button">Consultar</button>
+      </div>
+      <div id="chat-answer" class="chat-answer">Escribe una pregunta para recuperar materiales conectados.</div>
+    </section>
+    <script>
+    (() => {
+      const repo = "https://github.com/RomanUAM/manual-ade/blob/main/";
+      const input = document.getElementById("chat-query");
+      const button = document.getElementById("chat-button");
+      const answer = document.getElementById("chat-answer");
+      let kb = [];
+      fetch("chatbot_kb.json").then(r => r.ok ? r.json() : {items: []}).then(data => { kb = data.items || []; }).catch(() => { kb = []; });
+      function esc(value) {
+        return String(value || "").replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+      }
+      function ask() {
+        const q = (input.value || "").toLowerCase().trim();
+        if (!q) {
+          answer.textContent = "Escribe una pregunta para recuperar materiales conectados.";
+          return;
+        }
+        const terms = q.split(/\\s+/).filter(Boolean);
+        const scored = kb.map(item => {
+          const text = [item.title, item.topic, item.chapter, item.summary, ...(item.activities || [])].join(" ").toLowerCase();
+          const score = terms.reduce((acc, term) => acc + (text.includes(term) ? 1 : 0), 0);
+          return {item, score};
+        }).filter(x => x.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
+        if (!scored.length) {
+          answer.innerHTML = "<p>No encontre una coincidencia integrada. Eso debe registrarse como brecha del HAG, no inventarse.</p>";
+          return;
+        }
+        answer.innerHTML = scored.map(({item}) => {
+          const links = (item.links || []).map(link => `<a target="_blank" href="${repo}${encodeURIComponent(link.path).replaceAll('%2F','/')}">${esc(link.label)}</a>`).join("");
+          return `<article><h3>${esc(item.title)}</h3><p>${esc(item.summary)}</p><div>${links}</div></article>`;
+        }).join("");
+      }
+      button.addEventListener("click", ask);
+      input.addEventListener("keydown", event => { if (event.key === "Enter") ask(); });
+    })();
+    </script>"""
+
+
 def write_hag_dashboard() -> None:
     SITE_HAG.mkdir(parents=True, exist_ok=True)
     data = hag_summary()
@@ -640,7 +691,7 @@ nav h2{{font-size:15px;margin:0 0 10px;color:var(--muted);text-transform:upperca
 .resources,.pdf-viewer,.authors,.hag-panel,.source-code{{background:var(--panel);border:1px solid var(--line);border-radius:8px}} .badges{{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}} .badges span{{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:13px}} .badges b{{color:var(--accent);margin-right:6px}}
 .chapter{{display:grid;grid-template-columns:72px 1fr;gap:18px;padding:28px 0;border-top:1px solid var(--line);scroll-margin-top:12px}} .num{{width:56px;height:56px;display:grid;place-items:center;background:var(--accent);color:white;border-radius:8px;font-weight:800}} .chapter h2{{margin:0 0 6px;font-size:clamp(24px,3vw,34px);letter-spacing:0;line-height:1.12}} .promise{{margin:0 0 14px;color:var(--muted);font-size:18px;max-width:900px}} .chapter-map{{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}} .chapter-map span{{border:1px solid var(--line);border-radius:999px;background:#fff;padding:5px 10px;font-size:12px;color:var(--muted);font-weight:700}} .learning-path{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}} .learning-path article{{border:1px solid var(--line);border-radius:8px;padding:12px;background:#fff}} .learning-path h3{{margin:0 0 6px;font-size:13px;color:var(--accent);text-transform:uppercase}} .learning-path p{{margin:0}} .chapter-resources{{margin-top:16px;border-left:4px solid var(--accent2);padding:10px 0 0 14px}} .chapter-resources h3{{margin:0 0 4px;font-size:14px;color:var(--muted);text-transform:uppercase}} .chapter-resources p{{margin:0 0 10px;color:var(--muted)}} .resource-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}} .resource-card{{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--soft)}} .resource-card:hover{{border-color:var(--accent)}} .resource-card strong{{display:block;margin:4px 0}} .resource-card small{{display:block;color:var(--muted);font-size:12px}} .resource-card p{{margin:8px 0 0;color:var(--ink);font-size:13px;line-height:1.42}} .kind{{font-size:12px;font-weight:800;color:var(--accent2)}} .connection{{margin-top:14px;background:var(--warn);border:1px solid #fed7aa;border-radius:8px;padding:10px 12px}}
 .internal-inputs{{margin-top:10px;background:var(--violet);border:1px solid var(--line);border-radius:8px;padding:10px}} .internal-inputs h4{{margin:0 0 4px;font-size:13px;color:#4c1d95;text-transform:uppercase}} .internal-inputs ul{{margin:6px 0 0;padding-left:18px}}
-.pdf-viewer{{padding:18px;margin:18px 0;background:#fff}} .pdf-actions{{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}} .pdf-actions a{{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:750}} .pdf-actions a.secondary{{background:#243447}} .pdf-viewer iframe{{width:100%;height:560px;border:1px solid var(--line);border-radius:8px;background:#fff}} .resources,.authors,.hag-panel,.source-code{{padding:16px;margin-top:18px}} .authors ul{{columns:2;gap:28px;margin:10px 0 0;padding-left:20px}} .authors li{{break-inside:avoid;margin:4px 0}} .hag-panel{{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;background:var(--blue)}} .hag-panel h2,.source-code h2{{margin:0 0 4px}} .hag-panel p,.source-code p{{margin:0;color:var(--muted)}} .hag-status{{display:grid;gap:4px;font-size:13px}} .hag-status strong{{color:var(--accent2)}} .hag-panel a,.source-links a{{background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:800;white-space:nowrap}} .source-code{{display:grid;grid-template-columns:1fr;gap:12px;background:#fff}} .source-links{{display:flex;flex-wrap:wrap;gap:10px}} .source-links a:nth-child(even){{background:#243447}} code{{color:var(--accent2);overflow-wrap:anywhere}} @media(max-width:900px){{.hero-grid,.layout,.hag-panel{{grid-template-columns:1fr}}.reader-route{{grid-template-columns:repeat(2,1fr)}}nav{{position:relative;max-height:none}}.chapter{{grid-template-columns:1fr}}.learning-path{{grid-template-columns:1fr}}.authors ul{{columns:1}}.pdf-viewer iframe{{height:380px}}}}
+.pdf-viewer{{padding:18px;margin:18px 0;background:#fff}} .pdf-actions{{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}} .pdf-actions a{{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:750}} .pdf-actions a.secondary{{background:#243447}} .pdf-viewer iframe{{width:100%;height:560px;border:1px solid var(--line);border-radius:8px;background:#fff}} .resources,.authors,.hag-panel,.source-code,.chatbot{{padding:16px;margin-top:18px}} .authors ul{{columns:2;gap:28px;margin:10px 0 0;padding-left:20px}} .authors li{{break-inside:avoid;margin:4px 0}} .hag-panel{{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;background:var(--blue)}} .hag-panel h2,.source-code h2,.chatbot h2{{margin:0 0 4px}} .hag-panel p,.source-code p,.chatbot p{{margin:0;color:var(--muted)}} .hag-status{{display:grid;gap:4px;font-size:13px}} .hag-status strong{{color:var(--accent2)}} .hag-panel a,.source-links a,.chat-answer a{{background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:800;white-space:nowrap}} .source-code,.chatbot{{display:grid;grid-template-columns:1fr;gap:12px;background:#fff;border:1px solid var(--line);border-radius:8px}} .source-links,.chat-answer article div{{display:flex;flex-wrap:wrap;gap:10px}} .source-links a:nth-child(even),.chat-answer a:nth-child(even){{background:#243447}} .chat-row{{display:grid;grid-template-columns:1fr auto;gap:10px}} .chat-row input{{width:100%;border:1px solid var(--line);border-radius:8px;padding:11px 12px;font:inherit}} .chat-row button{{border:0;background:var(--accent2);color:#fff;border-radius:8px;padding:11px 14px;font-weight:800;cursor:pointer}} .chat-answer{{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:12px}} .chat-answer article{{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:10px}} .chat-answer h3{{margin:0 0 6px}} code{{color:var(--accent2);overflow-wrap:anywhere}} @media(max-width:900px){{.hero-grid,.layout,.hag-panel,.chat-row{{grid-template-columns:1fr}}.reader-route{{grid-template-columns:repeat(2,1fr)}}nav{{position:relative;max-height:none}}.chapter{{grid-template-columns:1fr}}.learning-path{{grid-template-columns:1fr}}.authors ul{{columns:1}}.pdf-viewer iframe{{height:380px}}}}
 </style>
 </head>
 <body>
@@ -651,6 +702,7 @@ nav h2{{font-size:15px;margin:0 0 10px;color:var(--muted);text-transform:upperca
 {authors_html()}
 {hag_panel_html()}
 {source_code_html()}
+{chatbot_html()}
 <section class="pdf-viewer"><h2>Manual enriquecido del curso</h2><p>PDF principal para estudiantes. Integra la narrativa del manual con practicas, presentaciones, actividades, errores frecuentes y criterios de evaluacion. El manual base queda como referencia historica, no como experiencia final.</p><div class="pdf-actions"><a href="{html.escape(pdf_viewer_src)}" target="_blank">Abrir manual enriquecido</a><a class="secondary" href="{html.escape(pdf_presentation_src)}" target="_blank">Abrir presentacion</a><a class="secondary" href="{html.escape(pdf_base_src)}" target="_blank">Manual base</a></div><iframe src="{html.escape(pdf_viewer_src)}"></iframe></section>
 {''.join(chapters_html)}
 <section class="resources"><h2>Fuentes y materiales del curso</h2><p>Estos materiales se usan para construir ejemplos, practicas, casos y actividades. La lectura principal debe seguir el manual y los capitulos.</p><div class="badges">{topic_badges}</div><div class="badges">{ext_badges}</div></section>
@@ -706,6 +758,10 @@ def cmd_hag(args: argparse.Namespace | None = None) -> None:
 
 def cmd_extraer_conocimiento(_: argparse.Namespace | None = None) -> None:
     subprocess.run([sys.executable, str(ROOT / "scripts" / "hag.py"), "extract"], check=True)
+
+
+def cmd_integrar_presentaciones(_: argparse.Namespace | None = None) -> None:
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "hag.py"), "integrate-presentations"], check=True)
 
 
 def cmd_hag_api(args: argparse.Namespace | None = None) -> None:
@@ -779,6 +835,7 @@ def menu() -> None:
         print("12. Servir API HAG")
         print("13. Extraer conocimiento")
         print("14. Generar ecosistema de aprendizaje")
+        print("15. Integrar presentaciones en manual y practicas")
         print("0. Salir")
         choice = input("\nElige una opcion: ").strip()
         if choice == "0":
@@ -815,6 +872,8 @@ def menu() -> None:
             cmd_extraer_conocimiento()
         elif choice == "14":
             cmd_hag(argparse.Namespace(action="ecosystem"))
+        elif choice == "15":
+            cmd_integrar_presentaciones()
         else:
             print("Opcion no reconocida.")
 
@@ -834,9 +893,10 @@ def main() -> None:
     p_serve.set_defaults(func=cmd_servir)
     sub.add_parser("auditar-publicacion").set_defaults(func=cmd_auditar)
     p_hag = sub.add_parser("hag")
-    p_hag.add_argument("action", choices=["init", "extract", "ecosystem", "build", "audit", "status"], nargs="?", default="build")
+    p_hag.add_argument("action", choices=["init", "extract", "ecosystem", "integrate-presentations", "build", "audit", "status"], nargs="?", default="build")
     p_hag.set_defaults(func=cmd_hag)
     sub.add_parser("extraer-conocimiento").set_defaults(func=cmd_extraer_conocimiento)
+    sub.add_parser("integrar-presentaciones").set_defaults(func=cmd_integrar_presentaciones)
     p_hag_api = sub.add_parser("hag-api")
     p_hag_api.add_argument("--port", type=int, default=8787)
     p_hag_api.set_defaults(func=cmd_hag_api)

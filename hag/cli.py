@@ -6,6 +6,7 @@ from pathlib import Path
 
 from .director import HAGDirector
 from .extraction import run_extraction
+from .presentation_integration import integrate_presentations
 
 
 def root_from_args(args: argparse.Namespace) -> Path:
@@ -40,6 +41,12 @@ def cmd_ecosystem(args: argparse.Namespace) -> None:
         raise SystemExit(2)
 
 
+def cmd_integrate_presentations(args: argparse.Namespace) -> None:
+    root = root_from_args(args)
+    items = integrate_presentations(root)
+    print(json.dumps({"status": "ok", "presentations_integrated": len(items)}, ensure_ascii=False, indent=2))
+
+
 def cmd_audit(args: argparse.Namespace) -> None:
     director = HAGDirector(root_from_args(args))
     result = director.audit()
@@ -64,6 +71,7 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("init").set_defaults(func=cmd_init)
     sub.add_parser("extract").set_defaults(func=cmd_extract)
     sub.add_parser("ecosystem").set_defaults(func=cmd_ecosystem)
+    sub.add_parser("integrate-presentations").set_defaults(func=cmd_integrate_presentations)
     sub.add_parser("build").set_defaults(func=cmd_build)
     sub.add_parser("audit").set_defaults(func=cmd_audit)
     sub.add_parser("status").set_defaults(func=cmd_status)

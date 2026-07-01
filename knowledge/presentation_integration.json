@@ -1,0 +1,156 @@
+{
+  "schema": "hag.presentation_integration.v1",
+  "count": 5,
+  "items": [
+    {
+      "id": "gini-muestreo",
+      "title": "Muestreo e indice de Gini",
+      "topic": "muestreo",
+      "chapter": "02-variabilidad-datos",
+      "source_path": "data/raw/curso-2026p/Una-exploracion-del-Indice-de-Gini-mundial-a-traves-de-cinco-metodos-de-muestreo (1).pdf",
+      "practice_path": "docs/presentaciones_integradas/gini-muestreo/practica_generada.md",
+      "manual_path": "docs/manual_integrado_latex/Capitulos/integraciones/gini-muestreo.tex",
+      "enriched_presentation_path": "docs/presentaciones_integradas/gini-muestreo/presentacion_enriquecida.md",
+      "summary": "Comprender como distintos metodos de muestreo modifican la representacion de una realidad social.",
+      "activities": [
+        "Identificar variables y factores.",
+        "Construir grafica inicial.",
+        "Redactar decision con evidencia."
+      ],
+      "links": [
+        {
+          "label": "Practica generada",
+          "path": "docs/presentaciones_integradas/gini-muestreo/practica_generada.md"
+        },
+        {
+          "label": "Manual",
+          "path": "docs/manual_integrado_latex/Capitulos/integraciones/gini-muestreo.tex"
+        },
+        {
+          "label": "Presentacion enriquecida",
+          "path": "docs/presentaciones_integradas/gini-muestreo/presentacion_enriquecida.md"
+        }
+      ]
+    },
+    {
+      "id": "taguchi-python",
+      "title": "De datos continuos a diseno Taguchi con Python",
+      "topic": "taguchi",
+      "chapter": "07-taguchi",
+      "source_path": "data/raw/curso-2026p/De-Datos-Continuos-a-Diseno-Taguchi-Analisis-Experimental-con-Python.pdf",
+      "practice_path": "docs/presentaciones_integradas/taguchi-python/practica_generada.md",
+      "manual_path": "docs/manual_integrado_latex/Capitulos/integraciones/taguchi-python.tex",
+      "enriched_presentation_path": "docs/presentaciones_integradas/taguchi-python/presentacion_enriquecida.md",
+      "summary": "Convertir factores continuos en niveles discretos para estudiar robustez y reproducibilidad.",
+      "activities": [
+        "Identificar variables y factores.",
+        "Construir grafica inicial.",
+        "Redactar decision con evidencia."
+      ],
+      "links": [
+        {
+          "label": "Practica generada",
+          "path": "docs/presentaciones_integradas/taguchi-python/practica_generada.md"
+        },
+        {
+          "label": "Manual",
+          "path": "docs/manual_integrado_latex/Capitulos/integraciones/taguchi-python.tex"
+        },
+        {
+          "label": "Presentacion enriquecida",
+          "path": "docs/presentaciones_integradas/taguchi-python/presentacion_enriquecida.md"
+        }
+      ]
+    },
+    {
+      "id": "manova-plantas",
+      "title": "MANOVA con respuestas fisiologicas en plantas",
+      "topic": "manova",
+      "chapter": "09-ancova-manova",
+      "source_path": "data/raw/curso-2026p/Ejemplo-Practico-de-MANOVA.pdf",
+      "practice_path": "docs/presentaciones_integradas/manova-plantas/practica_generada.md",
+      "manual_path": "docs/manual_integrado_latex/Capitulos/integraciones/manova-plantas.tex",
+      "enriched_presentation_path": "docs/presentaciones_integradas/manova-plantas/presentacion_enriquecida.md",
+      "summary": "Decidir cuando varias respuestas correlacionadas deben analizarse como sistema.",
+      "activities": [
+        "Identificar variables y factores.",
+        "Construir grafica inicial.",
+        "Redactar decision con evidencia."
+      ],
+      "links": [
+        {
+          "label": "Practica generada",
+          "path": "docs/presentaciones_integradas/manova-plantas/practica_generada.md"
+        },
+        {
+          "label": "Manual",
+          "path": "docs/manual_integrado_latex/Capitulos/integraciones/manova-plantas.tex"
+        },
+        {
+          "label": "Presentacion enriquecida",
+          "path": "docs/presentaciones_integradas/manova-plantas/presentacion_enriquecida.md"
+        }
+      ]
+    },
+    {
+      "id": "rendimiento-termico",
+      "title": "Rendimiento termico en procesadores",
+      "topic": "manova factorial",
+      "chapter": "09-ancova-manova",
+      "source_path": "data/raw/curso-2025/global/Análisis Multivariado del Rendimiento Térmico en Procesadores de Alto Desempeño..pptx",
+      "practice_path": "docs/presentaciones_integradas/rendimiento-termico/practica_generada.md",
+      "manual_path": "docs/manual_integrado_latex/Capitulos/integraciones/rendimiento-termico.tex",
+      "enriched_presentation_path": "docs/presentaciones_integradas/rendimiento-termico/presentacion_enriquecida.md",
+      "summary": "Equilibrar temperatura y rendimiento en computacion intensiva mediante diseno factorial y respuestas multiples.",
+      "activities": [
+        "Identificar variables y factores.",
+        "Construir grafica inicial.",
+        "Redactar decision con evidencia."
+      ],
+      "links": [
+        {
+          "label": "Practica generada",
+          "path": "docs/presentaciones_integradas/rendimiento-termico/practica_generada.md"
+        },
+        {
+          "label": "Manual",
+          "path": "docs/manual_integrado_latex/Capitulos/integraciones/rendimiento-termico.tex"
+        },
+        {
+          "label": "Presentacion enriquecida",
+          "path": "docs/presentaciones_integradas/rendimiento-termico/presentacion_enriquecida.md"
+        }
+      ]
+    },
+    {
+      "id": "ancova-covariables",
+      "title": "ANCOVA con tres variables explicativas",
+      "topic": "ancova",
+      "chapter": "09-ancova-manova",
+      "source_path": "data/raw/curso-2026p/Analisis-de-Covarianza-ANCOVA-con-3-Variables-Explicativas-y-1-Variable-Respuesta.pdf",
+      "practice_path": "docs/presentaciones_integradas/ancova-covariables/practica_generada.md",
+      "manual_path": "docs/manual_integrado_latex/Capitulos/integraciones/ancova-covariables.tex",
+      "enriched_presentation_path": "docs/presentaciones_integradas/ancova-covariables/presentacion_enriquecida.md",
+      "summary": "Ajustar una respuesta considerando covariables sin confundir control estadistico con causalidad.",
+      "activities": [
+        "Identificar variables y factores.",
+        "Construir grafica inicial.",
+        "Redactar decision con evidencia."
+      ],
+      "links": [
+        {
+          "label": "Practica generada",
+          "path": "docs/presentaciones_integradas/ancova-covariables/practica_generada.md"
+        },
+        {
+          "label": "Manual",
+          "path": "docs/manual_integrado_latex/Capitulos/integraciones/ancova-covariables.tex"
+        },
+        {
+          "label": "Presentacion enriquecida",
+          "path": "docs/presentaciones_integradas/ancova-covariables/presentacion_enriquecida.md"
+        }
+      ]
+    }
+  ]
+}

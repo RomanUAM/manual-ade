@@ -1,0 +1,152 @@
+\capituloPregunta{¿Cómo se convierte el material del curso en un ecosistema de aprendizaje?}
+
+\section{Motivación}
+
+Un manual universitario no debe comportarse como una bodega de documentos. Si una presentación contiene una buena historia, esa historia debe aparecer en el libro. Si una práctica contiene una actividad útil, esa actividad debe alimentar el manual, la página, la evaluación y la guía del profesor. Si existe código, debe convertirse en explicación, simulador y ejercicio.
+
+Este capítulo documenta la integración mínima que el sistema debe realizar antes de aceptar un tema como parte del curso. No se trata de contar archivos, sino de transformar materiales dispersos en una ruta de aprendizaje que el estudiante pueda recorrer sin depender de una explicación improvisada.
+
+\begin{idea}
+La regla operativa es sencilla: cuando existe un capítulo del libro, debe existir también una presentación, una práctica, ejercicios, soluciones, evaluación, simulador o código didáctico e infografía. Si falta alguno, el HAG debe generarlo como primera versión editable y marcar qué material del curso lo alimentó.
+\end{idea}
+
+\section{Ruta del estudiante}
+
+Cada tema se organiza como una experiencia:
+
+\begin{enumerate}
+  \item \textbf{Historia}: una situación cercana o profesional que hace necesaria la técnica.
+  \item \textbf{Pregunta}: qué decisión de ingeniería se quiere tomar.
+  \item \textbf{Diseño}: factores, niveles, unidad experimental, respuesta, controles y réplicas.
+  \item \textbf{Actividad}: una práctica, simulación o análisis guiado.
+  \item \textbf{Interpretación}: lectura de resultados sin exagerar causalidad.
+  \item \textbf{Evaluación}: evidencia de que el estudiante comprendió el método.
+  \item \textbf{Conexión}: cómo este tema prepara el siguiente.
+\end{enumerate}
+
+\section{Material integrado por tema}
+
+\subsection{Muestreo: índice de Gini}
+
+La práctica de muestreo con el índice de Gini no debe quedarse como estadística descriptiva aislada. Su introducción plantea un problema genuino: estudiar fenómenos sociales complejos puede ser costoso, tardado o imposible si se intenta observar todo. Por eso el muestreo aparece como una herramienta para representar una realidad amplia a partir de una parte de ella.
+
+En el manual, este material alimenta el capítulo de variabilidad y muestreo. La historia didáctica es:
+
+\begin{quote}
+Antes de comparar tratamientos, el estudiante debe entender que una muestra modifica la forma en que percibimos la realidad.
+\end{quote}
+
+Actividad incorporada:
+
+\begin{itemize}
+  \item comparar cinco métodos de muestreo;
+  \item discutir cuál representa mejor la realidad;
+  \item interpretar media, varianza y distribución antes de pasar a ANOVA.
+\end{itemize}
+
+\subsection{ANOVA de un factor: lentejas, miel, azúcar y café}
+
+La práctica de lentejas contiene una estructura completa: introducción biológica, diseño experimental, materiales, resultados descriptivos, ANOVA, discusión y conclusiones. Por tanto, no debe aparecer como archivo separado. Debe ser el caso narrativo central del capítulo de ANOVA de un factor.
+
+La historia del capítulo queda así:
+
+\begin{quote}
+Una semilla de lenteja permite observar crecimiento, germinación y hongos. El problema no es decidir con una sola observación, sino distinguir si las diferencias entre tratamientos son mayores que la variabilidad natural entre réplicas.
+\end{quote}
+
+Elementos incorporados al manual:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{0.28\textwidth}p{0.58\textwidth}}
+\toprule
+Elemento del material & Uso didáctico en el manual\\
+\midrule
+Introducción biológica & Motivar por qué el sistema es observable y de ciclo corto\\
+Tratamientos miel, azúcar, café y blanco & Definir factor y niveles\\
+Germinación, crecimiento y hongos & Discutir variables respuesta múltiples\\
+ANOVA y estadístico F & Formalizar decisión con variabilidad\\
+Discusión final & Enseñar conclusión prudente\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{practica}
+Actividad para el estudiante: antes de calcular ANOVA, dibujar una gráfica por tratamiento y escribir una hipótesis en lenguaje cotidiano. Después calcular el estadístico F y comparar si la interpretación visual coincide con la evidencia estadística.
+\end{practica}
+
+\subsection{Diseño factorial \(2^2\): cúrcuma, cloro y papel}
+
+La práctica de cúrcuma y cloro sí contiene una estructura factorial más clara que una simple observación de hongos. Presenta objetivo general, objetivos particulares, factores, tratamientos, blanco experimental, repeticiones, cambios visuales y medición con luxómetro.
+
+Por eso se usa como caso central del capítulo factorial \(2^2\). La práctica de hongos en tortillas se conserva, pero no como diseño completo: se usa como contraejemplo para mostrar qué falta cuando una observación todavía no se ha convertido en experimento.
+
+\begin{cuidado}
+No toda observación interesante es un diseño factorial. Para aceptar un \(2^2\) deben existir dos factores, dos niveles por factor, tratamientos definidos, unidad experimental, réplicas, respuesta y control.
+\end{cuidado}
+
+Actividad incorporada:
+
+\begin{enumerate}
+  \item identificar factores y niveles en cúrcuma--cloro;
+  \item justificar el blanco experimental;
+  \item explicar por qué las repeticiones importan;
+  \item rediseñar la observación de hongos en tortillas para convertirla en un experimento válido.
+\end{enumerate}
+
+\subsection{Taguchi y Python: de datos continuos a diseño robusto}
+
+El material de Taguchi con Python aporta una conexión importante entre estadística experimental y reproducibilidad computacional. La presentación plantea un problema real: los datos continuos no siempre vienen de un diseño Taguchi tradicional. La solución propuesta consiste en discretizar factores mediante cuantiles y reconstruir un diseño \(3^2\) aproximado.
+
+Este material alimenta tres recursos:
+
+\begin{itemize}
+  \item explicación del concepto de niveles discretos;
+  \item simulador o código reproducible;
+  \item comparación entre diseño ideal y datos observacionales reconstruidos.
+\end{itemize}
+
+\begin{idea}
+El estudiante debe comprender que el código no es un apéndice técnico. El código es una forma de hacer visible el razonamiento experimental: clasificar, agrupar, comparar y decidir.
+\end{idea}
+
+\subsection{MANOVA: respuestas múltiples y dictamen de ingeniería}
+
+La presentación de rendimiento térmico en procesadores y el ejemplo de MANOVA con plantas permiten explicar por qué a veces una sola variable respuesta no basta. En procesadores se desea maximizar rendimiento y controlar temperatura; en plantas se estudian altura, biomasa y clorofila.
+
+El valor didáctico no está únicamente en el cálculo multivariado, sino en el dictamen:
+
+\begin{quote}
+La decisión de ingeniería debe equilibrar rendimiento, temperatura, consumo, ruido o desarrollo fisiológico. MANOVA ayuda cuando las respuestas se mueven juntas y no conviene analizarlas como mundos separados.
+\end{quote}
+
+Actividad incorporada:
+
+\begin{itemize}
+  \item identificar variables dependientes múltiples;
+  \item discutir por qué hacer varios ANOVA separados aumenta el riesgo de error;
+  \item redactar una recomendación de ingeniería con al menos dos criterios de decisión.
+\end{itemize}
+
+\section{Contrato de integración}
+
+Para que un tema sea aceptado en el ecosistema, debe cumplir:
+
+\begin{longtable}{p{0.25\textwidth}p{0.62\textwidth}}
+\toprule
+Recurso & Función pedagógica\\
+\midrule
+Capítulo del libro & Narrativa, fundamento e interpretación\\
+Presentación & Secuencia visual de una idea por diapositiva\\
+Práctica & Experiencia realizable por estudiantes\\
+Ejercicios & Construcción progresiva de dominio\\
+Soluciones & Guía de razonamiento, no respuesta mecánica\\
+Evaluación & Evidencia de aprendizaje\\
+Código o simulador & Reproducibilidad y exploración\\
+Infografía & Síntesis visual de la ruta\\
+\bottomrule
+\end{longtable}
+
+\section{Conexión}
+
+El siguiente paso del sistema no es generar más carpetas, sino reescribir cada capítulo usando este contrato: primero se lee el material, luego se extraen historias, actividades y errores, y finalmente se incorporan al manual como una sola obra.

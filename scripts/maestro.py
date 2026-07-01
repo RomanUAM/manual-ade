@@ -622,8 +622,8 @@ def cmd_pagina(_: argparse.Namespace | None = None) -> None:
     topic_badges = "".join(f"<span><b>{html.escape(k)}</b>{v}</span>" for k, v in sorted(topic_counts.items()) if k != "general")
     ext_badges = "".join(f"<span><b>{html.escape(k)}</b>{v}</span>" for k, v in sorted(ext_counts.items()) if k in {"pdf", "docx", "pptx", "mp4"})
     practice_list = "".join(f"<li><code>{html.escape(rel(p))}</code></li>" for p in practices)
-    pdf_viewer_src = "manual_base_latex_compilado.pdf"
-    pdf_integrated_src = "manual_integrado_ade.pdf"
+    pdf_viewer_src = "manual_integrado_ade.pdf" if SITE_MANUAL_PDF.exists() else "manual_base_latex_compilado.pdf"
+    pdf_base_src = "manual_base_latex_compilado.pdf"
     pdf_presentation_src = "presentacion_integrada_ade.pdf"
 
     page = f"""<!doctype html>
@@ -651,7 +651,7 @@ nav h2{{font-size:15px;margin:0 0 10px;color:var(--muted);text-transform:upperca
 {authors_html()}
 {hag_panel_html()}
 {source_code_html()}
-<section class="pdf-viewer"><h2>Manual del curso</h2><p>PDF principal para estudiantes, pensado como texto de estudio. La presentacion es un apoyo visual separado; la propuesta integrada queda como base para seguir enriqueciendo capitulos.</p><div class="pdf-actions"><a href="{html.escape(pdf_viewer_src)}" target="_blank">Abrir manual del curso</a><a class="secondary" href="{html.escape(pdf_presentation_src)}" target="_blank">Abrir presentacion</a><a class="secondary" href="{html.escape(pdf_integrated_src)}" target="_blank">Propuesta de enriquecimiento</a></div><iframe src="{html.escape(pdf_viewer_src)}"></iframe></section>
+<section class="pdf-viewer"><h2>Manual enriquecido del curso</h2><p>PDF principal para estudiantes. Integra la narrativa del manual con practicas, presentaciones, actividades, errores frecuentes y criterios de evaluacion. El manual base queda como referencia historica, no como experiencia final.</p><div class="pdf-actions"><a href="{html.escape(pdf_viewer_src)}" target="_blank">Abrir manual enriquecido</a><a class="secondary" href="{html.escape(pdf_presentation_src)}" target="_blank">Abrir presentacion</a><a class="secondary" href="{html.escape(pdf_base_src)}" target="_blank">Manual base</a></div><iframe src="{html.escape(pdf_viewer_src)}"></iframe></section>
 {''.join(chapters_html)}
 <section class="resources"><h2>Fuentes y materiales del curso</h2><p>Estos materiales se usan para construir ejemplos, practicas, casos y actividades. La lectura principal debe seguir el manual y los capitulos.</p><div class="badges">{topic_badges}</div><div class="badges">{ext_badges}</div></section>
 </main></div></body></html>"""

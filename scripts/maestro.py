@@ -186,7 +186,8 @@ def authors_html() -> str:
 def hag_summary() -> dict:
     graph_path = ROOT / "knowledge" / "hag_graph.json"
     audit_path = ROOT / "evidence" / "hag" / "audit_result.json"
-    data = {"nodes": [], "audit": {"status": "pendiente", "failures": []}}
+    extraction_path = ROOT / "evidence" / "hag" / "extraction_report.json"
+    data = {"nodes": [], "audit": {"status": "pendiente", "failures": []}, "extraction": {}}
     if graph_path.exists():
         try:
             data["nodes"] = json.loads(graph_path.read_text(encoding="utf-8")).get("nodes", [])
@@ -197,6 +198,11 @@ def hag_summary() -> dict:
             data["audit"] = json.loads(audit_path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             data["audit"] = {"status": "error", "failures": ["No se pudo leer evidence/hag/audit_result.json"]}
+    if extraction_path.exists():
+        try:
+            data["extraction"] = json.loads(extraction_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            data["extraction"] = {"error": "No se pudo leer evidence/hag/extraction_report.json"}
     return data
 
 
@@ -246,16 +252,20 @@ def write_hag_dashboard() -> None:
     data = hag_summary()
     graph_src = ROOT / "knowledge" / "hag_graph.json"
     audit_src = ROOT / "evidence" / "hag" / "audit_result.json"
+    extraction_src = ROOT / "evidence" / "hag" / "extraction_report.json"
     gaps_src = ROOT / "artifacts" / "hag" / "brechas_ecosistema.md"
     if graph_src.exists():
         shutil.copy2(graph_src, SITE_HAG / "hag_graph.json")
     if audit_src.exists():
         shutil.copy2(audit_src, SITE_HAG / "audit_result.json")
+    if extraction_src.exists():
+        shutil.copy2(extraction_src, SITE_HAG / "extraction_report.json")
     if gaps_src.exists():
         shutil.copy2(gaps_src, SITE_HAG / "brechas_ecosistema.md")
 
     nodes = data["nodes"]
     failures = data["audit"].get("failures", [])
+    extraction = data.get("extraction", {})
     node_cards = []
     for node in nodes:
         artifacts = node.get("artifacts", [])
@@ -267,6 +277,8 @@ def write_hag_dashboard() -> None:
           <div>{badges}</div>
         </article>""")
     failure_items = "".join(f"<li>{html.escape(item)}</li>" for item in failures) or "<li>Sin brechas registradas.</li>"
+    object_types = extraction.get("object_types", {})
+    type_items = "".join(f"<span>{html.escape(key)}: {value}</span>" for key, value in sorted(object_types.items())) or "<span>Pendiente</span>"
     page = f"""<!doctype html>
 <html lang="es">
 <head>
@@ -281,10 +293,11 @@ header,main{{padding:28px clamp(18px,4vw,64px)}} header{{background:#fff;border-
 <header>
   <h1>Dashboard HAG</h1>
   <p class="subtitle">Vista publica del sistema de autocrítica: grafo de conocimiento, artefactos conectados y brechas que impiden declarar terminado el ecosistema.</p>
-  <div class="status"><span>Estado: {html.escape(data["audit"].get("status", "pendiente"))}</span><span>Nodos: {len(nodes)}</span><span>Brechas: {len(failures)}</span></div>
-  <div class="actions"><a href="../">Volver al manual</a><a href="{html.escape(REPO_URL)}" target="_blank">Repositorio completo</a><a href="{html.escape(REPO_URL)}/tree/main/hag" target="_blank">Carpeta Python HAG</a><a href="hag_graph.json">Grafo JSON</a><a href="audit_result.json">Auditoria JSON</a><a href="brechas_ecosistema.md">Brechas MD</a></div>
+  <div class="status"><span>Estado: {html.escape(data["audit"].get("status", "pendiente"))}</span><span>Nodos: {len(nodes)}</span><span>Brechas: {len(failures)}</span><span>Objetos: {html.escape(str(extraction.get("objects_extracted", "pendiente")))}</span></div>
+  <div class="actions"><a href="../">Volver al manual</a><a href="{html.escape(REPO_URL)}" target="_blank">Repositorio completo</a><a href="{html.escape(REPO_URL)}/tree/main/hag" target="_blank">Carpeta Python HAG</a><a href="hag_graph.json">Grafo JSON</a><a href="audit_result.json">Auditoria JSON</a><a href="extraction_report.json">Extraccion JSON</a><a href="brechas_ecosistema.md">Brechas MD</a></div>
 </header>
 <main>
+  <section><h2>Motor de extraccion y reutilizacion</h2><p>El HAG primero extrae objetos de aprendizaje y bancos reutilizables antes de generar contenido nuevo.</p><div class="status"><span>Archivos escaneados: {html.escape(str(extraction.get("files_scanned", "pendiente")))}</span><span>Objetos extraidos: {html.escape(str(extraction.get("objects_extracted", "pendiente")))}</span>{type_items}</div></section>
   <section><h2>Nodos de conocimiento</h2><div class="grid">{''.join(node_cards)}</div></section>
   <section><h2>Brechas activas</h2><p>Mientras existan estas brechas, HAG rechaza la entrega completa del ecosistema.</p><ul>{failure_items}</ul></section>
   <section><h2>Como ejecutarlo localmente</h2><pre><code>python3 scripts/hag.py build
@@ -659,6 +672,10 @@ def cmd_hag(args: argparse.Namespace | None = None) -> None:
     subprocess.run([sys.executable, str(ROOT / "scripts" / "hag.py"), action], check=True)
 
 
+def cmd_extraer_conocimiento(_: argparse.Namespace | None = None) -> None:
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "hag.py"), "extract"], check=True)
+
+
 def cmd_hag_api(args: argparse.Namespace | None = None) -> None:
     port = getattr(args, "port", 8787)
     subprocess.run([sys.executable, str(ROOT / "scripts" / "hag_api.py"), "--port", str(port)], check=True)
@@ -679,6 +696,7 @@ Documentos rectores:
 - `docs/mision_proyecto.md`
 - `docs/filosofia_construccion_manual.md`
 - `docs/politicas/politica_presentaciones_material_didactico.md`
+- `docs/politicas/politica_aprovechamiento_integral_conocimiento.md`
 - `docs/mandato_comun_agentes.md`
 - `docs/sistema_autoadaptable_base_notas.md`
 
@@ -687,6 +705,9 @@ Base de conocimiento local:
 - `memory/materiales_investigados.json`
 - `memory/matriz_investigacion_material.md`
 - `memory/bitacora_aprendizaje.md`
+- `knowledge/learning_objects.json`
+- `knowledge/reuse_map.md`
+- `knowledge/bancos/`
 
 Mandato: no producir inventarios. Convertir la materia prima en capitulos-pregunta con motivacion, intuicion, ejemplo guiado, practicas, errores, casos, actividades y conexion.
 
@@ -724,6 +745,7 @@ def menu() -> None:
         print("10. Construir HAG")
         print("11. Auditar HAG")
         print("12. Servir API HAG")
+        print("13. Extraer conocimiento")
         print("0. Salir")
         choice = input("\nElige una opcion: ").strip()
         if choice == "0":
@@ -756,6 +778,8 @@ def menu() -> None:
             cmd_hag(argparse.Namespace(action="audit"))
         elif choice == "12":
             cmd_hag_api(argparse.Namespace(port=8787))
+        elif choice == "13":
+            cmd_extraer_conocimiento()
         else:
             print("Opcion no reconocida.")
 
@@ -775,8 +799,9 @@ def main() -> None:
     p_serve.set_defaults(func=cmd_servir)
     sub.add_parser("auditar-publicacion").set_defaults(func=cmd_auditar)
     p_hag = sub.add_parser("hag")
-    p_hag.add_argument("action", choices=["init", "build", "audit", "status"], nargs="?", default="build")
+    p_hag.add_argument("action", choices=["init", "extract", "build", "audit", "status"], nargs="?", default="build")
     p_hag.set_defaults(func=cmd_hag)
+    sub.add_parser("extraer-conocimiento").set_defaults(func=cmd_extraer_conocimiento)
     p_hag_api = sub.add_parser("hag-api")
     p_hag_api.add_argument("--port", type=int, default=8787)
     p_hag_api.set_defaults(func=cmd_hag_api)

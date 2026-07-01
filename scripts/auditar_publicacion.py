@@ -23,6 +23,7 @@ REQUIRED = [
     SITE / "hag" / "index.html",
     SITE / "hag" / "hag_graph.json",
     SITE / "hag" / "audit_result.json",
+    SITE / "hag" / "extraction_report.json",
     SITE / "hag" / "brechas_ecosistema.md",
 ]
 

@@ -24,6 +24,7 @@ El sistema no atribuye permisos ni resultados por el solo hecho de listar autore
 ```bash
 cd "/Users/romananselmomoragutierrez/Documents/Libro de ADE"
 
+python3 scripts/hag.py extract
 python3 scripts/hag.py build
 python3 scripts/maestro.py investigar
 python3 scripts/maestro.py compilar
@@ -48,6 +49,7 @@ No usar `python3 -m http.server` desde la raiz como forma de publicacion, porque
 
 - `hag/`: motor Python del sistema HAG.
 - `knowledge/`: grafo de conocimiento.
+- `knowledge/bancos/`: bancos reutilizables de ejemplos, figuras, codigo, narrativas, errores y evaluaciones.
 - `evidence/`: reportes verificables de agentes y auditoria.
 - `artifacts/`: artefactos tecnicos generados por agentes.
 - `agents/`: agentes especializados.
@@ -71,10 +73,11 @@ Comandos principales:
 ```bash
 python3 -m pip install -e .
 python3 scripts/hag.py init
+python3 scripts/hag.py extract
 python3 scripts/hag.py build
 python3 scripts/hag.py audit
 python3 scripts/hag_api.py --port 8787
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
-Si `hag audit` falla, la entrega no debe considerarse terminada: el reporte indica que recursos del ecosistema siguen desconectados o incompletos.
+`hag extract` crea `knowledge/learning_objects.json`, `knowledge/reuse_map.md` y `knowledge/bancos/`. Si `hag audit` falla, la entrega no debe considerarse terminada: el reporte indica que recursos del ecosistema siguen desconectados, incompletos o sin aprovechamiento integral.

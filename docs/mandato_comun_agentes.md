@@ -6,6 +6,7 @@ Todo agente del proyecto debe trabajar bajo estos documentos rectores:
 - `docs/filosofia_construccion_manual.md`
 - `docs/politicas/politica_presentaciones_material_didactico.md`
 - `docs/politicas/politica_publicacion_reutilizable.md`
+- `docs/politicas/politica_aprovechamiento_integral_conocimiento.md`
 - `docs/sistema_autoadaptable_base_notas.md`
 - `docs/autores_proyecto.md`
 
@@ -56,6 +57,9 @@ En GitHub Pages, la unica carpeta publicable debe ser `site/`.
 
 Cada salida debe aumentar al menos una de estas dimensiones:
 
+- objetos de aprendizaje extraidos;
+- reutilizaciones transversales registradas;
+- bancos de ejemplos, figuras, codigo, errores o narrativas;
 - materiales leidos por contenido;
 - fichas de conocimiento completas;
 - organizacion por preguntas de aprendizaje;
@@ -66,6 +70,20 @@ Cada salida debe aumentar al menos una de estas dimensiones:
 - memoria de aprendizaje.
 
 Si no aumenta ninguna, la accion no debe hacerse.
+
+## Aprovechamiento integral
+
+Antes de generar contenido nuevo, todo agente debe consultar o actualizar:
+
+- `knowledge/learning_objects.json`
+- `knowledge/reuse_map.md`
+- `knowledge/bancos/`
+
+El agente no debe preguntar "que archivo necesito", sino "que conocimiento contiene este archivo y donde puede reutilizarse".
+
+Cada archivo debe tratarse como patrimonio intelectual del proyecto. Si un archivo no se usa, debe existir una razon explicita: permiso desconocido, lectura tecnica pendiente, duplicado, baja relevancia o imposibilidad de extraccion.
+
+El Director HAG debe rechazar entregas cuando existan objetos relacionados no consultados o cuando se genere contenido nuevo sin revisar primero los bancos reutilizables.
 
 ## Regla didactica
 

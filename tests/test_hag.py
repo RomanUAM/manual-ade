@@ -6,6 +6,7 @@ from pathlib import Path
 
 from hag.audit import REQUIRED_ARTIFACT_KINDS
 from hag.director import HAGDirector
+from hag.extraction import run_extraction
 from hag.knowledge_base import KnowledgeBase
 from hag.models import Artifact
 
@@ -39,6 +40,21 @@ class HAGTests(unittest.TestCase):
                 kb.add_artifact(node_id, Artifact(kind, str(path.relative_to(root)), node_id, "test", kind))
             missing = kb.missing_required_artifacts(REQUIRED_ARTIFACT_KINDS)
             self.assertNotIn(node_id, missing)
+
+    def test_extraction_creates_reusable_knowledge_banks(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = root / "docs" / "nota.md"
+            source.parent.mkdir(parents=True, exist_ok=True)
+            source.write_text(
+                "Ejemplo de ANOVA con tratamientos, variable respuesta, error comun y actividad de evaluacion.",
+                encoding="utf-8",
+            )
+            written = run_extraction(root)
+            self.assertIn("knowledge/learning_objects.json", written)
+            self.assertTrue((root / "knowledge" / "reuse_map.md").exists())
+            self.assertTrue((root / "knowledge" / "bancos" / "banco_ejemplos.json").exists())
+            self.assertTrue((root / "evidence" / "hag" / "extraction_report.json").exists())
 
 
 if __name__ == "__main__":

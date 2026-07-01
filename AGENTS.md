@@ -8,6 +8,8 @@ La mision rectora del proyecto esta en `docs/mision_proyecto.md`. Todo agente de
 
 La politica de publicacion reutilizable esta en `docs/politicas/politica_publicacion_reutilizable.md`. Todo agente debe aplicarla antes de publicar cualquier enlace, PDF o recurso descargable.
 
+La politica de aprovechamiento integral esta en `docs/politicas/politica_aprovechamiento_integral_conocimiento.md`. Todo agente debe tratar cada archivo como patrimonio intelectual del proyecto y extraer objetos de aprendizaje reutilizables antes de crear contenido nuevo.
+
 El sistema debe aprender de tres fuentes:
 
 1. Material local del curso en `data/raw/`.
@@ -15,6 +17,7 @@ El sistema debe aprender de tres fuentes:
 3. Correcciones, notas y decisiones agregadas desde terminal con `scripts/maestro.py`.
 4. Matriz investigadora en `memory/materiales_investigados.json` y `memory/matriz_investigacion_material.md`.
 5. Grafo HAG en `knowledge/hag_graph.json` y evidencias tecnicas en `evidence/hag/`.
+6. Bancos reutilizables en `knowledge/learning_objects.json`, `knowledge/reuse_map.md` y `knowledge/bancos/`.
 
 La ficha editorial de autores y colaboradores esta en `docs/autores_proyecto.md`. Los agentes pueden usarla para presentar el proyecto con seriedad, pero no deben atribuir permisos, resultados, capitulos o publicaciones sin evidencia documental.
 
@@ -46,6 +49,7 @@ El sistema no debe depender de agentes decorativos. Cada agente es una funcion d
 La arquitectura HAG vive en `hag/` y se ejecuta con:
 
 ```bash
+python3 scripts/hag.py extract
 python3 scripts/hag.py build
 python3 scripts/hag.py audit
 ```
@@ -55,12 +59,13 @@ Un agente solo se considera ejecutado si deja evidencia verificable en `evidence
 Regla operativa:
 
 1. Ningun material se clasifica por nombre.
-2. Cada material debe convertirse en ficha de conocimiento.
+2. Cada material debe convertirse en ficha de conocimiento y objetos de aprendizaje.
 3. Cada ficha debe identificar problema, contexto, factores, niveles, unidad experimental, variables respuesta, controles, diseno, evidencia, limites y uso didactico.
-4. Los capitulos se organizan por preguntas de aprendizaje, no por carpetas.
-5. Cada material se clasifica por derechos: `propio`, `curso_autorizado`, `referencia_externa` o `desconocido`.
-6. Solo `propio` y `curso_autorizado` pueden publicarse como descarga.
-7. Cada correccion del usuario se registra como regla y modifica el comportamiento futuro.
+4. Cada objeto debe indicar donde puede reutilizarse: libro, manual, presentacion, pagina, infografia, evaluacion, codigo o guia del profesor.
+5. Los capitulos se organizan por preguntas de aprendizaje, no por carpetas.
+6. Cada material se clasifica por derechos: `propio`, `curso_autorizado`, `referencia_externa` o `desconocido`.
+7. Solo `propio` y `curso_autorizado` pueden publicarse como descarga.
+8. Cada correccion del usuario se registra como regla y modifica el comportamiento futuro.
 
 Documento rector: `docs/sistema_autoadaptable_base_notas.md`.
 
@@ -81,13 +86,15 @@ Los agentes viven en `agents/`:
 Cada practica o capitulo debe pasar por esta secuencia:
 
 1. Ingesta de materiales locales.
-2. Extraccion de fichas de conocimiento.
-3. Normalizacion de vocabulario experimental.
-4. Agrupacion por preguntas de aprendizaje.
-5. Sintesis narrativa y didactica.
-6. Produccion de pagina, PDF o practica.
-7. Revision cientifica, didactica y editorial.
-8. Registro de aprendizaje y adaptacion del sistema.
+2. Extraccion de objetos de aprendizaje.
+3. Construccion de bancos reutilizables.
+4. Extraccion de fichas de conocimiento.
+5. Normalizacion de vocabulario experimental.
+6. Agrupacion por preguntas de aprendizaje.
+7. Sintesis narrativa y didactica.
+8. Produccion de pagina, PDF o practica.
+9. Revision cientifica, didactica y editorial.
+10. Registro de aprendizaje y adaptacion del sistema.
 
 ## Estilo esperado
 
@@ -131,6 +138,7 @@ Comandos principales:
 
 ```bash
 python3 scripts/maestro.py inventario
+python3 scripts/maestro.py extraer-conocimiento
 python3 scripts/maestro.py investigar
 python3 scripts/maestro.py revision-local
 python3 scripts/maestro.py agentes
@@ -140,11 +148,12 @@ python3 scripts/generar_libro_pdf.py
 python3 scripts/maestro.py pagina
 python3 scripts/maestro.py auditar-publicacion
 python3 scripts/maestro.py servir --port 8765
+python3 scripts/maestro.py hag extract
 python3 scripts/maestro.py hag build
 python3 scripts/maestro.py hag audit
 ```
 
-`investigar` es el comando base para evitar clasificacion burda: lee contenido local y genera fichas de conocimiento. `revision-local` reparte esa memoria a los agentes para ahorrar llamadas externas y trabajar sobre la base local.
+`extraer-conocimiento` crea bancos reutilizables de objetos de aprendizaje. `investigar` evita clasificacion burda: lee contenido local y genera fichas de conocimiento. `revision-local` reparte esa memoria a los agentes para ahorrar llamadas externas y trabajar sobre la base local.
 
 ## Publicacion en GitHub
 

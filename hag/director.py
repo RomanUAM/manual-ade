@@ -5,6 +5,7 @@ from pathlib import Path
 
 from .agents import AGENT_CLASSES
 from .audit import HAGAuditor, AuditResult, REQUIRED_ARTIFACT_KINDS
+from .extraction import run_extraction
 from .generators import generate_gap_report, register_existing_artifacts
 from .knowledge_base import KnowledgeBase
 from .models import AgentReport
@@ -28,6 +29,7 @@ class HAGDirector:
         return reports
 
     def build(self) -> AuditResult:
+        run_extraction(self.root)
         register_existing_artifacts(self.root, self.kb)
         self.run_agents()
         result = self.audit()

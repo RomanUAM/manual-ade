@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from .director import HAGDirector
+from .extraction import run_extraction
 
 
 def root_from_args(args: argparse.Namespace) -> Path:
@@ -23,6 +24,12 @@ def cmd_build(args: argparse.Namespace) -> None:
     print(json.dumps(result.to_dict(), ensure_ascii=False, indent=2))
     if result.status == "fail":
         raise SystemExit(2)
+
+
+def cmd_extract(args: argparse.Namespace) -> None:
+    root = root_from_args(args)
+    written = run_extraction(root)
+    print(json.dumps({"status": "ok", "written": written}, ensure_ascii=False, indent=2))
 
 
 def cmd_audit(args: argparse.Namespace) -> None:
@@ -47,6 +54,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--root", default=".", help="Raiz del proyecto")
     sub = parser.add_subparsers(required=True)
     sub.add_parser("init").set_defaults(func=cmd_init)
+    sub.add_parser("extract").set_defaults(func=cmd_extract)
     sub.add_parser("build").set_defaults(func=cmd_build)
     sub.add_parser("audit").set_defaults(func=cmd_audit)
     sub.add_parser("status").set_defaults(func=cmd_status)

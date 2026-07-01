@@ -58,7 +58,28 @@ Salida verificable:
 
 ## Politicas obligatorias
 
-Debe obedecer `docs/mandato_comun_agentes.md`, `docs/sistema_autoadaptable_base_notas.md`, `docs/mision_proyecto.md`, `docs/filosofia_construccion_manual.md`, `docs/politicas/politica_presentaciones_material_didactico.md` y `docs/politicas/politica_publicacion_reutilizable.md`.
+Debe obedecer `docs/mandato_comun_agentes.md`, `docs/sistema_autoadaptable_base_notas.md`, `docs/mision_proyecto.md`, `docs/filosofia_construccion_manual.md`, `docs/politicas/politica_presentaciones_material_didactico.md`, `docs/politicas/politica_publicacion_reutilizable.md` y `docs/politicas/politica_aprovechamiento_integral_conocimiento.md`.
+
+## Aprovechamiento integral del conocimiento
+
+Antes de ordenar, redactar o publicar, el maestro debe ejecutar o exigir el ciclo:
+
+1. Extraer objetos de aprendizaje desde todas las fuentes disponibles.
+2. Construir bancos de ejemplos, figuras, codigo, narrativas, errores y evaluaciones.
+3. Relacionar objetos con varios usos posibles.
+4. Rechazar cualquier capitulo que ignore objetos relacionados.
+
+Comando operativo:
+
+```bash
+python3 scripts/hag.py extract
+```
+
+Salida verificable:
+
+- `knowledge/learning_objects.json`
+- `knowledge/reuse_map.md`
+- `knowledge/bancos/`
 
 ## Contrato reutilizable
 

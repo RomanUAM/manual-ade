@@ -1,0 +1,28 @@
+{
+  "schema": "hag.extraction_report.v1",
+  "files_scanned": 246,
+  "objects_extracted": 405,
+  "banks_written": [
+    "knowledge/learning_objects.json",
+    "knowledge/bancos/banco_ejemplos.json",
+    "knowledge/bancos/banco_figuras.json",
+    "knowledge/bancos/banco_codigo.json",
+    "knowledge/bancos/banco_narrativas.json",
+    "knowledge/bancos/banco_errores_comunes.json",
+    "knowledge/bancos/banco_evaluaciones.json",
+    "knowledge/reuse_map.md"
+  ],
+  "object_types": {
+    "algoritmo": 41,
+    "analogia": 1,
+    "concepto": 172,
+    "ejemplo": 50,
+    "ejercicio": 59,
+    "error_comun": 17,
+    "evaluacion": 1,
+    "figura": 20,
+    "historia": 1,
+    "narrativa": 11,
+    "practica": 32
+  }
+}

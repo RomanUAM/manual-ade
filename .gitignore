@@ -11,6 +11,11 @@ memory/
 tmp/
 output/
 
+# Bancos semanticos locales: pueden contener rutas o extractos de materia prima.
+knowledge/learning_objects.json
+knowledge/reuse_map.md
+knowledge/bancos/
+
 # Archivos auxiliares de compilacion LaTeX.
 *.aux
 *.fdb_latexmk

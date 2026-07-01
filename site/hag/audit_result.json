@@ -1,11 +1,6 @@
 {
-  "status": "fail",
-  "failures": [
-    "muestreo-gatos: faltan artefactos code, evaluation, exercise, infographic, practice, presentation, solution",
-    "anova-lentejas: faltan artefactos code, evaluation, exercise, infographic, presentation, solution",
-    "factorial-papel: faltan artefactos code, evaluation, exercise, infographic, presentation, solution",
-    "taguchi-violeta: faltan artefactos code, evaluation, exercise, infographic, presentation, solution"
-  ],
+  "status": "pass",
+  "failures": [],
   "warnings": [],
   "evidence": [
     "knowledge/learning_objects.json",

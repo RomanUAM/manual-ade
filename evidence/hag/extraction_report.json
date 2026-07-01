@@ -1,16 +1,16 @@
 {
   "schema": "hag.extraction_report.v1",
-  "files_scanned": 196,
-  "objects_extracted": 451,
+  "files_scanned": 224,
+  "objects_extracted": 570,
   "reader": {
-    "text_files_read": 80,
+    "text_files_read": 108,
     "pdf_total": 84,
-    "pdf_read": 77,
-    "pdf_without_text": 4,
-    "pdf_timeout": 3,
+    "pdf_read": 73,
+    "pdf_without_text": 3,
+    "pdf_timeout": 8,
     "pdf_errors": 0,
     "pdf_pages_per_file": 1,
-    "unsupported_files_skipped": 47,
+    "unsupported_files_skipped": 51,
     "scan_mode": "project_worktree_excluding_generated_outputs",
     "top_level_dirs_scanned": [
       "agents",
@@ -45,16 +45,16 @@
     "knowledge/reuse_map.md"
   ],
   "object_types": {
-    "algoritmo": 56,
+    "algoritmo": 66,
     "analogia": 2,
-    "concepto": 99,
-    "ejemplo": 80,
-    "ejercicio": 70,
+    "concepto": 126,
+    "ejemplo": 98,
+    "ejercicio": 88,
     "error_comun": 26,
-    "evaluacion": 18,
-    "figura": 30,
+    "evaluacion": 20,
+    "figura": 53,
     "historia": 3,
-    "narrativa": 18,
-    "practica": 49
+    "narrativa": 21,
+    "practica": 67
   }
 }

@@ -6,7 +6,7 @@ from pathlib import Path
 from .agents import AGENT_CLASSES
 from .audit import HAGAuditor, AuditResult, REQUIRED_ARTIFACT_KINDS
 from .extraction import run_extraction
-from .generators import generate_gap_report, register_existing_artifacts
+from .generators import generate_gap_report, generate_student_ecosystem_artifacts, register_existing_artifacts
 from .knowledge_base import KnowledgeBase
 from .models import AgentReport
 
@@ -29,9 +29,21 @@ class HAGDirector:
         return reports
 
     def build(self) -> AuditResult:
-        run_extraction(self.root)
+        if not (self.root / "knowledge" / "learning_objects.json").exists():
+            run_extraction(self.root)
         register_existing_artifacts(self.root, self.kb)
+        generate_student_ecosystem_artifacts(self.root, self.kb)
         self.run_agents()
+        result = self.audit()
+        missing = self.kb.missing_required_artifacts(REQUIRED_ARTIFACT_KINDS)
+        gap_report = generate_gap_report(self.root, self.kb, missing)
+        result.evidence.append(gap_report)
+        self.write_audit(result)
+        return result
+
+    def generate_ecosystem(self) -> AuditResult:
+        register_existing_artifacts(self.root, self.kb)
+        generate_student_ecosystem_artifacts(self.root, self.kb)
         result = self.audit()
         missing = self.kb.missing_required_artifacts(REQUIRED_ARTIFACT_KINDS)
         gap_report = generate_gap_report(self.root, self.kb, missing)

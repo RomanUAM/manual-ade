@@ -270,14 +270,36 @@ def write_hag_dashboard() -> None:
     node_cards = []
     for node in nodes:
         artifacts = node.get("artifacts", [])
-        badges = "".join(f"<span>{html.escape(item.get('kind', 'artefacto'))}</span>" for item in artifacts)
+        wanted = ["book_chapter", "presentation", "practice", "exercise", "solution", "evaluation", "code", "infographic"]
+        labels = {
+            "book_chapter": "Guia",
+            "presentation": "Presentacion",
+            "practice": "Practica",
+            "exercise": "Ejercicios",
+            "solution": "Soluciones",
+            "evaluation": "Evaluacion",
+            "code": "Simulador",
+            "infographic": "Infografia",
+        }
+        links = []
+        by_kind = {item.get("kind"): item for item in artifacts}
+        for kind in wanted:
+            item = by_kind.get(kind)
+            if not item:
+                links.append(f"<span class=\"missing\">{html.escape(labels[kind])}</span>")
+                continue
+            path = item.get("path", "")
+            url = html.escape(f"{REPO_URL}/blob/main/{path}")
+            links.append(f"<a href=\"{url}\" target=\"_blank\">{html.escape(labels[kind])}</a>")
         node_cards.append(f"""
         <article>
           <h3>{html.escape(node.get("title", node.get("id", "Nodo")))}</h3>
           <p>{html.escape(node.get("question", ""))}</p>
-          <div>{badges}</div>
+          <div class="resource-links">{''.join(links)}</div>
         </article>""")
     failure_items = "".join(f"<li>{html.escape(item)}</li>" for item in failures) or "<li>Sin brechas registradas.</li>"
+    failure_title = "Brechas activas" if failures else "Ecosistema conectado"
+    failure_intro = "Mientras existan estas brechas, HAG rechaza la entrega completa del ecosistema." if failures else "Cada capitulo cuenta con los recursos minimos para estudiar, practicar, explicar, simular y evaluar."
     object_types = extraction.get("object_types", {})
     type_items = "".join(f"<span>{html.escape(key)}: {value}</span>" for key, value in sorted(object_types.items())) or "<span>Pendiente</span>"
     scanned_dirs = ", ".join(reader.get("top_level_dirs_scanned", [])) or "pendiente"
@@ -289,7 +311,7 @@ def write_hag_dashboard() -> None:
 <title>Dashboard HAG</title>
 <style>
 body{{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f6f8fb;color:#1c2630;line-height:1.5}}
-header,main{{padding:28px clamp(18px,4vw,64px)}} header{{background:#fff;border-bottom:1px solid #d9e0e5}} h1{{margin:0;font-size:clamp(30px,4vw,48px)}} .subtitle{{color:#5b6773;max-width:900px}} .status{{display:inline-flex;gap:10px;flex-wrap:wrap;margin-top:12px}} .status span{{border:1px solid #d9e0e5;border-radius:999px;background:#edf7f5;padding:6px 10px;font-size:14px}} .actions{{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}} .actions a{{background:#0f766e;color:white;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:750}} section{{background:white;border:1px solid #d9e0e5;border-radius:8px;padding:18px;margin:18px 0}} .grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}} article{{border:1px solid #d9e0e5;border-radius:8px;padding:14px;background:#fff}} article h3{{margin:0 0 8px}} article span{{display:inline-block;background:#edf7f5;border:1px solid #d9e0e5;border-radius:999px;padding:4px 8px;margin:4px 4px 0 0;font-size:12px}} li{{margin:6px 0}} code{{color:#a23e19}}
+header,main{{padding:28px clamp(18px,4vw,64px)}} header{{background:#fff;border-bottom:1px solid #d9e0e5}} h1{{margin:0;font-size:clamp(30px,4vw,48px)}} .subtitle{{color:#5b6773;max-width:900px}} .status{{display:inline-flex;gap:10px;flex-wrap:wrap;margin-top:12px}} .status span{{border:1px solid #d9e0e5;border-radius:999px;background:#edf7f5;padding:6px 10px;font-size:14px}} .actions{{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}} .actions a{{background:#0f766e;color:white;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:750}} section{{background:white;border:1px solid #d9e0e5;border-radius:8px;padding:18px;margin:18px 0}} .grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}} article{{border:1px solid #d9e0e5;border-radius:8px;padding:14px;background:#fff}} article h3{{margin:0 0 8px}} .resource-links{{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}} .resource-links a,.resource-links span{{display:inline-block;background:#edf7f5;border:1px solid #d9e0e5;border-radius:8px;padding:7px 9px;font-size:13px;text-decoration:none;color:#0f766e;font-weight:700}} .resource-links .missing{{background:#fff4e6;color:#a23e19}} article span{{display:inline-block;background:#edf7f5;border:1px solid #d9e0e5;border-radius:999px;padding:4px 8px;margin:4px 4px 0 0;font-size:12px}} li{{margin:6px 0}} code{{color:#a23e19}}
 </style>
 </head>
 <body>
@@ -301,8 +323,8 @@ header,main{{padding:28px clamp(18px,4vw,64px)}} header{{background:#fff;border-
 </header>
 <main>
   <section><h2>Motor de extraccion y reutilizacion</h2><p>El HAG primero extrae objetos de aprendizaje y bancos reutilizables antes de generar contenido nuevo. La lectura PDF operativa usa una ventana inicial por archivo; la lectura profunda queda pendiente para capitulos especificos.</p><div class="status"><span>Archivos escaneados: {html.escape(str(extraction.get("files_scanned", "pendiente")))}</span><span>Objetos extraidos: {html.escape(str(extraction.get("objects_extracted", "pendiente")))}</span><span>PDF detectados: {html.escape(str(reader.get("pdf_total", "pendiente")))}</span><span>PDF leidos: {html.escape(str(reader.get("pdf_read", "pendiente")))}</span><span>Paginas por PDF: {html.escape(str(reader.get("pdf_pages_per_file", "pendiente")))}</span>{type_items}</div><p><strong>Carpetas de trabajo exploradas:</strong> {html.escape(scanned_dirs)}.</p><p><strong>Carpetas tecnicas omitidas:</strong> {html.escape(skipped_dirs)}.</p></section>
-  <section><h2>Nodos de conocimiento</h2><div class="grid">{''.join(node_cards)}</div></section>
-  <section><h2>Brechas activas</h2><p>Mientras existan estas brechas, HAG rechaza la entrega completa del ecosistema.</p><ul>{failure_items}</ul></section>
+  <section><h2>Ruta de aprendizaje por capitulo</h2><p>Cada capitulo debe tener guia, presentacion, practica, ejercicios, solucion, evaluacion, simulador e infografia. Si falta algo, el HAG lo genera como primera version editable y lo deja conectado.</p><div class="grid">{''.join(node_cards)}</div></section>
+  <section><h2>{html.escape(failure_title)}</h2><p>{html.escape(failure_intro)}</p><ul>{failure_items}</ul></section>
   <section><h2>Como ejecutarlo localmente</h2><pre><code>python3 scripts/hag.py build
 python3 scripts/hag.py audit
 python3 scripts/hag_api.py --port 8787</code></pre></section>
@@ -675,7 +697,7 @@ def cmd_hag(args: argparse.Namespace | None = None) -> None:
     result = subprocess.run([sys.executable, str(ROOT / "scripts" / "hag.py"), action])
     if result.returncode == 0:
         return
-    if result.returncode == 2 and action in {"build", "audit"}:
+    if result.returncode == 2 and action in {"build", "audit", "ecosystem"}:
         print("\nHAG rechazo la entrega porque encontro brechas reales.")
         print("Esto no es un fallo de Python: revisa evidence/hag/audit_result.json o site/hag/.")
         return
@@ -756,6 +778,7 @@ def menu() -> None:
         print("11. Auditar HAG")
         print("12. Servir API HAG")
         print("13. Extraer conocimiento")
+        print("14. Generar ecosistema de aprendizaje")
         print("0. Salir")
         choice = input("\nElige una opcion: ").strip()
         if choice == "0":
@@ -790,6 +813,8 @@ def menu() -> None:
             cmd_hag_api(argparse.Namespace(port=8787))
         elif choice == "13":
             cmd_extraer_conocimiento()
+        elif choice == "14":
+            cmd_hag(argparse.Namespace(action="ecosystem"))
         else:
             print("Opcion no reconocida.")
 
@@ -809,7 +834,7 @@ def main() -> None:
     p_serve.set_defaults(func=cmd_servir)
     sub.add_parser("auditar-publicacion").set_defaults(func=cmd_auditar)
     p_hag = sub.add_parser("hag")
-    p_hag.add_argument("action", choices=["init", "extract", "build", "audit", "status"], nargs="?", default="build")
+    p_hag.add_argument("action", choices=["init", "extract", "ecosystem", "build", "audit", "status"], nargs="?", default="build")
     p_hag.set_defaults(func=cmd_hag)
     sub.add_parser("extraer-conocimiento").set_defaults(func=cmd_extraer_conocimiento)
     p_hag_api = sub.add_parser("hag-api")

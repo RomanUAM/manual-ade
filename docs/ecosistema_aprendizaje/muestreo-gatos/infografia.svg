@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
+  <rect width="1100" height="620" fill="#f6f8fb"/>
+  <text x="60" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#1c2630">Gatos y grandes numeros</text>
+  <text x="60" y="115" font-family="Arial" font-size="22" fill="#425466">Como cambia nuestra percepcion al aumentar el tamano de muestra?</text>
+  <g font-family="Arial" font-size="20" fill="#1c2630">
+    <rect x="70" y="180" width="180" height="90" rx="8" fill="#edf7f5" stroke="#0f766e"/>
+    <text x="105" y="232">Motivar</text>
+    <rect x="290" y="180" width="180" height="90" rx="8" fill="#ffffff" stroke="#d9e0e5"/>
+    <text x="330" y="232">Intuir</text>
+    <rect x="510" y="180" width="180" height="90" rx="8" fill="#fff4e6" stroke="#a23e19"/>
+    <text x="548" y="232">Medir</text>
+    <rect x="730" y="180" width="180" height="90" rx="8" fill="#edf4ff" stroke="#2563eb"/>
+    <text x="760" y="232">Analizar</text>
+    <rect x="400" y="360" width="300" height="100" rx="8" fill="#ffffff" stroke="#0f766e"/>
+    <text x="445" y="405">Decidir con evidencia</text>
+    <text x="438" y="438" font-size="16" fill="#5b6773">No con intuicion aislada</text>
+  </g>
+</svg>

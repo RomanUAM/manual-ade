@@ -29,6 +29,62 @@
           "node_id": "muestreo-gatos",
           "generated_by": "hag.generators",
           "description": "Pagina publica"
+        },
+        {
+          "kind": "book_chapter",
+          "path": "docs/ecosistema_aprendizaje/muestreo-gatos/guia_estudiante.md",
+          "node_id": "muestreo-gatos",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Guia narrativa del estudiante"
+        },
+        {
+          "kind": "practice",
+          "path": "docs/ecosistema_aprendizaje/muestreo-gatos/practica.md",
+          "node_id": "muestreo-gatos",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Practica editable centrada en el estudiante"
+        },
+        {
+          "kind": "presentation",
+          "path": "docs/ecosistema_aprendizaje/muestreo-gatos/presentacion.md",
+          "node_id": "muestreo-gatos",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Guion de presentacion didactica"
+        },
+        {
+          "kind": "exercise",
+          "path": "docs/ecosistema_aprendizaje/muestreo-gatos/ejercicios.md",
+          "node_id": "muestreo-gatos",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Banco inicial de ejercicios"
+        },
+        {
+          "kind": "solution",
+          "path": "docs/ecosistema_aprendizaje/muestreo-gatos/soluciones.md",
+          "node_id": "muestreo-gatos",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Soluciones orientativas"
+        },
+        {
+          "kind": "evaluation",
+          "path": "docs/ecosistema_aprendizaje/muestreo-gatos/evaluacion.md",
+          "node_id": "muestreo-gatos",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Rubrica y preguntas de evaluacion"
+        },
+        {
+          "kind": "code",
+          "path": "docs/ecosistema_aprendizaje/muestreo-gatos/simulador.py",
+          "node_id": "muestreo-gatos",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Simulador didactico Python"
+        },
+        {
+          "kind": "infographic",
+          "path": "docs/ecosistema_aprendizaje/muestreo-gatos/infografia.svg",
+          "node_id": "muestreo-gatos",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Infografia del flujo de aprendizaje"
         }
       ],
       "metadata": {
@@ -73,6 +129,62 @@
           "node_id": "anova-lentejas",
           "generated_by": "hag.generators",
           "description": "Pagina publica"
+        },
+        {
+          "kind": "book_chapter",
+          "path": "docs/ecosistema_aprendizaje/anova-lentejas/guia_estudiante.md",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Guia narrativa del estudiante"
+        },
+        {
+          "kind": "practice",
+          "path": "docs/ecosistema_aprendizaje/anova-lentejas/practica.md",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Practica editable centrada en el estudiante"
+        },
+        {
+          "kind": "presentation",
+          "path": "docs/ecosistema_aprendizaje/anova-lentejas/presentacion.md",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Guion de presentacion didactica"
+        },
+        {
+          "kind": "exercise",
+          "path": "docs/ecosistema_aprendizaje/anova-lentejas/ejercicios.md",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Banco inicial de ejercicios"
+        },
+        {
+          "kind": "solution",
+          "path": "docs/ecosistema_aprendizaje/anova-lentejas/soluciones.md",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Soluciones orientativas"
+        },
+        {
+          "kind": "evaluation",
+          "path": "docs/ecosistema_aprendizaje/anova-lentejas/evaluacion.md",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Rubrica y preguntas de evaluacion"
+        },
+        {
+          "kind": "code",
+          "path": "docs/ecosistema_aprendizaje/anova-lentejas/simulador.py",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Simulador didactico Python"
+        },
+        {
+          "kind": "infographic",
+          "path": "docs/ecosistema_aprendizaje/anova-lentejas/infografia.svg",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Infografia del flujo de aprendizaje"
         }
       ],
       "metadata": {
@@ -117,6 +229,62 @@
           "node_id": "factorial-papel",
           "generated_by": "hag.generators",
           "description": "Pagina publica"
+        },
+        {
+          "kind": "book_chapter",
+          "path": "docs/ecosistema_aprendizaje/factorial-papel/guia_estudiante.md",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Guia narrativa del estudiante"
+        },
+        {
+          "kind": "practice",
+          "path": "docs/ecosistema_aprendizaje/factorial-papel/practica.md",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Practica editable centrada en el estudiante"
+        },
+        {
+          "kind": "presentation",
+          "path": "docs/ecosistema_aprendizaje/factorial-papel/presentacion.md",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Guion de presentacion didactica"
+        },
+        {
+          "kind": "exercise",
+          "path": "docs/ecosistema_aprendizaje/factorial-papel/ejercicios.md",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Banco inicial de ejercicios"
+        },
+        {
+          "kind": "solution",
+          "path": "docs/ecosistema_aprendizaje/factorial-papel/soluciones.md",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Soluciones orientativas"
+        },
+        {
+          "kind": "evaluation",
+          "path": "docs/ecosistema_aprendizaje/factorial-papel/evaluacion.md",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Rubrica y preguntas de evaluacion"
+        },
+        {
+          "kind": "code",
+          "path": "docs/ecosistema_aprendizaje/factorial-papel/simulador.py",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Simulador didactico Python"
+        },
+        {
+          "kind": "infographic",
+          "path": "docs/ecosistema_aprendizaje/factorial-papel/infografia.svg",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Infografia del flujo de aprendizaje"
         }
       ],
       "metadata": {
@@ -161,6 +329,62 @@
           "node_id": "taguchi-violeta",
           "generated_by": "hag.generators",
           "description": "Pagina publica"
+        },
+        {
+          "kind": "book_chapter",
+          "path": "docs/ecosistema_aprendizaje/taguchi-violeta/guia_estudiante.md",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Guia narrativa del estudiante"
+        },
+        {
+          "kind": "practice",
+          "path": "docs/ecosistema_aprendizaje/taguchi-violeta/practica.md",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Practica editable centrada en el estudiante"
+        },
+        {
+          "kind": "presentation",
+          "path": "docs/ecosistema_aprendizaje/taguchi-violeta/presentacion.md",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Guion de presentacion didactica"
+        },
+        {
+          "kind": "exercise",
+          "path": "docs/ecosistema_aprendizaje/taguchi-violeta/ejercicios.md",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Banco inicial de ejercicios"
+        },
+        {
+          "kind": "solution",
+          "path": "docs/ecosistema_aprendizaje/taguchi-violeta/soluciones.md",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Soluciones orientativas"
+        },
+        {
+          "kind": "evaluation",
+          "path": "docs/ecosistema_aprendizaje/taguchi-violeta/evaluacion.md",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Rubrica y preguntas de evaluacion"
+        },
+        {
+          "kind": "code",
+          "path": "docs/ecosistema_aprendizaje/taguchi-violeta/simulador.py",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Simulador didactico Python"
+        },
+        {
+          "kind": "infographic",
+          "path": "docs/ecosistema_aprendizaje/taguchi-violeta/infografia.svg",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators.student_ecosystem",
+          "description": "Infografia del flujo de aprendizaje"
         }
       ],
       "metadata": {

@@ -32,6 +32,14 @@ def cmd_extract(args: argparse.Namespace) -> None:
     print(json.dumps({"status": "ok", "written": written}, ensure_ascii=False, indent=2))
 
 
+def cmd_ecosystem(args: argparse.Namespace) -> None:
+    director = HAGDirector(root_from_args(args))
+    result = director.generate_ecosystem()
+    print(json.dumps(result.to_dict(), ensure_ascii=False, indent=2))
+    if result.status == "fail":
+        raise SystemExit(2)
+
+
 def cmd_audit(args: argparse.Namespace) -> None:
     director = HAGDirector(root_from_args(args))
     result = director.audit()
@@ -55,6 +63,7 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(required=True)
     sub.add_parser("init").set_defaults(func=cmd_init)
     sub.add_parser("extract").set_defaults(func=cmd_extract)
+    sub.add_parser("ecosystem").set_defaults(func=cmd_ecosystem)
     sub.add_parser("build").set_defaults(func=cmd_build)
     sub.add_parser("audit").set_defaults(func=cmd_audit)
     sub.add_parser("status").set_defaults(func=cmd_status)

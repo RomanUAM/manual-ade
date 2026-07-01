@@ -25,6 +25,7 @@ SITE_DRAFT_PDF = ROOT / "site" / "borrador_integracion_ade.pdf"
 SITE_BASE_MANUAL_PDF = ROOT / "site" / "manual_base_latex_compilado.pdf"
 SITE_PRESENTATION_PDF = ROOT / "site" / "presentacion_integrada_ade.pdf"
 SITE_HAG = ROOT / "site" / "hag"
+REPO_URL = "https://github.com/RomanUAM/manual-ade"
 PROJECT_AUTHORS = [
     "Roman Anselmo Mora-Gutierrez",
     "Edwin Montes-Orozco",
@@ -220,6 +221,26 @@ def hag_panel_html() -> str:
     </section>"""
 
 
+def source_code_html() -> str:
+    links = [
+        ("Repositorio completo", REPO_URL),
+        ("Motor Python HAG", f"{REPO_URL}/tree/main/hag"),
+        ("Scripts Python", f"{REPO_URL}/tree/main/scripts"),
+        ("Agentes", f"{REPO_URL}/tree/main/agents"),
+        ("Pruebas", f"{REPO_URL}/tree/main/tests"),
+        ("Descargar ZIP", f"{REPO_URL}/archive/refs/heads/main.zip"),
+    ]
+    items = "".join(f'<a href="{html.escape(url)}" target="_blank">{html.escape(label)}</a>' for label, url in links)
+    return f"""
+    <section class="source-code">
+      <div>
+        <h2>Codigo fuente y carpeta Python</h2>
+        <p>GitHub Pages publica solo la carpeta <code>site/</code>. El sistema Python completo vive en el repositorio: <code>hag/</code>, <code>scripts/</code>, <code>agents/</code> y <code>tests/</code>.</p>
+      </div>
+      <div class="source-links">{items}</div>
+    </section>"""
+
+
 def write_hag_dashboard() -> None:
     SITE_HAG.mkdir(parents=True, exist_ok=True)
     data = hag_summary()
@@ -261,7 +282,7 @@ header,main{{padding:28px clamp(18px,4vw,64px)}} header{{background:#fff;border-
   <h1>Dashboard HAG</h1>
   <p class="subtitle">Vista publica del sistema de autocrítica: grafo de conocimiento, artefactos conectados y brechas que impiden declarar terminado el ecosistema.</p>
   <div class="status"><span>Estado: {html.escape(data["audit"].get("status", "pendiente"))}</span><span>Nodos: {len(nodes)}</span><span>Brechas: {len(failures)}</span></div>
-  <div class="actions"><a href="../">Volver al manual</a><a href="hag_graph.json">Grafo JSON</a><a href="audit_result.json">Auditoria JSON</a><a href="brechas_ecosistema.md">Brechas MD</a></div>
+  <div class="actions"><a href="../">Volver al manual</a><a href="{html.escape(REPO_URL)}" target="_blank">Repositorio completo</a><a href="{html.escape(REPO_URL)}/tree/main/hag" target="_blank">Carpeta Python HAG</a><a href="hag_graph.json">Grafo JSON</a><a href="audit_result.json">Auditoria JSON</a><a href="brechas_ecosistema.md">Brechas MD</a></div>
 </header>
 <main>
   <section><h2>Nodos de conocimiento</h2><div class="grid">{''.join(node_cards)}</div></section>
@@ -578,10 +599,10 @@ def cmd_pagina(_: argparse.Namespace | None = None) -> None:
 header{{padding:34px clamp(18px,4vw,64px) 26px;background:#fff;border-bottom:1px solid var(--line)}} h1{{margin:0 0 8px;font-size:clamp(30px,4vw,50px);letter-spacing:0;max-width:1040px;line-height:1.05}} .subtitle{{max-width:980px;color:var(--muted);font-size:18px;margin:0}}
 .layout{{display:grid;grid-template-columns:300px 1fr;gap:26px;padding:24px clamp(18px,4vw,64px) 56px}} nav{{position:sticky;top:0;align-self:start;max-height:calc(100vh - 24px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}}
 nav h2{{font-size:15px;margin:0 0 10px;color:var(--muted);text-transform:uppercase}} nav a{{display:flex;gap:8px;padding:8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:14px}} nav a:hover{{background:var(--soft)}} nav span{{color:var(--accent);font-weight:800;min-width:28px}}
-.resources,.pdf-viewer,.authors,.hag-panel{{background:var(--panel);border:1px solid var(--line);border-radius:8px}} .badges{{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}} .badges span{{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:13px}} .badges b{{color:var(--accent);margin-right:6px}}
+.resources,.pdf-viewer,.authors,.hag-panel,.source-code{{background:var(--panel);border:1px solid var(--line);border-radius:8px}} .badges{{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}} .badges span{{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:13px}} .badges b{{color:var(--accent);margin-right:6px}}
 .chapter{{display:grid;grid-template-columns:72px 1fr;gap:18px;padding:28px 0;border-top:1px solid var(--line);scroll-margin-top:12px}} .num{{width:56px;height:56px;display:grid;place-items:center;background:var(--accent);color:white;border-radius:8px;font-weight:800}} .chapter h2{{margin:0 0 6px;font-size:clamp(24px,3vw,34px);letter-spacing:0;line-height:1.12}} .promise{{margin:0 0 14px;color:var(--muted);font-size:18px;max-width:900px}} .chapter-map{{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}} .chapter-map span{{border:1px solid var(--line);border-radius:999px;background:#fff;padding:5px 10px;font-size:12px;color:var(--muted);font-weight:700}} .learning-path{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}} .learning-path article{{border:1px solid var(--line);border-radius:8px;padding:12px;background:#fff}} .learning-path h3{{margin:0 0 6px;font-size:13px;color:var(--accent);text-transform:uppercase}} .learning-path p{{margin:0}} .chapter-resources{{margin-top:16px;border-left:4px solid var(--accent2);padding:10px 0 0 14px}} .chapter-resources h3{{margin:0 0 4px;font-size:14px;color:var(--muted);text-transform:uppercase}} .chapter-resources p{{margin:0 0 10px;color:var(--muted)}} .resource-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}} .resource-card{{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--soft)}} .resource-card:hover{{border-color:var(--accent)}} .resource-card strong{{display:block;margin:4px 0}} .resource-card small{{display:block;color:var(--muted);font-size:12px}} .resource-card p{{margin:8px 0 0;color:var(--ink);font-size:13px;line-height:1.42}} .kind{{font-size:12px;font-weight:800;color:var(--accent2)}} .connection{{margin-top:14px;background:var(--warn);border:1px solid #fed7aa;border-radius:8px;padding:10px 12px}}
 .internal-inputs{{margin-top:10px;background:var(--violet);border:1px solid var(--line);border-radius:8px;padding:10px}} .internal-inputs h4{{margin:0 0 4px;font-size:13px;color:#4c1d95;text-transform:uppercase}} .internal-inputs ul{{margin:6px 0 0;padding-left:18px}}
-.pdf-viewer{{padding:18px;margin:18px 0;background:#fff}} .pdf-actions{{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}} .pdf-actions a{{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:750}} .pdf-actions a.secondary{{background:#243447}} .pdf-viewer iframe{{width:100%;height:560px;border:1px solid var(--line);border-radius:8px;background:#fff}} .resources,.authors,.hag-panel{{padding:16px;margin-top:18px}} .authors ul{{columns:2;gap:28px;margin:10px 0 0;padding-left:20px}} .authors li{{break-inside:avoid;margin:4px 0}} .hag-panel{{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;background:var(--blue)}} .hag-panel h2{{margin:0 0 4px}} .hag-panel p{{margin:0;color:var(--muted)}} .hag-status{{display:grid;gap:4px;font-size:13px}} .hag-status strong{{color:var(--accent2)}} .hag-panel a{{background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:800;white-space:nowrap}} code{{color:var(--accent2);overflow-wrap:anywhere}} @media(max-width:900px){{.hero-grid,.layout,.hag-panel{{grid-template-columns:1fr}}.reader-route{{grid-template-columns:repeat(2,1fr)}}nav{{position:relative;max-height:none}}.chapter{{grid-template-columns:1fr}}.learning-path{{grid-template-columns:1fr}}.authors ul{{columns:1}}.pdf-viewer iframe{{height:380px}}}}
+.pdf-viewer{{padding:18px;margin:18px 0;background:#fff}} .pdf-actions{{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}} .pdf-actions a{{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:750}} .pdf-actions a.secondary{{background:#243447}} .pdf-viewer iframe{{width:100%;height:560px;border:1px solid var(--line);border-radius:8px;background:#fff}} .resources,.authors,.hag-panel,.source-code{{padding:16px;margin-top:18px}} .authors ul{{columns:2;gap:28px;margin:10px 0 0;padding-left:20px}} .authors li{{break-inside:avoid;margin:4px 0}} .hag-panel{{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;background:var(--blue)}} .hag-panel h2,.source-code h2{{margin:0 0 4px}} .hag-panel p,.source-code p{{margin:0;color:var(--muted)}} .hag-status{{display:grid;gap:4px;font-size:13px}} .hag-status strong{{color:var(--accent2)}} .hag-panel a,.source-links a{{background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:800;white-space:nowrap}} .source-code{{display:grid;grid-template-columns:1fr;gap:12px;background:#fff}} .source-links{{display:flex;flex-wrap:wrap;gap:10px}} .source-links a:nth-child(even){{background:#243447}} code{{color:var(--accent2);overflow-wrap:anywhere}} @media(max-width:900px){{.hero-grid,.layout,.hag-panel{{grid-template-columns:1fr}}.reader-route{{grid-template-columns:repeat(2,1fr)}}nav{{position:relative;max-height:none}}.chapter{{grid-template-columns:1fr}}.learning-path{{grid-template-columns:1fr}}.authors ul{{columns:1}}.pdf-viewer iframe{{height:380px}}}}
 </style>
 </head>
 <body>
@@ -591,6 +612,7 @@ nav h2{{font-size:15px;margin:0 0 10px;color:var(--muted);text-transform:upperca
 <main>
 {authors_html()}
 {hag_panel_html()}
+{source_code_html()}
 <section class="pdf-viewer"><h2>Manual del curso</h2><p>PDF principal para estudiantes, pensado como texto de estudio. La presentacion es un apoyo visual separado; la propuesta integrada queda como base para seguir enriqueciendo capitulos.</p><div class="pdf-actions"><a href="{html.escape(pdf_viewer_src)}" target="_blank">Abrir manual del curso</a><a class="secondary" href="{html.escape(pdf_presentation_src)}" target="_blank">Abrir presentacion</a><a class="secondary" href="{html.escape(pdf_integrated_src)}" target="_blank">Propuesta de enriquecimiento</a></div><iframe src="{html.escape(pdf_viewer_src)}"></iframe></section>
 {''.join(chapters_html)}
 <section class="resources"><h2>Fuentes y materiales del curso</h2><p>Estos materiales se usan para construir ejemplos, practicas, casos y actividades. La lectura principal debe seguir el manual y los capitulos.</p><div class="badges">{topic_badges}</div><div class="badges">{ext_badges}</div></section>

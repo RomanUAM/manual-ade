@@ -280,6 +280,8 @@ def write_hag_dashboard() -> None:
     failure_items = "".join(f"<li>{html.escape(item)}</li>" for item in failures) or "<li>Sin brechas registradas.</li>"
     object_types = extraction.get("object_types", {})
     type_items = "".join(f"<span>{html.escape(key)}: {value}</span>" for key, value in sorted(object_types.items())) or "<span>Pendiente</span>"
+    scanned_dirs = ", ".join(reader.get("top_level_dirs_scanned", [])) or "pendiente"
+    skipped_dirs = ", ".join(reader.get("top_level_dirs_skipped", [])) or "pendiente"
     page = f"""<!doctype html>
 <html lang="es">
 <head>
@@ -298,7 +300,7 @@ header,main{{padding:28px clamp(18px,4vw,64px)}} header{{background:#fff;border-
   <div class="actions"><a href="../">Volver al manual</a><a href="{html.escape(REPO_URL)}" target="_blank">Repositorio completo</a><a href="{html.escape(REPO_URL)}/tree/main/hag" target="_blank">Carpeta Python HAG</a><a href="hag_graph.json">Grafo JSON</a><a href="audit_result.json">Auditoria JSON</a><a href="extraction_report.json">Extraccion JSON</a><a href="brechas_ecosistema.md">Brechas MD</a></div>
 </header>
 <main>
-  <section><h2>Motor de extraccion y reutilizacion</h2><p>El HAG primero extrae objetos de aprendizaje y bancos reutilizables antes de generar contenido nuevo. La lectura PDF operativa usa una ventana inicial por archivo; la lectura profunda queda pendiente para capitulos especificos.</p><div class="status"><span>Archivos escaneados: {html.escape(str(extraction.get("files_scanned", "pendiente")))}</span><span>Objetos extraidos: {html.escape(str(extraction.get("objects_extracted", "pendiente")))}</span><span>PDF detectados: {html.escape(str(reader.get("pdf_total", "pendiente")))}</span><span>PDF leidos: {html.escape(str(reader.get("pdf_read", "pendiente")))}</span><span>Paginas por PDF: {html.escape(str(reader.get("pdf_pages_per_file", "pendiente")))}</span>{type_items}</div></section>
+  <section><h2>Motor de extraccion y reutilizacion</h2><p>El HAG primero extrae objetos de aprendizaje y bancos reutilizables antes de generar contenido nuevo. La lectura PDF operativa usa una ventana inicial por archivo; la lectura profunda queda pendiente para capitulos especificos.</p><div class="status"><span>Archivos escaneados: {html.escape(str(extraction.get("files_scanned", "pendiente")))}</span><span>Objetos extraidos: {html.escape(str(extraction.get("objects_extracted", "pendiente")))}</span><span>PDF detectados: {html.escape(str(reader.get("pdf_total", "pendiente")))}</span><span>PDF leidos: {html.escape(str(reader.get("pdf_read", "pendiente")))}</span><span>Paginas por PDF: {html.escape(str(reader.get("pdf_pages_per_file", "pendiente")))}</span>{type_items}</div><p><strong>Carpetas de trabajo exploradas:</strong> {html.escape(scanned_dirs)}.</p><p><strong>Carpetas tecnicas omitidas:</strong> {html.escape(skipped_dirs)}.</p></section>
   <section><h2>Nodos de conocimiento</h2><div class="grid">{''.join(node_cards)}</div></section>
   <section><h2>Brechas activas</h2><p>Mientras existan estas brechas, HAG rechaza la entrega completa del ecosistema.</p><ul>{failure_items}</ul></section>
   <section><h2>Como ejecutarlo localmente</h2><pre><code>python3 scripts/hag.py build
@@ -670,7 +672,14 @@ def cmd_auditar(_: argparse.Namespace | None = None) -> None:
 
 def cmd_hag(args: argparse.Namespace | None = None) -> None:
     action = getattr(args, "action", "build")
-    subprocess.run([sys.executable, str(ROOT / "scripts" / "hag.py"), action], check=True)
+    result = subprocess.run([sys.executable, str(ROOT / "scripts" / "hag.py"), action])
+    if result.returncode == 0:
+        return
+    if result.returncode == 2 and action in {"build", "audit"}:
+        print("\nHAG rechazo la entrega porque encontro brechas reales.")
+        print("Esto no es un fallo de Python: revisa evidence/hag/audit_result.json o site/hag/.")
+        return
+    raise subprocess.CalledProcessError(result.returncode, result.args)
 
 
 def cmd_extraer_conocimiento(_: argparse.Namespace | None = None) -> None:

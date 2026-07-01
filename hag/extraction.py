@@ -8,25 +8,31 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 
-SCAN_DIRS = [
-    "data/raw",
-    "data/manifests",
-    "docs",
-    "practicas",
-    "scripts",
-    "hag",
-]
+EXCLUDED_DIRS = {
+    ".git",
+    ".github",
+    ".venv",
+    "__pycache__",
+    "artifacts",
+    "evidence",
+    "knowledge",
+    "memory",
+    "output",
+    "site",
+    "tmp",
+}
 
 TEXT_EXTS = {".tex", ".md", ".txt", ".py", ".csv", ".json", ".yml", ".yaml"}
 PDF_MAX_CHARS = 80000
-PDF_TIMEOUT_SECONDS = 2
-PDF_FIRST_PAGES = 2
+PDF_TIMEOUT_SECONDS = 1
+PDF_FIRST_PAGES = 1
 FIGURE_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".tif", ".tiff"}
 PRESENTATION_EXTS = {".ppt", ".pptx", ".key"}
 SPREADSHEET_EXTS = {".xls", ".xlsx", ".csv", ".tsv"}
 VIDEO_EXTS = {".mp4", ".mov", ".m4v", ".avi"}
 DOCUMENT_EXTS = {".pdf", ".doc", ".docx", ".tex", ".md", ".txt"}
 CODE_EXTS = {".py", ".r", ".R", ".ipynb", ".js", ".ts", ".m", ".jl"}
+SUPPORTED_EXTS = TEXT_EXTS | FIGURE_EXTS | PRESENTATION_EXTS | SPREADSHEET_EXTS | VIDEO_EXTS | DOCUMENT_EXTS | CODE_EXTS
 
 OBJECT_HINTS = {
     "concepto": ["concepto", "definicion", "fundamento", "teorema", "hipotesis", "variable", "factor"],
@@ -124,7 +130,7 @@ def rights_for(path: Path) -> str:
     return "propio_o_generado"
 
 
-def new_stats() -> dict[str, int]:
+def new_stats() -> dict:
     return {
         "text_files_read": 0,
         "pdf_total": 0,
@@ -133,10 +139,14 @@ def new_stats() -> dict[str, int]:
         "pdf_timeout": 0,
         "pdf_errors": 0,
         "pdf_pages_per_file": PDF_FIRST_PAGES,
+        "unsupported_files_skipped": 0,
+        "scan_mode": "project_worktree_excluding_generated_outputs",
+        "top_level_dirs_scanned": [],
+        "top_level_dirs_skipped": sorted(EXCLUDED_DIRS),
     }
 
 
-def read_pdf_text(path: Path, stats: dict[str, int]) -> str:
+def read_pdf_text(path: Path, stats: dict) -> str:
     stats["pdf_total"] += 1
     try:
         result = subprocess.run(
@@ -163,7 +173,7 @@ def read_pdf_text(path: Path, stats: dict[str, int]) -> str:
     return ""
 
 
-def read_text(path: Path, stats: dict[str, int]) -> str:
+def read_text(path: Path, stats: dict) -> str:
     if path.suffix.lower() == ".pdf":
         return read_pdf_text(path, stats)
     if path.suffix.lower() not in TEXT_EXTS:
@@ -233,18 +243,50 @@ def excerpt_for(path: Path, text: str, obj_type: str) -> str:
     return clean(text[:320])
 
 
+def is_excluded(path: Path, root: Path) -> bool:
+    try:
+        relative = path.relative_to(root)
+    except ValueError:
+        return True
+    return any(part in EXCLUDED_DIRS for part in relative.parts)
+
+
 def scan_files(root: Path) -> list[Path]:
     files: list[Path] = []
-    for name in SCAN_DIRS:
-        base = root / name
-        if base.exists():
-            files.extend(path for path in base.rglob("*") if path.is_file())
+    for path in root.rglob("*"):
+        if path.is_file() and not is_excluded(path, root) and path.suffix.lower() in SUPPORTED_EXTS:
+            files.append(path)
     return sorted(files)
 
 
-def extract_learning_objects(root: Path) -> tuple[list[LearningObject], dict[str, int]]:
+def count_unsupported_files(root: Path) -> int:
+    total = 0
+    for path in root.rglob("*"):
+        if path.is_file() and not is_excluded(path, root) and path.suffix.lower() not in SUPPORTED_EXTS:
+            total += 1
+    return total
+
+
+def top_level_scan_summary(root: Path) -> tuple[list[str], list[str]]:
+    scanned: list[str] = []
+    skipped: list[str] = []
+    for path in sorted(root.iterdir()):
+        if not path.is_dir():
+            continue
+        if path.name in EXCLUDED_DIRS:
+            skipped.append(path.name)
+        else:
+            scanned.append(path.name)
+    return scanned, skipped
+
+
+def extract_learning_objects(root: Path) -> tuple[list[LearningObject], dict]:
     objects: list[LearningObject] = []
     stats = new_stats()
+    scanned, skipped = top_level_scan_summary(root)
+    stats["top_level_dirs_scanned"] = scanned
+    stats["top_level_dirs_skipped"] = skipped
+    stats["unsupported_files_skipped"] = count_unsupported_files(root)
     for path in scan_files(root):
         if "__pycache__" in path.parts:
             continue

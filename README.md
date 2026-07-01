@@ -24,6 +24,7 @@ El sistema no atribuye permisos ni resultados por el solo hecho de listar autore
 ```bash
 cd "/Users/romananselmomoragutierrez/Documents/Libro de ADE"
 
+python3 scripts/hag.py build
 python3 scripts/maestro.py investigar
 python3 scripts/maestro.py compilar
 python3 scripts/maestro.py pagina
@@ -45,6 +46,10 @@ No usar `python3 -m http.server` desde la raiz como forma de publicacion, porque
 
 ## Estructura
 
+- `hag/`: motor Python del sistema HAG.
+- `knowledge/`: grafo de conocimiento.
+- `evidence/`: reportes verificables de agentes y auditoria.
+- `artifacts/`: artefactos tecnicos generados por agentes.
 - `agents/`: agentes especializados.
 - `docs/`: mision, politicas, LaTeX base y ficha editorial.
 - `practicas/`: practicas editables generadas por el sistema.
@@ -56,3 +61,20 @@ No usar `python3 -m http.server` desde la raiz como forma de publicacion, porque
 ## Principio didactico
 
 Cada capitulo debe responder una pregunta de aprendizaje y conectar con el siguiente. El estudiante no debe ver un inventario de archivos, sino un manual coherente con motivacion, intuicion, fundamento, practica, errores frecuentes, casos reales, actividades y cierre.
+
+## HAG
+
+La arquitectura tecnica esta documentada en `docs/arquitectura_hag.md`.
+
+Comandos principales:
+
+```bash
+python3 -m pip install -e .
+python3 scripts/hag.py init
+python3 scripts/hag.py build
+python3 scripts/hag.py audit
+python3 scripts/hag_api.py --port 8787
+python3 -m unittest discover -s tests -p 'test_*.py'
+```
+
+Si `hag audit` falla, la entrega no debe considerarse terminada: el reporte indica que recursos del ecosistema siguen desconectados o incompletos.

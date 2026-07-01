@@ -1,0 +1,17 @@
+{
+  "agent_id": "02_pedagogico",
+  "status": "ok",
+  "task": "crear mapa de aprendizaje y secuencia progresiva",
+  "evidence_files": [
+    "artifacts/hag/mapa_aprendizaje.md",
+    "evidence/hag/02_pedagogico.json"
+  ],
+  "findings": [
+    "La ruta comienza con muestreo, continua con ANOVA, pasa a factoriales y cierra con disenos reducidos.",
+    "Cada nodo se formula como pregunta de aprendizaje, no como archivo fuente."
+  ],
+  "generated_artifacts": [
+    "artifacts/hag/mapa_aprendizaje.md"
+  ],
+  "rejects_delivery": false
+}

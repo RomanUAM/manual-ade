@@ -536,6 +536,16 @@ def cmd_auditar(_: argparse.Namespace | None = None) -> None:
     subprocess.run([sys.executable, str(ROOT / "scripts" / "auditar_publicacion.py")], check=True)
 
 
+def cmd_hag(args: argparse.Namespace | None = None) -> None:
+    action = getattr(args, "action", "build")
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "hag.py"), action], check=True)
+
+
+def cmd_hag_api(args: argparse.Namespace | None = None) -> None:
+    port = getattr(args, "port", 8787)
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "hag_api.py"), "--port", str(port)], check=True)
+
+
 def cmd_revision_local(_: argparse.Namespace | None = None) -> None:
     MEMORY.mkdir(parents=True, exist_ok=True)
     agent_dir = MEMORY / "agentes"
@@ -593,6 +603,9 @@ def menu() -> None:
         print("7. Compilar PDFs")
         print("8. Servir pagina publica")
         print("9. Auditar publicacion")
+        print("10. Construir HAG")
+        print("11. Auditar HAG")
+        print("12. Servir API HAG")
         print("0. Salir")
         choice = input("\nElige una opcion: ").strip()
         if choice == "0":
@@ -619,6 +632,12 @@ def menu() -> None:
             cmd_servir(argparse.Namespace(port=8765))
         elif choice == "9":
             cmd_auditar()
+        elif choice == "10":
+            cmd_hag(argparse.Namespace(action="build"))
+        elif choice == "11":
+            cmd_hag(argparse.Namespace(action="audit"))
+        elif choice == "12":
+            cmd_hag_api(argparse.Namespace(port=8787))
         else:
             print("Opcion no reconocida.")
 
@@ -637,6 +656,12 @@ def main() -> None:
     p_serve.add_argument("--port", type=int, default=8765)
     p_serve.set_defaults(func=cmd_servir)
     sub.add_parser("auditar-publicacion").set_defaults(func=cmd_auditar)
+    p_hag = sub.add_parser("hag")
+    p_hag.add_argument("action", choices=["init", "build", "audit", "status"], nargs="?", default="build")
+    p_hag.set_defaults(func=cmd_hag)
+    p_hag_api = sub.add_parser("hag-api")
+    p_hag_api.add_argument("--port", type=int, default=8787)
+    p_hag_api.set_defaults(func=cmd_hag_api)
     sub.add_parser("agentes").set_defaults(func=cmd_agentes)
     sub.add_parser("revision-local").set_defaults(func=cmd_revision_local)
     p = sub.add_parser("ensenar")

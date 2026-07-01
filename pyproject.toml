@@ -1,0 +1,15 @@
+[project]
+name = "manual-ade-hag"
+version = "0.1.0"
+description = "Sistema HAG para construir y auditar el ecosistema educativo ADE"
+requires-python = ">=3.11"
+authors = [
+  { name = "Roman Anselmo Mora-Gutierrez" }
+]
+
+[project.scripts]
+hag-ade = "hag.cli:main"
+hag-ade-api = "hag.api:main"
+
+[tool.setuptools]
+packages = ["hag"]

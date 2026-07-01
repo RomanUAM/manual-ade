@@ -1,0 +1,16 @@
+{
+  "agent_id": "01_cientifico",
+  "status": "ok",
+  "task": "validar coherencia metodologica y riesgos de inferencia",
+  "evidence_files": [
+    "artifacts/hag/revision_cientifica.md",
+    "evidence/hag/01_cientifico.json"
+  ],
+  "findings": [
+    "No se detectaron afirmaciones causales sin contexto en los nodos semilla."
+  ],
+  "generated_artifacts": [
+    "artifacts/hag/revision_cientifica.md"
+  ],
+  "rejects_delivery": false
+}

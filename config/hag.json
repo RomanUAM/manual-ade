@@ -1,0 +1,18 @@
+{
+  "schema": "hag.config.v1",
+  "required_artifacts": [
+    "book_chapter",
+    "practice",
+    "presentation",
+    "pdf",
+    "web",
+    "infographic",
+    "code",
+    "exercise",
+    "solution",
+    "evaluation"
+  ],
+  "public_site": "site",
+  "knowledge_graph": "knowledge/hag_graph.json",
+  "evidence_dir": "evidence/hag"
+}

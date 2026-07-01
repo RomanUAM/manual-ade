@@ -14,6 +14,7 @@ El sistema debe aprender de tres fuentes:
 2. Libro LaTeX base en `docs/libro_latex/`.
 3. Correcciones, notas y decisiones agregadas desde terminal con `scripts/maestro.py`.
 4. Matriz investigadora en `memory/materiales_investigados.json` y `memory/matriz_investigacion_material.md`.
+5. Grafo HAG en `knowledge/hag_graph.json` y evidencias tecnicas en `evidence/hag/`.
 
 La ficha editorial de autores y colaboradores esta en `docs/autores_proyecto.md`. Los agentes pueden usarla para presentar el proyecto con seriedad, pero no deben atribuir permisos, resultados, capitulos o publicaciones sin evidencia documental.
 
@@ -41,6 +42,15 @@ Responsabilidades:
 ## Sistema autoadaptable
 
 El sistema no debe depender de agentes decorativos. Cada agente es una funcion de ingenieria de conocimiento sobre una base local de notas.
+
+La arquitectura HAG vive en `hag/` y se ejecuta con:
+
+```bash
+python3 scripts/hag.py build
+python3 scripts/hag.py audit
+```
+
+Un agente solo se considera ejecutado si deja evidencia verificable en `evidence/hag/` y artefactos concretos en `artifacts/hag/`.
 
 Regla operativa:
 
@@ -130,6 +140,8 @@ python3 scripts/generar_libro_pdf.py
 python3 scripts/maestro.py pagina
 python3 scripts/maestro.py auditar-publicacion
 python3 scripts/maestro.py servir --port 8765
+python3 scripts/maestro.py hag build
+python3 scripts/maestro.py hag audit
 ```
 
 `investigar` es el comando base para evitar clasificacion burda: lee contenido local y genera fichas de conocimiento. `revision-local` reparte esa memoria a los agentes para ahorrar llamadas externas y trabajar sobre la base local.

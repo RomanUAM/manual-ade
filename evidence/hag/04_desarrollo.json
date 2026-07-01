@@ -1,0 +1,16 @@
+{
+  "agent_id": "04_desarrollo",
+  "status": "ok",
+  "task": "generar contrato tecnico y API local",
+  "evidence_files": [
+    "artifacts/hag/contrato_api.md",
+    "evidence/hag/04_desarrollo.json"
+  ],
+  "findings": [
+    "Existe paquete Python `hag`, CLI `scripts/hag.py`, API local y pruebas unitarias."
+  ],
+  "generated_artifacts": [
+    "artifacts/hag/contrato_api.md"
+  ],
+  "rejects_delivery": false
+}

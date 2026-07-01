@@ -1,7 +1,16 @@
 {
   "schema": "hag.extraction_report.v1",
   "files_scanned": 246,
-  "objects_extracted": 405,
+  "objects_extracted": 603,
+  "reader": {
+    "text_files_read": 69,
+    "pdf_total": 84,
+    "pdf_read": 80,
+    "pdf_without_text": 4,
+    "pdf_timeout": 0,
+    "pdf_errors": 0,
+    "pdf_pages_per_file": 2
+  },
   "banks_written": [
     "knowledge/learning_objects.json",
     "knowledge/bancos/banco_ejemplos.json",
@@ -13,16 +22,16 @@
     "knowledge/reuse_map.md"
   ],
   "object_types": {
-    "algoritmo": 41,
+    "algoritmo": 68,
     "analogia": 1,
-    "concepto": 172,
-    "ejemplo": 50,
-    "ejercicio": 59,
-    "error_comun": 17,
-    "evaluacion": 1,
-    "figura": 20,
-    "historia": 1,
-    "narrativa": 11,
-    "practica": 32
+    "concepto": 160,
+    "ejemplo": 93,
+    "ejercicio": 90,
+    "error_comun": 43,
+    "evaluacion": 12,
+    "figura": 29,
+    "historia": 13,
+    "narrativa": 31,
+    "practica": 63
   }
 }

@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import subprocess
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
@@ -17,6 +18,9 @@ SCAN_DIRS = [
 ]
 
 TEXT_EXTS = {".tex", ".md", ".txt", ".py", ".csv", ".json", ".yml", ".yaml"}
+PDF_MAX_CHARS = 80000
+PDF_TIMEOUT_SECONDS = 2
+PDF_FIRST_PAGES = 2
 FIGURE_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".tif", ".tiff"}
 PRESENTATION_EXTS = {".ppt", ".pptx", ".key"}
 SPREADSHEET_EXTS = {".xls", ".xlsx", ".csv", ".tsv"}
@@ -120,10 +124,52 @@ def rights_for(path: Path) -> str:
     return "propio_o_generado"
 
 
-def read_text(path: Path) -> str:
+def new_stats() -> dict[str, int]:
+    return {
+        "text_files_read": 0,
+        "pdf_total": 0,
+        "pdf_read": 0,
+        "pdf_without_text": 0,
+        "pdf_timeout": 0,
+        "pdf_errors": 0,
+        "pdf_pages_per_file": PDF_FIRST_PAGES,
+    }
+
+
+def read_pdf_text(path: Path, stats: dict[str, int]) -> str:
+    stats["pdf_total"] += 1
+    try:
+        result = subprocess.run(
+            ["pdftotext", "-enc", "UTF-8", "-f", "1", "-l", str(PDF_FIRST_PAGES), str(path), "-"],
+            text=True,
+            capture_output=True,
+            timeout=PDF_TIMEOUT_SECONDS,
+        )
+    except subprocess.TimeoutExpired:
+        stats["pdf_timeout"] += 1
+        return ""
+    except (OSError, ValueError):
+        stats["pdf_errors"] += 1
+        return ""
+
+    if result.returncode != 0:
+        stats["pdf_errors"] += 1
+        return ""
+    text = result.stdout[:PDF_MAX_CHARS]
+    if clean(text):
+        stats["pdf_read"] += 1
+        return text
+    stats["pdf_without_text"] += 1
+    return ""
+
+
+def read_text(path: Path, stats: dict[str, int]) -> str:
+    if path.suffix.lower() == ".pdf":
+        return read_pdf_text(path, stats)
     if path.suffix.lower() not in TEXT_EXTS:
         return ""
     try:
+        stats["text_files_read"] += 1
         return path.read_text(encoding="utf-8", errors="ignore")[:50000]
     except OSError:
         return ""
@@ -196,12 +242,13 @@ def scan_files(root: Path) -> list[Path]:
     return sorted(files)
 
 
-def extract_learning_objects(root: Path) -> list[LearningObject]:
+def extract_learning_objects(root: Path) -> tuple[list[LearningObject], dict[str, int]]:
     objects: list[LearningObject] = []
+    stats = new_stats()
     for path in scan_files(root):
         if "__pycache__" in path.parts:
             continue
-        text = read_text(path)
+        text = read_text(path, stats)
         topics = topics_for(path, text)
         title = title_for(path, text)
         for obj_type, reasons in object_types_for(path, text):
@@ -221,10 +268,10 @@ def extract_learning_objects(root: Path) -> list[LearningObject]:
                     reasons=reasons,
                 )
             )
-    return objects
+    return objects, stats
 
 
-def write_banks(root: Path, objects: list[LearningObject]) -> list[str]:
+def write_banks(root: Path, objects: list[LearningObject], stats: dict[str, int]) -> list[str]:
     knowledge = root / "knowledge"
     banks = knowledge / "bancos"
     banks.mkdir(parents=True, exist_ok=True)
@@ -276,6 +323,7 @@ def write_banks(root: Path, objects: list[LearningObject]) -> list[str]:
                 "schema": "hag.extraction_report.v1",
                 "files_scanned": len(scan_files(root)),
                 "objects_extracted": len(objects),
+                "reader": stats,
                 "banks_written": written,
                 "object_types": {key: len(value) for key, value in sorted(by_type.items())},
             },
@@ -289,5 +337,5 @@ def write_banks(root: Path, objects: list[LearningObject]) -> list[str]:
 
 
 def run_extraction(root: Path) -> list[str]:
-    objects = extract_learning_objects(root)
-    return write_banks(root, objects)
+    objects, stats = extract_learning_objects(root)
+    return write_banks(root, objects, stats)

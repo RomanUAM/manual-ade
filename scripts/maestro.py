@@ -266,6 +266,7 @@ def write_hag_dashboard() -> None:
     nodes = data["nodes"]
     failures = data["audit"].get("failures", [])
     extraction = data.get("extraction", {})
+    reader = extraction.get("reader", {})
     node_cards = []
     for node in nodes:
         artifacts = node.get("artifacts", [])
@@ -297,7 +298,7 @@ header,main{{padding:28px clamp(18px,4vw,64px)}} header{{background:#fff;border-
   <div class="actions"><a href="../">Volver al manual</a><a href="{html.escape(REPO_URL)}" target="_blank">Repositorio completo</a><a href="{html.escape(REPO_URL)}/tree/main/hag" target="_blank">Carpeta Python HAG</a><a href="hag_graph.json">Grafo JSON</a><a href="audit_result.json">Auditoria JSON</a><a href="extraction_report.json">Extraccion JSON</a><a href="brechas_ecosistema.md">Brechas MD</a></div>
 </header>
 <main>
-  <section><h2>Motor de extraccion y reutilizacion</h2><p>El HAG primero extrae objetos de aprendizaje y bancos reutilizables antes de generar contenido nuevo.</p><div class="status"><span>Archivos escaneados: {html.escape(str(extraction.get("files_scanned", "pendiente")))}</span><span>Objetos extraidos: {html.escape(str(extraction.get("objects_extracted", "pendiente")))}</span>{type_items}</div></section>
+  <section><h2>Motor de extraccion y reutilizacion</h2><p>El HAG primero extrae objetos de aprendizaje y bancos reutilizables antes de generar contenido nuevo. La lectura PDF operativa usa una ventana inicial por archivo; la lectura profunda queda pendiente para capitulos especificos.</p><div class="status"><span>Archivos escaneados: {html.escape(str(extraction.get("files_scanned", "pendiente")))}</span><span>Objetos extraidos: {html.escape(str(extraction.get("objects_extracted", "pendiente")))}</span><span>PDF detectados: {html.escape(str(reader.get("pdf_total", "pendiente")))}</span><span>PDF leidos: {html.escape(str(reader.get("pdf_read", "pendiente")))}</span><span>Paginas por PDF: {html.escape(str(reader.get("pdf_pages_per_file", "pendiente")))}</span>{type_items}</div></section>
   <section><h2>Nodos de conocimiento</h2><div class="grid">{''.join(node_cards)}</div></section>
   <section><h2>Brechas activas</h2><p>Mientras existan estas brechas, HAG rechaza la entrega completa del ecosistema.</p><ul>{failure_items}</ul></section>
   <section><h2>Como ejecutarlo localmente</h2><pre><code>python3 scripts/hag.py build

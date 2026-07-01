@@ -274,7 +274,7 @@ def chatbot_html() -> str:
       function ask() {
         const q = (input.value || "").toLowerCase().trim();
         if (!q) {
-          answer.textContent = "Escribe una pregunta para recuperar materiales conectados.";
+          answer.innerHTML = "Escribe una pregunta para recuperar materiales conectados.";
           return;
         }
         const terms = q.split(/\\s+/).filter(Boolean);
@@ -288,7 +288,11 @@ def chatbot_html() -> str:
           return;
         }
         answer.innerHTML = scored.map(({item}) => {
-          const links = (item.links || []).map(link => `<a target="_blank" href="${repo}${encodeURIComponent(link.path).replaceAll('%2F','/')}">${esc(link.label)}</a>`).join("");
+          const links = (item.links || []).map(link => {
+            const path = String(link.path || "");
+            const href = path.startsWith("site/") ? path.replace(/^site\\//, "") : `${repo}${encodeURIComponent(path).replaceAll('%2F','/')}`;
+            return `<a target="_blank" href="${href}">${esc(link.label)}</a>`;
+          }).join("");
           return `<article><h3>${esc(item.title)}</h3><p>${esc(item.summary)}</p><div>${links}</div></article>`;
         }).join("");
       }
@@ -628,10 +632,11 @@ def cmd_pagina(_: argparse.Namespace | None = None) -> None:
             note = MATERIAL_NOTES.get(path_text, "Fuente local leida como apoyo del capitulo. Debe usarse para extraer conceptos, datos, ejemplos, errores y actividades, no para organizar el manual por archivo.")
             resource_cards.append(
                 f"""<article class="resource-card">
-                  <span class="kind">{html.escape(kind)}</span>
+                  <span class="kind">Insumo interno: {html.escape(kind)}</span>
                   <strong>{html.escape(label)}</strong>
-                  <small>{html.escape(state)} como insumo interno</small>
+                  <small>{html.escape(state)} en la base local; no se abre desde esta pagina</small>
                   <p>{html.escape(note)}</p>
+                  <p class="policy">La pagina publica solo productos derivados: manual, practicas, presentaciones enriquecidas y chatbot. Los PDF fuente quedan fuera de <code>site/</code> por derechos y trazabilidad.</p>
                 </article>"""
             )
         internal_items = "".join(f"<li>{html.escape(item)}</li>" for item in INTERNAL_INPUTS.get(i, []))
@@ -662,7 +667,7 @@ def cmd_pagina(_: argparse.Namespace | None = None) -> None:
             </div>
             <div class="chapter-resources">
               <h3>Material aprovechado dentro de este capitulo</h3>
-              <p>Estas fuentes se aprovechan internamente para construir ejemplos, datos, actividades y explicaciones. No se publican como descargas cuando no son material propio o autorizado.</p>
+              <p>Estas fuentes no son botones de descarga. Son evidencia local que el HAG lee para construir ejemplos, datos, actividades y explicaciones dentro del manual enriquecido.</p>
               <div class="resource-grid">{''.join(resource_cards)}</div>
               {internal_html}
             </div>
@@ -689,7 +694,7 @@ header{{padding:34px clamp(18px,4vw,64px) 26px;background:#fff;border-bottom:1px
 .layout{{display:grid;grid-template-columns:300px 1fr;gap:26px;padding:24px clamp(18px,4vw,64px) 56px}} nav{{position:sticky;top:0;align-self:start;max-height:calc(100vh - 24px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}}
 nav h2{{font-size:15px;margin:0 0 10px;color:var(--muted);text-transform:uppercase}} nav a{{display:flex;gap:8px;padding:8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:14px}} nav a:hover{{background:var(--soft)}} nav span{{color:var(--accent);font-weight:800;min-width:28px}}
 .resources,.pdf-viewer,.authors,.hag-panel,.source-code{{background:var(--panel);border:1px solid var(--line);border-radius:8px}} .badges{{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}} .badges span{{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:13px}} .badges b{{color:var(--accent);margin-right:6px}}
-.chapter{{display:grid;grid-template-columns:72px 1fr;gap:18px;padding:28px 0;border-top:1px solid var(--line);scroll-margin-top:12px}} .num{{width:56px;height:56px;display:grid;place-items:center;background:var(--accent);color:white;border-radius:8px;font-weight:800}} .chapter h2{{margin:0 0 6px;font-size:clamp(24px,3vw,34px);letter-spacing:0;line-height:1.12}} .promise{{margin:0 0 14px;color:var(--muted);font-size:18px;max-width:900px}} .chapter-map{{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}} .chapter-map span{{border:1px solid var(--line);border-radius:999px;background:#fff;padding:5px 10px;font-size:12px;color:var(--muted);font-weight:700}} .learning-path{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}} .learning-path article{{border:1px solid var(--line);border-radius:8px;padding:12px;background:#fff}} .learning-path h3{{margin:0 0 6px;font-size:13px;color:var(--accent);text-transform:uppercase}} .learning-path p{{margin:0}} .chapter-resources{{margin-top:16px;border-left:4px solid var(--accent2);padding:10px 0 0 14px}} .chapter-resources h3{{margin:0 0 4px;font-size:14px;color:var(--muted);text-transform:uppercase}} .chapter-resources p{{margin:0 0 10px;color:var(--muted)}} .resource-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}} .resource-card{{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--soft)}} .resource-card:hover{{border-color:var(--accent)}} .resource-card strong{{display:block;margin:4px 0}} .resource-card small{{display:block;color:var(--muted);font-size:12px}} .resource-card p{{margin:8px 0 0;color:var(--ink);font-size:13px;line-height:1.42}} .kind{{font-size:12px;font-weight:800;color:var(--accent2)}} .connection{{margin-top:14px;background:var(--warn);border:1px solid #fed7aa;border-radius:8px;padding:10px 12px}}
+.chapter{{display:grid;grid-template-columns:72px 1fr;gap:18px;padding:28px 0;border-top:1px solid var(--line);scroll-margin-top:12px}} .num{{width:56px;height:56px;display:grid;place-items:center;background:var(--accent);color:white;border-radius:8px;font-weight:800}} .chapter h2{{margin:0 0 6px;font-size:clamp(24px,3vw,34px);letter-spacing:0;line-height:1.12}} .promise{{margin:0 0 14px;color:var(--muted);font-size:18px;max-width:900px}} .chapter-map{{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}} .chapter-map span{{border:1px solid var(--line);border-radius:999px;background:#fff;padding:5px 10px;font-size:12px;color:var(--muted);font-weight:700}} .learning-path{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}} .learning-path article{{border:1px solid var(--line);border-radius:8px;padding:12px;background:#fff}} .learning-path h3{{margin:0 0 6px;font-size:13px;color:var(--accent);text-transform:uppercase}} .learning-path p{{margin:0}} .chapter-resources{{margin-top:16px;border-left:4px solid var(--accent2);padding:10px 0 0 14px}} .chapter-resources h3{{margin:0 0 4px;font-size:14px;color:var(--muted);text-transform:uppercase}} .chapter-resources p{{margin:0 0 10px;color:var(--muted)}} .resource-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}} .resource-card{{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--soft)}} .resource-card strong{{display:block;margin:4px 0}} .resource-card small{{display:block;color:var(--muted);font-size:12px}} .resource-card p{{margin:8px 0 0;color:var(--ink);font-size:13px;line-height:1.42}} .resource-card .policy{{background:#fff;border-left:3px solid var(--accent2);padding:8px;color:var(--muted)}} .kind{{font-size:12px;font-weight:800;color:var(--accent2)}} .connection{{margin-top:14px;background:var(--warn);border:1px solid #fed7aa;border-radius:8px;padding:10px 12px}}
 .internal-inputs{{margin-top:10px;background:var(--violet);border:1px solid var(--line);border-radius:8px;padding:10px}} .internal-inputs h4{{margin:0 0 4px;font-size:13px;color:#4c1d95;text-transform:uppercase}} .internal-inputs ul{{margin:6px 0 0;padding-left:18px}}
 .pdf-viewer{{padding:18px;margin:18px 0;background:#fff}} .pdf-actions{{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}} .pdf-actions a{{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:750}} .pdf-actions a.secondary{{background:#243447}} .pdf-viewer iframe{{width:100%;height:560px;border:1px solid var(--line);border-radius:8px;background:#fff}} .resources,.authors,.hag-panel,.source-code,.chatbot{{padding:16px;margin-top:18px}} .authors ul{{columns:2;gap:28px;margin:10px 0 0;padding-left:20px}} .authors li{{break-inside:avoid;margin:4px 0}} .hag-panel{{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;background:var(--blue)}} .hag-panel h2,.source-code h2,.chatbot h2{{margin:0 0 4px}} .hag-panel p,.source-code p,.chatbot p{{margin:0;color:var(--muted)}} .hag-status{{display:grid;gap:4px;font-size:13px}} .hag-status strong{{color:var(--accent2)}} .hag-panel a,.source-links a,.chat-answer a{{background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:800;white-space:nowrap}} .source-code,.chatbot{{display:grid;grid-template-columns:1fr;gap:12px;background:#fff;border:1px solid var(--line);border-radius:8px}} .source-links,.chat-answer article div{{display:flex;flex-wrap:wrap;gap:10px}} .source-links a:nth-child(even),.chat-answer a:nth-child(even){{background:#243447}} .chat-row{{display:grid;grid-template-columns:1fr auto;gap:10px}} .chat-row input{{width:100%;border:1px solid var(--line);border-radius:8px;padding:11px 12px;font:inherit}} .chat-row button{{border:0;background:var(--accent2);color:#fff;border-radius:8px;padding:11px 14px;font-weight:800;cursor:pointer}} .chat-answer{{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:12px}} .chat-answer article{{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:10px}} .chat-answer h3{{margin:0 0 6px}} code{{color:var(--accent2);overflow-wrap:anywhere}} @media(max-width:900px){{.hero-grid,.layout,.hag-panel,.chat-row{{grid-template-columns:1fr}}.reader-route{{grid-template-columns:repeat(2,1fr)}}nav{{position:relative;max-height:none}}.chapter{{grid-template-columns:1fr}}.learning-path{{grid-template-columns:1fr}}.authors ul{{columns:1}}.pdf-viewer iframe{{height:380px}}}}
 </style>

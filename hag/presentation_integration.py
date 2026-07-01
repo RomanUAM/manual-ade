@@ -51,6 +51,38 @@ PRESENTATION_SOURCES = [
     },
 ]
 
+FALLBACK_EVIDENCE = {
+    "gini-muestreo": [
+        "El muestreo permite estudiar una realidad grande sin observar todos los casos.",
+        "Diferentes metodos de muestreo pueden modificar la imagen que se obtiene de la desigualdad.",
+        "El indice de Gini funciona como puente entre estadistica descriptiva, muestreo e interpretacion social de los datos.",
+    ],
+    "taguchi-python": [
+        "La presentacion muestra una metodologia para convertir datos experimentales continuos en niveles discretos.",
+        "El diseno tipo Taguchi se usa como estrategia de exploracion cuando no conviene probar todas las combinaciones.",
+        "La discretizacion por cuantiles debe discutirse como decision metodologica, no como procedimiento automatico.",
+        "El contraste con disenos semifactoriales ayuda a explicar ventajas y limites de la reconstruccion experimental.",
+    ],
+    "manova-plantas": [
+        "El caso plantea varias variables dependientes fisiologicas observadas simultaneamente.",
+        "Los factores experimentales se interpretan como condiciones que pueden modificar un perfil multivariado de respuesta.",
+        "MANOVA aparece como respuesta a una pregunta didactica: que hacer cuando una sola variable no describe el sistema.",
+        "El analisis debe cerrar con una decision prudente y no con una lista de pruebas aisladas.",
+    ],
+    "rendimiento-termico": [
+        "La presentacion conecta diseno factorial, rendimiento y temperatura en procesadores.",
+        "El problema de ingenieria consiste en equilibrar desempeno computacional y control termico.",
+        "Las respuestas multiples permiten discutir por que una decision no debe basarse en una sola metrica.",
+        "El caso sirve para mostrar que una mejora de rendimiento puede tener costo termico u operativo.",
+    ],
+    "ancova-covariables": [
+        "ANCOVA se usa para comparar una respuesta ajustando variables explicativas o covariables.",
+        "La aceptacion de un producto puede variar por caracteristicas fisicas que deben considerarse antes de atribuir diferencias al tratamiento.",
+        "El capitulo debe distinguir control estadistico, asociacion y causalidad.",
+        "La practica debe pedir al estudiante identificar variable respuesta, covariables, supuestos y limites de interpretacion.",
+    ],
+}
+
 
 @dataclass
 class IntegratedPresentation:
@@ -286,6 +318,8 @@ def integrate_presentations(root: Path) -> list[IntegratedPresentation]:
         src = root / item["path"]
         text = source_text(src)
         bullets = bullets_from_text(text)
+        if not bullets:
+            bullets = FALLBACK_EVIDENCE.get(item["id"], [])
         folder = base / item["id"]
         practice = folder / "practica_generada.md"
         manual = manual_dir / f"{item['id']}.tex"
@@ -311,7 +345,7 @@ def integrate_presentations(root: Path) -> list[IntegratedPresentation]:
                 ],
                 links=[
                     {"label": "Practica generada", "path": str(practice.relative_to(root))},
-                    {"label": "Manual", "path": str(manual.relative_to(root))},
+                    {"label": "Manual PDF", "path": "site/manual_integrado_ade.pdf"},
                     {"label": "Presentacion enriquecida", "path": str(enriched.relative_to(root))},
                 ],
             )
@@ -319,5 +353,12 @@ def integrate_presentations(root: Path) -> list[IntegratedPresentation]:
     write(root / "docs" / "manual_integrado_latex" / "Capitulos" / "12-presentaciones-integradas.tex", aggregator_text(out))
     payload = {"schema": "hag.presentation_integration.v1", "count": len(out), "items": [asdict(item) for item in out]}
     write(root / "knowledge" / "presentation_integration.json", json.dumps(payload, ensure_ascii=False, indent=2))
-    write(root / "site" / "chatbot_kb.json", json.dumps(payload, ensure_ascii=False, indent=2))
+    public_items = []
+    for item in out:
+        data = asdict(item)
+        data.pop("source_path", None)
+        data.pop("manual_path", None)
+        public_items.append(data)
+    public_payload = {"schema": "hag.presentation_integration.public.v1", "count": len(public_items), "items": public_items}
+    write(root / "site" / "chatbot_kb.json", json.dumps(public_payload, ensure_ascii=False, indent=2))
     return out

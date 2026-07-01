@@ -23,8 +23,8 @@
           "path": "docs/presentaciones_integradas/gini-muestreo/practica_generada.md"
         },
         {
-          "label": "Manual",
-          "path": "docs/manual_integrado_latex/Capitulos/integraciones/gini-muestreo.tex"
+          "label": "Manual PDF",
+          "path": "site/manual_integrado_ade.pdf"
         },
         {
           "label": "Presentacion enriquecida",
@@ -53,8 +53,8 @@
           "path": "docs/presentaciones_integradas/taguchi-python/practica_generada.md"
         },
         {
-          "label": "Manual",
-          "path": "docs/manual_integrado_latex/Capitulos/integraciones/taguchi-python.tex"
+          "label": "Manual PDF",
+          "path": "site/manual_integrado_ade.pdf"
         },
         {
           "label": "Presentacion enriquecida",
@@ -83,8 +83,8 @@
           "path": "docs/presentaciones_integradas/manova-plantas/practica_generada.md"
         },
         {
-          "label": "Manual",
-          "path": "docs/manual_integrado_latex/Capitulos/integraciones/manova-plantas.tex"
+          "label": "Manual PDF",
+          "path": "site/manual_integrado_ade.pdf"
         },
         {
           "label": "Presentacion enriquecida",
@@ -113,8 +113,8 @@
           "path": "docs/presentaciones_integradas/rendimiento-termico/practica_generada.md"
         },
         {
-          "label": "Manual",
-          "path": "docs/manual_integrado_latex/Capitulos/integraciones/rendimiento-termico.tex"
+          "label": "Manual PDF",
+          "path": "site/manual_integrado_ade.pdf"
         },
         {
           "label": "Presentacion enriquecida",
@@ -143,8 +143,8 @@
           "path": "docs/presentaciones_integradas/ancova-covariables/practica_generada.md"
         },
         {
-          "label": "Manual",
-          "path": "docs/manual_integrado_latex/Capitulos/integraciones/ancova-covariables.tex"
+          "label": "Manual PDF",
+          "path": "site/manual_integrado_ade.pdf"
         },
         {
           "label": "Presentacion enriquecida",

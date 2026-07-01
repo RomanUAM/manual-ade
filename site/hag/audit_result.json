@@ -1,0 +1,18 @@
+{
+  "status": "fail",
+  "failures": [
+    "muestreo-gatos: faltan artefactos code, evaluation, exercise, infographic, practice, presentation, solution",
+    "anova-lentejas: faltan artefactos code, evaluation, exercise, infographic, presentation, solution",
+    "factorial-papel: faltan artefactos code, evaluation, exercise, infographic, presentation, solution",
+    "taguchi-violeta: faltan artefactos code, evaluation, exercise, infographic, presentation, solution"
+  ],
+  "warnings": [],
+  "evidence": [
+    "evidence/hag/01_cientifico.json",
+    "evidence/hag/02_pedagogico.json",
+    "evidence/hag/03_visual.json",
+    "evidence/hag/04_desarrollo.json",
+    "evidence/hag/05_editorial.json",
+    "artifacts/hag/brechas_ecosistema.md"
+  ]
+}

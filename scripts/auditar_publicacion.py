@@ -20,6 +20,10 @@ FORBIDDEN = [
 REQUIRED = [
     SITE / "index.html",
     SITE / "manual_base_latex_compilado.pdf",
+    SITE / "hag" / "index.html",
+    SITE / "hag" / "hag_graph.json",
+    SITE / "hag" / "audit_result.json",
+    SITE / "hag" / "brechas_ecosistema.md",
 ]
 
 LATEX_CHAPTERS = ROOT / "docs" / "libro_latex" / "Capitulos"
@@ -57,8 +61,8 @@ def main() -> None:
         sys.exit(1)
 
     print("Auditoria de publicacion: OK")
-    print("- site/index.html")
-    print("- site/manual_base_latex_compilado.pdf")
+    for path in REQUIRED:
+        print(f"- {path.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

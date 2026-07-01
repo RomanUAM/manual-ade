@@ -1,0 +1,189 @@
+{
+  "schema": "hag.knowledge_graph.v1",
+  "nodes": [
+    {
+      "id": "muestreo-gatos",
+      "kind": "practica",
+      "title": "Gatos y grandes numeros",
+      "question": "Como cambia nuestra percepcion al aumentar el tamano de muestra?",
+      "summary": "Practica de muestreo empirico para estudiar media, varianza, estabilidad y TCL.",
+      "prerequisites": [],
+      "artifacts": [
+        {
+          "kind": "book_chapter",
+          "path": "docs/libro_latex/Capitulos/04-anova.tex",
+          "node_id": "muestreo-gatos",
+          "generated_by": "hag.generators",
+          "description": "Capitulo del libro"
+        },
+        {
+          "kind": "pdf",
+          "path": "site/manual_base_latex_compilado.pdf",
+          "node_id": "muestreo-gatos",
+          "generated_by": "hag.generators",
+          "description": "PDF publico"
+        },
+        {
+          "kind": "web",
+          "path": "site/index.html",
+          "node_id": "muestreo-gatos",
+          "generated_by": "hag.generators",
+          "description": "Pagina publica"
+        }
+      ],
+      "metadata": {
+        "tema": "muestreo",
+        "estado": "integrado"
+      }
+    },
+    {
+      "id": "anova-lentejas",
+      "kind": "practica",
+      "title": "Miel, azucar o cafe",
+      "question": "Como saber si varios tratamientos producen respuestas distintas?",
+      "summary": "Practica biologica para introducir unidad experimental, replicas, tratamientos y ANOVA.",
+      "prerequisites": [
+        "muestreo-gatos"
+      ],
+      "artifacts": [
+        {
+          "kind": "book_chapter",
+          "path": "docs/libro_latex/Capitulos/00-ANOVA.tex",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators",
+          "description": "Capitulo del libro"
+        },
+        {
+          "kind": "practice",
+          "path": "practicas/anova-de-un-factor-comparar-grupos-con-evidencia.md",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators",
+          "description": "Practica editable"
+        },
+        {
+          "kind": "pdf",
+          "path": "site/manual_base_latex_compilado.pdf",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators",
+          "description": "PDF publico"
+        },
+        {
+          "kind": "web",
+          "path": "site/index.html",
+          "node_id": "anova-lentejas",
+          "generated_by": "hag.generators",
+          "description": "Pagina publica"
+        }
+      ],
+      "metadata": {
+        "tema": "ANOVA",
+        "estado": "integrado"
+      }
+    },
+    {
+      "id": "factorial-papel",
+      "kind": "practica",
+      "title": "Sustancias e interacciones visuales en papel",
+      "question": "Como se construye un experimento factorial 2x2?",
+      "summary": "Practica de curcuma y cloro para estudiar factores, niveles, blanco e interaccion.",
+      "prerequisites": [
+        "anova-lentejas"
+      ],
+      "artifacts": [
+        {
+          "kind": "book_chapter",
+          "path": "docs/libro_latex/Capitulos/02-conceptos.tex",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators",
+          "description": "Capitulo del libro"
+        },
+        {
+          "kind": "practice",
+          "path": "practicas/diseno-factorial-2x2-sustancias-e-interacciones-visuales.md",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators",
+          "description": "Practica editable"
+        },
+        {
+          "kind": "pdf",
+          "path": "site/manual_base_latex_compilado.pdf",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators",
+          "description": "PDF publico"
+        },
+        {
+          "kind": "web",
+          "path": "site/index.html",
+          "node_id": "factorial-papel",
+          "generated_by": "hag.generators",
+          "description": "Pagina publica"
+        }
+      ],
+      "metadata": {
+        "tema": "factorial",
+        "estado": "integrado"
+      }
+    },
+    {
+      "id": "taguchi-violeta",
+      "kind": "practica",
+      "title": "Taguchi y violeta africana",
+      "question": "Como explorar varios factores sin hacer todos los experimentos?",
+      "summary": "Practica de diseno reducido con respuestas visuales y analisis exploratorio.",
+      "prerequisites": [
+        "factorial-papel"
+      ],
+      "artifacts": [
+        {
+          "kind": "book_chapter",
+          "path": "docs/libro_latex/Capitulos/03-disenos-clasicos.tex",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators",
+          "description": "Capitulo del libro"
+        },
+        {
+          "kind": "practice",
+          "path": "practicas/taguchi-l4-violeta-africana-y-sistemas-biologicos-confinados.md",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators",
+          "description": "Practica editable"
+        },
+        {
+          "kind": "pdf",
+          "path": "site/manual_base_latex_compilado.pdf",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators",
+          "description": "PDF publico"
+        },
+        {
+          "kind": "web",
+          "path": "site/index.html",
+          "node_id": "taguchi-violeta",
+          "generated_by": "hag.generators",
+          "description": "Pagina publica"
+        }
+      ],
+      "metadata": {
+        "tema": "Taguchi",
+        "estado": "integrado"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "source": "muestreo-gatos",
+      "kind": "prerrequisito_de",
+      "target": "anova-lentejas"
+    },
+    {
+      "source": "anova-lentejas",
+      "kind": "prerrequisito_de",
+      "target": "factorial-papel"
+    },
+    {
+      "source": "factorial-papel",
+      "kind": "prerrequisito_de",
+      "target": "taguchi-violeta"
+    }
+  ]
+}

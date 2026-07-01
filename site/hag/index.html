@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard HAG</title>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f6f8fb;color:#1c2630;line-height:1.5}
+header,main{padding:28px clamp(18px,4vw,64px)} header{background:#fff;border-bottom:1px solid #d9e0e5} h1{margin:0;font-size:clamp(30px,4vw,48px)} .subtitle{color:#5b6773;max-width:900px} .status{display:inline-flex;gap:10px;flex-wrap:wrap;margin-top:12px} .status span{border:1px solid #d9e0e5;border-radius:999px;background:#edf7f5;padding:6px 10px;font-size:14px} .actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0} .actions a{background:#0f766e;color:white;text-decoration:none;border-radius:8px;padding:10px 12px;font-weight:750} section{background:white;border:1px solid #d9e0e5;border-radius:8px;padding:18px;margin:18px 0} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px} article{border:1px solid #d9e0e5;border-radius:8px;padding:14px;background:#fff} article h3{margin:0 0 8px} article span{display:inline-block;background:#edf7f5;border:1px solid #d9e0e5;border-radius:999px;padding:4px 8px;margin:4px 4px 0 0;font-size:12px} li{margin:6px 0} code{color:#a23e19}
+</style>
+</head>
+<body>
+<header>
+  <h1>Dashboard HAG</h1>
+  <p class="subtitle">Vista publica del sistema de autocrítica: grafo de conocimiento, artefactos conectados y brechas que impiden declarar terminado el ecosistema.</p>
+  <div class="status"><span>Estado: fail</span><span>Nodos: 4</span><span>Brechas: 4</span></div>
+  <div class="actions"><a href="../">Volver al manual</a><a href="hag_graph.json">Grafo JSON</a><a href="audit_result.json">Auditoria JSON</a><a href="brechas_ecosistema.md">Brechas MD</a></div>
+</header>
+<main>
+  <section><h2>Nodos de conocimiento</h2><div class="grid">
+        <article>
+          <h3>Gatos y grandes numeros</h3>
+          <p>Como cambia nuestra percepcion al aumentar el tamano de muestra?</p>
+          <div><span>book_chapter</span><span>pdf</span><span>web</span></div>
+        </article>
+        <article>
+          <h3>Miel, azucar o cafe</h3>
+          <p>Como saber si varios tratamientos producen respuestas distintas?</p>
+          <div><span>book_chapter</span><span>practice</span><span>pdf</span><span>web</span></div>
+        </article>
+        <article>
+          <h3>Sustancias e interacciones visuales en papel</h3>
+          <p>Como se construye un experimento factorial 2x2?</p>
+          <div><span>book_chapter</span><span>practice</span><span>pdf</span><span>web</span></div>
+        </article>
+        <article>
+          <h3>Taguchi y violeta africana</h3>
+          <p>Como explorar varios factores sin hacer todos los experimentos?</p>
+          <div><span>book_chapter</span><span>practice</span><span>pdf</span><span>web</span></div>
+        </article></div></section>
+  <section><h2>Brechas activas</h2><p>Mientras existan estas brechas, HAG rechaza la entrega completa del ecosistema.</p><ul><li>muestreo-gatos: faltan artefactos code, evaluation, exercise, infographic, practice, presentation, solution</li><li>anova-lentejas: faltan artefactos code, evaluation, exercise, infographic, presentation, solution</li><li>factorial-papel: faltan artefactos code, evaluation, exercise, infographic, presentation, solution</li><li>taguchi-violeta: faltan artefactos code, evaluation, exercise, infographic, presentation, solution</li></ul></section>
+  <section><h2>Como ejecutarlo localmente</h2><pre><code>python3 scripts/hag.py build
+python3 scripts/hag.py audit
+python3 scripts/hag_api.py --port 8787</code></pre></section>
+</main>
+</body>
+</html>
